@@ -1,0 +1,5 @@
+opt/
+*.rpm
+*.deb
+*.tar
+*.xz

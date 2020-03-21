@@ -1,0 +1,51 @@
+source($inputpath)
+report_filename = File.join(File.dirname($inputpath), File.basename($inputpath, File.extname($inputpath))) + ".lyrdb"
+report("DRC report", report_filename)
+
+##to run on your local machine, comment out the lines above and uncomment the one below
+#report("DRC report", $outputpath)
+
+# Use four cores - use with caution!
+tiles(1.mm)
+threads($threads)
+
+
+# Angle threshold for non-right angle incidence. 
+# Anything with an acute angle < 85deg will flag
+angle = 85
+
+wg_cor     = input(1, 0)
+wg_clad    = input(1, 9)
+wg_tre     = input(1, 6)
+
+rib_cor    = input(2, 4)
+rib_clad   = input(2, 5)
+rib_tre    = input(2, 6)
+
+nofill     = input(103,0) #no waveguide tiling
+floorplan  = input(99,0)
+
+# Derived Layers
+
+wg = wg_cor
+#all = wg_cor+wg_clad+wg_tre+rib_cor+rib_clad+nofill
+
+#check to make sure everything is inside floorplan
+#all.not_inside((floorplan.sized(-1))).output("Outside Floorplan","All drawing objects must be inside floorplan by 1um")
+
+# Fully etched WG checks
+wg.width(0.13, angle_limit(angle)).output("WG_width","WG minimum feature size 0.13 um")
+wg.space(0.13, angle_limit(angle)).output("WG_space","WG minimum spacing 0.13 um")
+wg.notch(0.05, angle_limit(angle)).output("WG Notch", "Small notch in waveguide layer")
+#wg.not_inside(wg_clad.sized(0.001)).output("WG Outside WG_clad", "WG must be completely inside WG_clad")
+wg.with_area(0, 0.09).output("WG_area","WG minimum area = 0.09 um^2")
+wg.ongrid(0.001,0.001).output("WG_ongrid","WG vertex off grid")
+
+# Rib checks
+(rib_cor.edges).outside_part(wg_cor).output("FC_cor outside WG_cor","warning: FC cor outside WG core will be ignored")
+rib_tre.width(0.13, angle_limit(angle)).output("rib tre width","Rib Trench minimum width 0.13 um")
+rib_tre.space(0.13, angle_limit(angle)).output("rib tre spacing","Rib Trench minimum spacing 0.13 um")
+rib_tre.with_area(0, 2).output("Rib_area","Rib minimum area = 2 um^2")
+(rib_tre.not(wg_cor)).inside(wg_cor.sized(0.249)).output("rib_tre.E.wg_cor","Rib Trench must extend at least 0.25um beyond Wg_cor")
+rib_tre.edges.and(wg_cor.edges).output("rib and si edges", "Rib Trench and Si Core cannot share edges")
+rib_tre.ongrid(0.001,0.001).output("Rib_Tre_ongrid","Rib Trench vertex off grid")

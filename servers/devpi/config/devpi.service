@@ -1,0 +1,15 @@
+[Unit]
+Requires=network-online.target
+After=network-online.target
+
+[Service]
+Type=forking
+PIDFile=/home/ubuntu/packages/.xproc/devpi-server/xprocess.PID
+Restart=always
+ExecStart=/home/ubuntu/miniconda3/bin/devpi-server --port 4040 --serverdir /home/ubuntu/packages --start
+ExecStop=/home/ubuntu/miniconda3/bin/devpi-server --port 4040 --serverdir /home/ubuntu/packages --stop
+User=ubuntu
+SuccessExitStatus=SIGKILL
+
+[Install]
+WantedBy=multi-user.target

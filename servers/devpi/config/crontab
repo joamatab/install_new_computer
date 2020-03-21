@@ -1,0 +1,1 @@
+@reboot /home/ubuntu/miniconda3/bin/devpi-server --start --port 4040 --serverdir /home/ubuntu/packages

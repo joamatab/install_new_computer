@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>net.devpi</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/home/ubuntu/miniconda3/bin/devpi-server</string>
+		<string>--port</string>
+		<string>4040</string>
+		<string>--serverdir</string>
+		<string>/home/ubuntu/packages</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+</dict>
+</plist>
