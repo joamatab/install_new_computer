@@ -58,21 +58,23 @@ gui: full ldxe klayout vnc
 
 desktop: 
 	sudo apt install -y \
+		flameshot \
 		glances \
 		htop \
 		i3 \
 		i3status \
-		flameshot \
 		jq \
-		libreoffice \
 		keepassxc \
+		libreoffice \
 		openssh-server \
 		pgcli \
+		remmina \
 		scrot \
 		sxhkd \
 		sxiv \
 		xcape \
 		youtube-dl \
+		vinagre \
 		zathura \
 	    redshift 
 
