@@ -49,6 +49,9 @@ ubuntu-post:
 centos: 
 	sudo yum install *.rpm -y
 
+suse: 
+	sudo zipper install *.rpm -y
+
 opt:
 	rpmextract.sh lumerical
 
