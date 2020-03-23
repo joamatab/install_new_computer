@@ -17,7 +17,8 @@ ubuntu-deps:
 lumerical: lumerical.rpm
 
 lumerical.rpm:
-	wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/foljdxl3qxbn02d/Lumerical-2020a-r2-eeb054ca61.el6.x86_64.rpm?dl=0'
+	wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/cigs6krz3y79agf/Lumerical-2020a-r4-0f4fa47357.el6.x86_64.rpm?dl=0'
+	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/foljdxl3qxbn02d/Lumerical-2020a-r2-eeb054ca61.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/xd9yw8f61ysjptn/Lumerical-2019b-r6-1db3676.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/78yp128jqt4nm5f/Lumerical-2019b-r3-d7bab36.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/azjd6eyicfk85j5/Lumerical-2019b-r1-37e5eac.el6.x86_64.rpm?dl=0'
