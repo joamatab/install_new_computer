@@ -81,7 +81,6 @@ software: update
 		tmux \
 		wget \
 		xclip \
-		xvfb \
 		xorg-x11-server-Xvfb
 
 nodejs:
