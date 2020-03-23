@@ -163,29 +163,29 @@ vnc:
 	vncserver -geometry 2304x1440
 	vncserver -kill :1
 	mkdir -p $(HOME)/.vnc
-	cp software/vnc/xstartup_ldxe $(HOME)/.vnc/xstartup
-	sudo cp software/vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
+	cp vnc/xstartup_ldxe $(HOME)/.vnc/xstartup
+	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	sudo systemctl enable --now vncserver@1
 
 vncj:
 	sudo apt-get install -y  vnc4server 
-	sudo cp software/vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
+	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
 	vncserver -kill :1
 	mkdir -p $(HOME)/.vnc
-	cp software/vnc/xstartup_dwm $(HOME)/.vnc/xstartup
+	cp vnc/xstartup_dwm $(HOME)/.vnc/xstartup
 	vncserver -geometry 2304x1440
 
 vnc1:
 	sudo apt-get install -y  vnc4server 
-	sudo cp software/vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
+	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
 	vncserver -kill :1
 	mkdir -p ~/.vnc
-	cp software/vnc/xstartup_ldxe ~/.vnc/xstartup
+	cp vnc/xstartup_ldxe ~/.vnc/xstartup
 	vncserver -geometry 2304x1440
 
 vnc0:
@@ -193,7 +193,7 @@ vnc0:
 	# vncserver -geometry 2304x1440
 	# vncserver -kill :1
 	mkdir -p $(HOME)/.vnc
-	cp software/vnc/xstartup_ldxe $(HOME)/.vnc/xstartup
+	cp vnc/xstartup_ldxe $(HOME)/.vnc/xstartup
 	vncserver -geometry 2304x1440
 	sudo cp software/vnc/vncserver@:1.service.ubuntu vncserver@:1.service
 	sudo cp software/vnc/vncserver@:1.service /etc/systemd/system/vncserver@.service
