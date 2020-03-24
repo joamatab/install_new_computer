@@ -16,6 +16,7 @@ kitty*
 larbs.sh
 *.pid
 *.deb
+*.deb.*
 *.rpm
 *.tar
 *.gz
