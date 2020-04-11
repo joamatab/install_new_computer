@@ -1,3 +1,7 @@
 #!/bin/bash
 
-echo $SHELL
+parentdir="$(dirname "$PWD")"
+REPO="$(dirname parentdir)"
+
+echo $parentdir
+echo $REPO
