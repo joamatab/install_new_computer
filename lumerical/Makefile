@@ -1,7 +1,9 @@
-license: clean flexlm.rpm
-	sudo apt install -y acl lsb
+license-ubuntu: clean flexlm.rpm
 	sudo alien -k --scripts *.rpm
 	sudo dpkg -i *.deb
+
+license: flexlm.rpm
+	sudo yum install *.rpm -y
 
 flexlm.rpm: 
 	wget -O 'flexlm.rpm' 'https://www.dropbox.com/s/d3lxfbhbswl264z/lumerical-flexlm-1.13.2170-1.x86_64.rpm?dl=0'
