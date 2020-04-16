@@ -155,7 +155,7 @@ docker:
 	sudo usermod -aG docker $(USER) 
 
 klayout.deb:
-	wget -O 'klayout.deb' 'https://www.klayout.org/downloads/Ubuntu-18/klayout_0.26.3-1_amd64.deb'
+	wget -O 'klayout.deb' 'https://www.klayout.org/downloads/Ubuntu-18/klayout_0.26.4-1_amd64.deb'
 
 klayout: klayout.deb
 	sudo dpkg -i klayout.deb

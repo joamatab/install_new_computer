@@ -1,6 +1,16 @@
-license: clean flexlm.rpm
+license-ubuntu: clean flexlm.rpm
+	sudo alien -k --scripts *.rpm
+	sudo dpkg -i *.deb
+
+license: flexlm.rpm
+	sudo yum install *.rpm -y
 
 flexlm.rpm: 
+	wget -O 'flexlm.rpm' 'https://www.dropbox.com/s/d3lxfbhbswl264z/lumerical-flexlm-1.13.2170-1.x86_64.rpm?dl=0'
+	wget -O 'aksusbd-7.92-1.x86_64.rpm' 'https://www.dropbox.com/s/m0n2zn8i99kwost/aksusbd-7.92-1.x86_64.rpm?dl=0'
+
+
+flexlm2.rpm: 
 	wget -O 'flexlm.rpm' 'https://www.dropbox.com/s/lrgf8dh6pzkactb/lumerical-flexlm-1.13.2122-1.x86_64.rpm?dl=0'
 	wget -O 'aksusbd-7.92-1.x86_64.rpm' 'https://www.dropbox.com/s/ycvxaylsunw86q7/aksusbd-7.92-1.x86_64.rpm?dl=0'
 	wget -O 'install.sh' 'https://www.dropbox.com/s/zs1vrwb71k9894b/install.sh?dl=0'
