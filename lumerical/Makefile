@@ -1,3 +1,5 @@
+lumpath=/opt/lumerical/2020a/
+
 license-ubuntu: clean flexlm.rpm
 	sudo alien -k --scripts *.rpm
 	sudo dpkg -i *.deb
@@ -8,7 +10,6 @@ license: flexlm.rpm
 flexlm.rpm: 
 	wget -O 'flexlm.rpm' 'https://www.dropbox.com/s/d3lxfbhbswl264z/lumerical-flexlm-1.13.2170-1.x86_64.rpm?dl=0'
 	wget -O 'aksusbd-7.92-1.x86_64.rpm' 'https://www.dropbox.com/s/m0n2zn8i99kwost/aksusbd-7.92-1.x86_64.rpm?dl=0'
-
 
 flexlm2.rpm: 
 	wget -O 'flexlm.rpm' 'https://www.dropbox.com/s/lrgf8dh6pzkactb/lumerical-flexlm-1.13.2122-1.x86_64.rpm?dl=0'
@@ -39,7 +40,7 @@ cml: cml.rpm
 
 home:
 	rm -rf $(HOME)/.lumerical/ 
-	cp -r /opt/lumerical/2020a $(HOME)/.lumerical
+	cp -r $(lumpath) $(HOME)/.lumerical
 
 clean:
 	rm -rf *.deb
@@ -48,10 +49,10 @@ clean:
 ubuntu: ubuntu-deps
 	sudo alien -k --scripts lumerical.rpm
 	sudo dpkg -i *.deb
-	sudo rm /opt/lumerical/2020a/lib/libxmlsec1*
+	sudo rm $(lumpath)/lib/libxmlsec1*
 
-ubuntu-post:
-	sudo rm /opt/lumerical/2020a/lib/libxmlsec1*
+ubuntu2:
+	sudo rm /lib/libxmlsec1*
 	sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.1.0 /usr/lib/libssl.so.10
 	sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.1.0 /usr/lib/libcrypto.so.10
 
@@ -67,3 +68,7 @@ opt:
 arch: opt
 	./arch.sh
 
+debian:
+	cd $(lumpath)
+	sudo ln -s /usr/lib/openvpn/libssl.so.1.0.0 libssl.so.10
+	sudo ln -s /usr/lib/openvpn/libcrypto.so.1.0.0 libcrypto.so.10
