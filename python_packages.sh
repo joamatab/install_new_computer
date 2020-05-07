@@ -1,13 +1,14 @@
 #!/bin/bash
 
 pip install \
-  awscli \
+  # awscli \
   black \
   bumpversion \
   classifier \
   matplotlib \
   isort \
   nbconvert \
+  notedown \
   neovim \
   pillow \
   pre-commit \
