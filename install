@@ -2,7 +2,7 @@
 echo "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
 if [[ $1 == 'mac.mk' || $1 == 'ubuntu.mk' || $1 == 'centos.mk' || $1 == 'arch.mk' || $1 == 'fedora.mk' || $1 == 'suse.mk' ]]; then
-    make -f $1 install
+    make -f "$1" install
     make install
 
 else
@@ -16,3 +16,4 @@ fi
 
 ./dotfiles.sh
 ./conda.sh
+pre-commit install
