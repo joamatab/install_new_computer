@@ -1,10 +1,10 @@
-install: software 
+install: software
 
 help:
 	@echo 'make install: Install awesome ubuntu software (reccommended)'
 	@echo 'make basic:   Installs only basic ubuntu software'
 
-software: 
+software:
 	sudo dnf install -y \
 		chromium \
 		fish \
@@ -17,9 +17,14 @@ software:
 		xcape \
 		setxkbmap \
 		cargo \
-		qutebrowser \
 		util-linux-user \
 		kitty
+
+vncserver:
+	sudo yum install -y tiger-vnc-server xterm i3
+	mkdir -p $(HOME)/.vnc
+	echo 'i3 &' > $(HOME)/.vnc/xstartup
+	vncserver
 
 
 docker:
@@ -30,7 +35,7 @@ i3:
 
 gnome: sudo dnf install dconf-editor
 
-desktop: 
+desktop:
 	sudo dnf install -y \
 		bpython \
 		dwm \
@@ -45,12 +50,13 @@ desktop:
 		redshift \
 		sxhkd \
 		youtube-dl \
-		zathura  
+		zathura
 
 extra:
 	sudo dnf install -y \
 		maim \
-		vifm 
+		qutebrowser \
+		vifm
 
 
 .PHONY: docker extra

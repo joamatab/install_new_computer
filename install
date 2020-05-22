@@ -16,4 +16,3 @@ fi
 
 ./dotfiles.sh
 ./conda.sh
-pre-commit install

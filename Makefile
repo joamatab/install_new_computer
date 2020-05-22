@@ -1,6 +1,9 @@
 install: dotfiles colors conda software prettier fish
 
-software: 
+pre-commit:
+	pre-commit install
+
+software:
 	./autojump.sh
 	./lf.sh
 	./vim.sh
@@ -18,7 +21,7 @@ colors:
 conda:
 	./conda.sh
 
-fish: 
+fish:
 	./fish.sh
 
 git_key:
@@ -33,7 +36,7 @@ pip:
 sshd:
 	sudo systemctl enable sshd
 	sudo systemctl start sshd
-	
+
 fx:
 	sudo npm -f install fx
 
