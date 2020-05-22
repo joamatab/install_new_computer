@@ -24,7 +24,6 @@ vncserver:
 	sudo yum install -y tigervnc-server xterm i3
 	mkdir -p $(HOME)/.vnc
 	echo 'i3 &' > $(HOME)/.vnc/xstartup
-	vncserver
 
 
 docker:
