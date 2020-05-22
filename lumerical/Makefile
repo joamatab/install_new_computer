@@ -53,7 +53,7 @@ ubuntu: ubuntu-deps
 	sudo rm $(lumpath)/lib/libxmlsec1*
 
 ubuntu2:
-	sudo rm /lib/libxmlsec1*
+	sudo rm $(lumpath)/lib/libxmlsec1*
 	sudo ln -s /lib/x86_64-linux-gnu/libssl.so.1.1.0 /usr/lib/libssl.so.10
 	sudo ln -s /lib/x86_64-linux-gnu/libcrypto.so.1.1.0 /usr/lib/libcrypto.so.10
 
