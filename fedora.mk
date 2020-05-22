@@ -21,7 +21,7 @@ software:
 		kitty
 
 vncserver:
-	sudo yum install -y tiger-vnc-server xterm i3
+	sudo yum install -y tigervnc-server xterm i3
 	mkdir -p $(HOME)/.vnc
 	echo 'i3 &' > $(HOME)/.vnc/xstartup
 	vncserver
