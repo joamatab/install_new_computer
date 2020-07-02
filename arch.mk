@@ -32,6 +32,7 @@ software:
 		the_silver_searcher \
 		tmux \
 		transmission-gtk \
+		trash-cli \
 		time \
 		wget \
 		wireless_tools \
