@@ -17,7 +17,7 @@ def better_repr(c):
 
 
 @better_repr
-class Foo():
+class Foo:
     def __init__(self, x, y):
         self.x = x
         self.y = y

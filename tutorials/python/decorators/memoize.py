@@ -20,10 +20,12 @@ def memoize(func):
             print(f"Using OLD value for {func.__name__}{args}")
 
         return cache[args]
+
     return wrapper
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @memoize
     def add(a, b):
         print("Running add!")

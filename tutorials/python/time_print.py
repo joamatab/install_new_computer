@@ -1,8 +1,7 @@
-
 from datetime import datetime
 
 now = datetime.now()
- 
+
 # print("now =", now)
 # # dd/mm/YY H:M:S
 # dt_string = now.strftime("%d/%m/%Y %H:%M:%S")

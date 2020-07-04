@@ -14,8 +14,7 @@ def memoize(func):
     cache = {}
 
     def wrapper(*args, **kwargs):
-        t = (pickle.dumps(args),
-             pickle.dumps(kwargs))
+        t = (pickle.dumps(args), pickle.dumps(kwargs))
 
         if t not in cache:
             print(f"Caching NEW value for {func.__name__}{args}")
@@ -24,10 +23,12 @@ def memoize(func):
             print(f"Using OLD value for {func.__name__}{args}")
 
         return cache[t]
+
     return wrapper
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @memoize
     def add(a, b):
         print("Running add!")
@@ -50,6 +51,6 @@ if __name__ == '__main__':
     print(mul(3, 7))
     print(add(3, 7))
     print(mul(3, 7))
-    print(mysum([1, 2, 3, 4, 5], message='hello'))
-    print(mysum([1, 2, 3, 4, 5], message='hello'))
-    print(mysum([1, 2, 3, 4, 5], message='goodbye'))
+    print(mysum([1, 2, 3, 4, 5], message="hello"))
+    print(mysum([1, 2, 3, 4, 5], message="hello"))
+    print(mysum([1, 2, 3, 4, 5], message="goodbye"))

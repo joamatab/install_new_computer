@@ -9,20 +9,20 @@ import time
 
 
 def logtime(func):
-
     def wrapper(*args, **kwargs):
         start_time = time.time()
         result = func(*args, **kwargs)
         total_time = time.time() - start_time
 
-        with open('timelog.txt', 'a') as outfile:
-            outfile.write(f'{time.time()}\t{func.__name__}\t{total_time}\n')
+        with open("timelog.txt", "a") as outfile:
+            outfile.write(f"{time.time()}\t{func.__name__}\t{total_time}\n")
         return result
 
     return wrapper
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @logtime
     def slow_add(a, b):
         time.sleep(2)

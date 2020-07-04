@@ -30,10 +30,12 @@ def once_per_n(n):
             return func(*args, **kwargs)
 
         return wrapper
+
     return middle
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @once_per_n(5)
     def slow_add(a, b):
         time.sleep(3)

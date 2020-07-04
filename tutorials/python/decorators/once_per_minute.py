@@ -31,7 +31,8 @@ def once_per_minute(func):
     return wrapper
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @once_per_minute
     def add(a, b):
         return a + b

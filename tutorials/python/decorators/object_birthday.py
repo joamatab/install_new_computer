@@ -14,11 +14,12 @@ def object_birthday(c):
         o = c(*args, **kwargs)
         o._created_at = time.time()
         return o
+
     return wrapper
 
 
 @object_birthday
-class Foo():
+class Foo:
     def __init__(self, x, y):
         self.x = x
         self.y = y

@@ -6,6 +6,7 @@ pip install \
   bumpversion \
   classifier \
   matplotlib \
+  howdoi \
   isort \
   nbconvert \
   notedown \

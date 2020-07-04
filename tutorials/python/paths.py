@@ -1,8 +1,4 @@
-
-
 import pathlib
 
-p = pathlib.Path('/home/j')
+p = pathlib.Path("/home/j")
 print(p)
-
-

@@ -9,11 +9,13 @@ Reuven's courses, books, and newsletter are at https://lerner.co.il/
 
 def mydeco(func):
     def wrapper(*args, **kwargs):
-        return f'{func(*args, **kwargs)}!!!'
+        return f"{func(*args, **kwargs)}!!!"
+
     return wrapper
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @mydeco
     def add(a, b):
         return a + b

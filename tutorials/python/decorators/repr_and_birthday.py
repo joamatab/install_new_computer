@@ -21,12 +21,14 @@ def repr_and_birthday(c):
         o = c(*args, **kwargs)
         o._created_at = time.time()
         return o
+
     return wrapper
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+
     @repr_and_birthday
-    class Foo():
+    class Foo:
         def __init__(self, x, y):
             self.x = x
             self.y = y
