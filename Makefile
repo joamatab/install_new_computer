@@ -7,6 +7,9 @@ software:
 	./autojump.sh
 	./lf.sh
 	./vim.sh
+	./rbenv.sh
+	./pyenv.sh
+	./pipx.sh
 
 rust:
 	./rust.sh
