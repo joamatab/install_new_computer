@@ -10,3 +10,12 @@ fi
 
 # mkdir -p ~/.config/nvim
 # ln -sf ~/.vimrc ~/.config/nvim/init.vim
+
+# python3 -m venv ~/.config/nvim/env
+# source ~/.config/nvim/env/bin/activate
+# pip install pynvim neovim black
+
+
+# source ~/.vim/black/bin/activate  # make sure to install in the right venv
+source ~/.local/share/nvim/black/bin/activate
+pip install --upgrade git+https://github.com/psf/black.git

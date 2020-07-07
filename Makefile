@@ -10,6 +10,7 @@ software:
 	./rbenv.sh
 	./pyenv.sh
 	./pipx.sh
+	./vf.sh
 
 rust:
 	./rust.sh
