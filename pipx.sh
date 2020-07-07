@@ -9,6 +9,7 @@ pipx install virtualfish
 pipx install jupyter
 pipx install notedown
 pipx install howdoi
+pipx install gitcli
 
 
 
