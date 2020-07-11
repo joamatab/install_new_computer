@@ -4,7 +4,9 @@ help:
 	@echo 'make conda:         installs miniconda with python3, 64 bits'
 	@echo 'make software:      installs fish, vim, tmux ...'
 
-install: software 
+install: 
+	./cask.sh
+	./brew.sh
 
 update:
 	brew update
@@ -17,12 +19,6 @@ update:
 	conda update conda -y
 	conda update --all -y
 	fisher self-update
-
-software:
-	./cask.sh
-	./brew.sh
-	./vim.sh
-	./autojump.sh
 
 iterm:
 	cd $(HOME)/Downloads

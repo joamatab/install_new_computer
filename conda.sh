@@ -1,4 +1,5 @@
 #!/bin/bash
+# I recommend installing miniconda with pyenv, so you can also install other python versions
 
 echo "checking conda install for python3 64 bits"
 if [[ ! -d $HOME/miniconda3 ]]; then
@@ -13,8 +14,8 @@ if [[ ! -d $HOME/miniconda3 ]]; then
   # sudo ln -s $HOME/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
 fi
 
-sudo ln -sf $HOME/miniconda3/bin/python /usr/local/bin/python
-sudo ln -sf $HOME/miniconda3/bin/pip /usr/local/bin/pip
+# sudo ln -sf $HOME/miniconda3/bin/python /usr/local/bin/python
+# sudo ln -sf $HOME/miniconda3/bin/pip /usr/local/bin/pip
 
 # cp $HOME/miniconda3/bin/python /usr/local/bin/python
 # cp $HOME/miniconda3/bin/pip /usr/local/bin/pip

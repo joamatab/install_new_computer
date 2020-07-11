@@ -4,13 +4,11 @@ help:
 	@echo 'make gui:     Installs light desktop x-environment for GUI servers'
 	@echo 'make desktop: Installs software for ubuntu super desktop'
 
-install: software yarn vim 
-
 update:
 	sudo apt update
 	sudo apt upgrade -y
 
-software: update
+install: update
 	sudo timedatectl set-timezone America/Los_Angeles
 	git config --global core.editor "vim"
 	sudo apt install -y \
@@ -107,9 +105,6 @@ node:
 	curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
 	sudo apt-get install -y nodejs npm
 
-yarn:
-	curl -o- -L https://yarnpkg.com/install.sh | bash
-
 
 extra:
 	sudo apt install -y terminator \
@@ -122,8 +117,6 @@ extra:
 	sudo apt-get update
 	sudo apt-get install -y neovim
 
-vim: 
-	./vim.sh
 
 add-repos:
 	sudo add-apt-repository -y ppa:neovim-ppa/stable

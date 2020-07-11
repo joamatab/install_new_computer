@@ -5,4 +5,4 @@
 pyenv install 3.7.8
 pyenv install miniconda3-latest
 
-pyenv global 3.7.8
+pyenv global miniconda3-latest

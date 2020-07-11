@@ -15,4 +15,3 @@ else
 fi
 
 ./dotfiles.sh
-./conda.sh

@@ -1,7 +1,6 @@
 help:
 	@echo 'make install:      Install centos software'
 
-install: software 
 gui: install vnc
 cloudbox: gui klayout lumerical
 	sudo yum install -y chromium i3
@@ -49,15 +48,16 @@ cyberduck:
 	echo -e "[duck-stable]\nname=duck-stable\nbaseurl=https://repo.cyberduck.io/stable/\$basearch/\nenabled=1\ngpgcheck=0" | sudo tee /etc/yum.repos.d/duck-stable.repo
 	sudo yum install duck
 
-update:
-	sudo yum update -y
-	sudo yum upgrade -y
-
 ripgrep:
 	sudo yum-config-manager --add-repo=https://copr.fedorainfracloud.org/coprs/carlwgeorge/ripgrep/repo/epel-7/carlwgeorge-ripgrep-epel-7.repo
 	sudo yum install -y ripgrep
 
-software: update
+update:
+	sudo yum update -y
+	sudo yum upgrade -y
+
+
+install: update
 	sudo timedatectl set-timezone US/Pacific
 	sudo yum groupinstall -y "Development tools"
 	sudo yum install -y epel-release

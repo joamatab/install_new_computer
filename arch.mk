@@ -1,6 +1,5 @@
-install: pip software dotfiles colors vim conda fish
 
-software:
+install:
 	sudo timedatectl set-timezone America/Los_Angeles
 	git config --global core.editor "vim"
 	sudo pacman -Sy --noconfirm \
@@ -39,9 +38,6 @@ software:
 		xcape \
 		xclip \
 		yarn 
-	./autojump.sh
-	./lf.sh
-	./vim.sh
 	yarn add prettier 
 
 bspwm:
@@ -73,21 +69,6 @@ extra:
 mons:
 	pacaur -S mons
 
-
-pip:
-	./pip.sh
-
-dotfiles:
-	./dotfiles.sh
-
-colors:
-	./colors.sh
-
-conda:
-	./conda.sh
-
-fish: 
-	./fish.sh
 
 vim: /usr/bin/nvim
 	sudo npm install -g neovim

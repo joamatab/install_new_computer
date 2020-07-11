@@ -1,9 +1,7 @@
-install: dotfiles colors conda software prettier fish
-
-pre-commit:
-	pre-commit install
+install: software prettier 
 
 software:
+	./colors.sh
 	./autojump.sh
 	./lf.sh
 	./vim.sh
@@ -11,22 +9,13 @@ software:
 	./pyenv.sh
 	./pipx.sh
 	./vf.sh
+	./fish.sh
+
+pre-commit:
+	pre-commit install
 
 rust:
 	./rust.sh
-
-dotfiles:
-	./dotfiles.sh
-
-colors:
-	rm -rf ~/.config/base16-shell
-	git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-
-conda:
-	./conda.sh
-
-fish:
-	./fish.sh
 
 git_key:
 	./git_key.sh
@@ -34,15 +23,15 @@ git_key:
 git_config:
 	./git_config.sh
 
-pip:
-	./pip.sh
-
 sshd:
 	sudo systemctl enable sshd
 	sudo systemctl start sshd
 
 fx:
-	sudo npm -f install fx
+	npm -f install fx
+
+yarn:
+	./yarn.sh
 
 prettier:
 	yarn add prettier --dev --exact

@@ -17,5 +17,5 @@ fi
 
 
 # source ~/.vim/black/bin/activate  # make sure to install in the right venv
-source ~/.local/share/nvim/black/bin/activate
-pip install --upgrade git+https://github.com/psf/black.git
+# source ~/.local/share/nvim/black/bin/activate
+# pip install --upgrade git+https://github.com/psf/black.git
