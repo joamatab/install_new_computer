@@ -22,7 +22,6 @@ install:
 		neovim \
 		npm \
 		pacaur \
-		qutebrowser \
 		redshift \
 		ripgrep \
 		rsync \
@@ -37,8 +36,8 @@ install:
 		wireless_tools \
 		xcape \
 		xclip \
-		yarn 
-	yarn add prettier 
+		yarn
+	yarn add prettier
 
 bspwm:
 	sudo pacman -Sy --noconfirm \
@@ -63,6 +62,7 @@ extra:
 		nodejs \
 		npm \
 		i3 \
+		qutebrowser \
 		openscad \
 		onlyoffice
 
