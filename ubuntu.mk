@@ -43,18 +43,22 @@ install: update
 		xclip \
 		xvfb \
 		yarn \
-		zlib1g-dev 
+		zlib1g-dev
+	sudo apt install -y libncurses5-dev libgnome2-dev libgnomeui-dev \
+	libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
+	libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
+	python3-dev git ctags ripgrep
 	yarn add prettier --dev --exact
 
 software2:
 	sudo apt install -y \
-		python-logilab-common 
+		python-logilab-common
 
 gui: full ldxe klayout vnc
 	sh efs_ubuntu.sh
 	sh s3.sh
 
-desktop: 
+desktop:
 	sudo apt install -y \
 		flameshot \
 		glances \
@@ -74,7 +78,7 @@ desktop:
 		youtube-dl \
 		vinagre \
 		zathura \
-	    redshift 
+	    redshift
 
 desktop2:
 	sudo apt install -y \
@@ -84,7 +88,7 @@ desktop2:
 		maim \
 		s3fs \
 		openvpn \
-		gnome-tweak-tool 
+		gnome-tweak-tool
 
 cyberduck:
 	echo -e "deb https://s3.amazonaws.com/repo.deb.cyberduck.io stable main" | sudo tee /etc/apt/sources.list.d/cyberduck.list > /dev/null
@@ -108,7 +112,7 @@ node:
 
 extra:
 	sudo apt install -y terminator \
-		nodejs 
+		nodejs
 
 
 /usr/bin/nvim:
@@ -144,8 +148,8 @@ python37:
 	sudo apt-get install python3.7
 
 docker:
-	wget -qO- https://get.docker.com/ | sh 
-	sudo usermod -aG docker $(USER) 
+	wget -qO- https://get.docker.com/ | sh
+	sudo usermod -aG docker $(USER)
 
 klayout.deb:
 	wget -O 'klayout.deb' 'https://www.klayout.org/downloads/Ubuntu-18/klayout_0.26.4-1_amd64.deb'
@@ -154,7 +158,7 @@ klayout: klayout.deb
 	sudo dpkg -i klayout.deb
 
 vnc:
-	sudo apt-get install -y  vnc4server 
+	sudo apt-get install -y  vnc4server
 	vncserver -geometry 2304x1440
 	vncserver -kill :1
 	mkdir -p $(HOME)/.vnc
@@ -164,7 +168,7 @@ vnc:
 	sudo systemctl enable --now vncserver@1
 
 vncj:
-	sudo apt-get install -y  vnc4server 
+	sudo apt-get install -y  vnc4server
 	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
@@ -174,7 +178,7 @@ vncj:
 	vncserver -geometry 2304x1440
 
 vnc1:
-	sudo apt-get install -y  vnc4server 
+	sudo apt-get install -y  vnc4server
 	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
