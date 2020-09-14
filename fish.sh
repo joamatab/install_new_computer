@@ -10,4 +10,6 @@ chsh -s $fish_bin
 
 
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+
 fisher add fishpkg/fish-git-util
+fisher add jethrokuan/fzf

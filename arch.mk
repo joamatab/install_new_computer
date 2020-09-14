@@ -50,11 +50,13 @@ bspwm:
 
 desktop:
 	sudo pacman -Sy --noconfirm \
-		docker
+		docker \
+		sxhkd
+	pacaur -S mons
+	yay -S klayout
 
 extra:
 	yay -S googler
-	yay -S klayout
 	yay -S aur/mons
 	# yaourt -G klayout
 	sudo pacman -Sy --noconfirm \
