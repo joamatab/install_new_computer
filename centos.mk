@@ -15,7 +15,7 @@ vnc:
 	sudo yum -y groupinstall "Xfce"
 	sudo yum -y install epel-release
 	sudo yum -y install bash-completion
-	sudo cp vnc/vncserver@:1.service.centos vncserver@:1.service 
+	sudo cp vnc/vncserver@:1.service.centos vncserver@:1.service
 	sudo cp vnc/vncserver@:1.service /etc/systemd/system/vncserver@:1.service
 	vncserver
 	sudo systemctl daemon-reload
@@ -106,7 +106,7 @@ cool:
 
 
 nx:
-	sudo yum install freenx-server nxagent 
+	sudo yum install freenx-server nxagent
 
 nxaddrepo:
 	sudo yum install -y freenx-server nxagent
@@ -130,7 +130,7 @@ vim2:
 
 ldxe:
 	sudo yum install -y lxde
-	
+
 xrdp:
 	sudo yum install -y xrdp
 	sudo passwd centos
@@ -139,7 +139,6 @@ fish:
 	sudo passwd $(USER)
 	chsh -s /usr/bin/fish
 	curl -L https://get.oh-my.fish | fish
-
 
 pycharm.tar.gz:
 	# wget -O "pycharm.tar.gz"  "https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=linux&code=PCC"
@@ -167,7 +166,7 @@ docker-io:
 	sudo usermod -aG docker ${USER}
 
 docker:
-	wget -qO- https://get.docker.com/ | sh 
+	wget -qO- https://get.docker.com/ | sh
 	sudo usermod -aG docker $(USER)
 
 klayout.rpm:
@@ -176,17 +175,5 @@ klayout.rpm:
 klayout: klayout.rpm
 	sudo yum install klayout.rpm -y
 
-ipkiss-313-packages-linux64.zip:
-	wget -O 'ipkiss-313-packages-linux64.zip' 'https://www.dropbox.com/s/5sqbq839yfvg3zv/ipkiss-313-packages-linux64.zip?dl=0'
 
-ipkiss313: ipkiss-313-packages-linux64.zip
-	python ipkiss-313-packages-linux64.zip
-
-ipkiss-320-packages-linux64.zip:
-	wget -O 'ipkiss-320-packages-linux64.zip' 'https://www.dropbox.com/s/6c7a87as9uc018t/ipkiss-320-packages-linux64.zip?dl=0'
-
-ipkiss3: ipkiss-320-packages-linux64.zip
-	python ipkiss-320-packages-linux64.zip
-	cp milicense.lic $(HOME)/miniconda3/envs/ipkiss3/
-
-.PHONY: lumerical install photonics vim brew pip software config fish colors anaconda2 klayout iterm tmux ipkiss3 lumerical vnc nodejs
+.PHONY: lumerical install photonics vim brew pip software config fish colors anaconda2 klayout iterm tmux lumerical vnc nodejs
