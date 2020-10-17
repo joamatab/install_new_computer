@@ -7,6 +7,7 @@ install:
 	git config --global core.editor "vim"
 	sudo apt install -y \
 		build-essential \
+		cmake \
 		curl \
 		ctags \
 		fish \
@@ -22,6 +23,9 @@ install:
 		make \
 		neovim \
 		nodejs \
+		python3 \
+		python3-pip \
+		python3-venv \
 		ripgrep \
 		rsync \
 		ruby \
