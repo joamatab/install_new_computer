@@ -1,5 +1,5 @@
 #!/bin/sh
 
-git clone git://github.com/wting/autojump.git
-cd autojump
+[ ! -d autojump ] && git https://github.com/wting/autojump.git
+cd autojump || exit
 ./install.py
