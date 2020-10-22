@@ -16,6 +16,8 @@ st/
 st2/
 tldr
 z/
+vimb/
+fd/
 
 cloudron-setup
 go1.13.3.linux-amd64.tar.*
