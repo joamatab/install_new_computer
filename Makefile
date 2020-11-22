@@ -8,11 +8,16 @@ software:
 	./lf.sh
 	./vim.sh
 	./z.sh
-	yarn add prettier --dev --exact
 	./fish.sh
 	./dotfiles.sh
-	# ./rbenv.sh
-	# ./autojump.sh
+
+prettier:
+	yarn add prettier --exact
+
+
+old:
+	./rbenv.sh
+	./autojump.sh
 
 conda:
 	./conda.sh

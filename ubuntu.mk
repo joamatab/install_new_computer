@@ -44,7 +44,6 @@ install: update
 		git \
 		ctags \
 		ripgrep
-	yarn add prettier --dev --exact
 
 software2:
 	sudo apt install -y \
