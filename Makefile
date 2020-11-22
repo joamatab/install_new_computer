@@ -1,5 +1,8 @@
 install: software prettier
 
+time:
+	sudo timedatectl set-timezone America/Los_Angeles
+
 software:
 	./colors.sh
 	./autojump.sh

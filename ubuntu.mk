@@ -8,8 +8,9 @@ update:
 	sudo apt update
 	sudo apt upgrade -y
 
+
+
 install: update
-	sudo timedatectl set-timezone America/Los_Angeles
 	git config --global core.editor "vim"
 	sudo apt install -y \
 		build-essential \
