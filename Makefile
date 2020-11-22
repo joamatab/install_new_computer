@@ -5,12 +5,13 @@ time:
 
 software:
 	./colors.sh
-	./autojump.sh
 	./lf.sh
 	./vim.sh
-	./rbenv.sh
 	./fish.sh
+	./z.sh
 	yarn add prettier --dev --exact
+	# ./rbenv.sh
+	# ./autojump.sh
 
 conda:
 	./conda.sh
