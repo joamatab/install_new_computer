@@ -7,9 +7,9 @@ software:
 	./colors.sh
 	./lf.sh
 	./vim.sh
-	./fish.sh
 	./z.sh
 	yarn add prettier --dev --exact
+	./fish.sh
 	# ./rbenv.sh
 	# ./autojump.sh
 
