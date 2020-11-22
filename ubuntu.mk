@@ -24,8 +24,6 @@ install: update
 		make \
 		neovim \
 		nodejs \
-		python \
-		python-pip \
 		python3 \
 		python3-pip \
 		python3-pytest \
