@@ -21,6 +21,7 @@ install: update
 		htop \
 		kitty \
 		libxft-dev \
+		lua5.3 \
 		make \
 		neovim \
 		nodejs \
