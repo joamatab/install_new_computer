@@ -2,6 +2,7 @@ clipmenu/
 ucollage/
 clipnotify/
 autojump/
+firenvim/
 alacritty/
 vscode/
 node_modules/
@@ -18,6 +19,7 @@ tldr
 z/
 vimb/
 fd/
+CopyQ/
 
 cloudron-setup
 go1.13.3.linux-amd64.tar.*
@@ -34,3 +36,5 @@ larbs.sh
 *.lock
 
 get-pip.py
+__pycache__
+.mypy_cache/
