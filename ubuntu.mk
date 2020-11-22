@@ -8,8 +8,6 @@ update:
 	sudo apt update
 	sudo apt upgrade -y
 
-
-
 install: update
 	git config --global core.editor "vim"
 	sudo apt install -y \

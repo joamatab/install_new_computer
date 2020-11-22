@@ -10,11 +10,11 @@ repos:
       hooks:
         - id: nbstripout
           files: ".ipynb"
-    - repo: git://github.com/detailyang/pre-commit-shell
-      rev: ""
-      hooks:
-      - id: shell-lint
-        args: [--format=json]
+    # - repo: git://github.com/detailyang/pre-commit-shell
+    #   rev: ""
+    #   hooks:
+    #   - id: shell-lint
+    #     args: [--format=json]
     - repo: git://github.com/smian/pre-commit-makefile
       rev: ""
       hooks:

@@ -8,7 +8,7 @@ Install basic software for different operating systems:
 - mac.mk
 - ubuntu.mk
 
-[See documentation](https://install-new-computer.readthedocs.io/en/latest/) 
+[See documentation](https://install-new-computer.readthedocs.io/en/latest/)
 
 # Requirements
 
@@ -23,7 +23,7 @@ xcode-select --install
 Copy-paste these 3 lines into a terminal. For example `bash install mac.mk` will run the macOs installer
 
 ```
-git clone https://github.com/joamatab/install_new_computer.git
+git clone https://github.com/joamatab/install_new_computer.git ~/install_new_computer
 cd install_new_computer
 bash install mac.mk
 ```

@@ -32,7 +32,7 @@ else
 fi
 
 mkdir -p extra
-if [[ ! -d $DOTFILES/extra/brodie ]]; then
+if [ ! -d $DOTFILES/extra/brodie ]; then
     git clone https://github.com/BrodieRobertson/dotfiles.git extra/brodie
 else
     cd extra/brodie
