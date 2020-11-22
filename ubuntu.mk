@@ -20,8 +20,6 @@ install: update
 		git \
 		htop \
 		kitty \
-		libqt4-dev \
-		libqt4-dev-bin \
 		libxft-dev \
 		make \
 		neovim \

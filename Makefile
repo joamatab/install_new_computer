@@ -10,6 +10,7 @@ software:
 	./z.sh
 	yarn add prettier --dev --exact
 	./fish.sh
+	./dotfiles.sh
 	# ./rbenv.sh
 	# ./autojump.sh
 

@@ -13,5 +13,3 @@ else
     echo "- bash install arch.mk"
     echo "- bash install fedora.mk"
 fi
-
-./dotfiles.sh
