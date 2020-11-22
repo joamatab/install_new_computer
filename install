@@ -2,11 +2,10 @@
 echo "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
 if [[ $1 == 'mac.mk' || $1 == 'ubuntu.mk' || $1 == 'centos.mk' || $1 == 'arch.mk' || $1 == 'fedora.mk' || $1 == 'suse.mk' ]]; then
-    make -f "$1" install
-    make install
+    make -f "$1" install && make install
 
 else
-    echo "$1 not suported!! Currently supported install commands:"
+    echo "$1 not suported! Currently supported install commands:"
     echo "- bash install mac.mk"
     echo "- bash install ubuntu.mk"
     echo "- bash install centos.mk"
