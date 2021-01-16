@@ -1,0 +1,10 @@
+# install xonsh plugins
+# https://xon.sh/xontribs.html
+
+xpip install xontrib-fzf-widgets
+xpip install xontrib-onepath
+xpip install xontrib-z
+xpip install xontrib-pipeliner
+xpip install xontrib-prompt-vi-mode
+xpip install -U xontrib-sh
+xpip install xontrib-readable-traceback

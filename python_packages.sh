@@ -19,8 +19,9 @@ pip install \
   sphinx \
   sphinx_rtd_theme \
   trash-cli \
-  virtualenvwrapper
+  virtualenvwrapper\
+  img2pdf \
+  PyPDF2
 
 conda install -y \
-  jupyterlab 
-
+  jupyterlab
