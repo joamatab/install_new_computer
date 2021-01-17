@@ -21,3 +21,17 @@ else
   git pull
 fi
 
+if [ ! -d $HOME/wikis/book-notes ]; then
+  git clone git@github.com:joamatab/book-notes.git
+else
+  cd ~/wikis/book-notes
+  git pull
+fi
+
+if [ ! -d $HOME/wikis/awesome_photonics ]; then
+  git clone git@github.com:joamatab/awesome_photonics.git
+else
+  cd ~/wikis/awesome_photonics
+  git pull
+fi
+

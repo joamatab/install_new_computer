@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cargo install starship ripgrep tokei sd hyperfine fd
+cargo install starship ripgrep tokei sd hyperfine fd du-dust
