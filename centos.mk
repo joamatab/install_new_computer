@@ -146,7 +146,7 @@ pycharm.tar.gz:
 
 pycharm: pycharm.tar.gz
 	sudo tar xvfz pycharm.tar.gz
-	sudo /opt/pycharm-community-2017.3.2/bin/pycharm.sh
+	sudo /opt/pycharm-community-2021.1/bin/pycharm.sh
 
 pipenv:
 	sudo yum install software-properties-common python-software-properties

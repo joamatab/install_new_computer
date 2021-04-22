@@ -10,7 +10,7 @@ update:
 
 install: update
 	git config --global core.editor "vim"
-	sudo apt install -y \
+	sudo apt install -y -ignore-missing \
 		build-essential \
 		curl \
 		fish \

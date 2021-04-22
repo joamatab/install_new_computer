@@ -1,5 +1,5 @@
 #!/bin/sh
-# installs python packages in a conda environment
+# installs python photonics packages in a new conda environment
 
 # Meep for FDTD simulations
 conda create -n photonics -c simpetus -c conda-forge pymeep -y
@@ -13,11 +13,11 @@ pip install simphony
 mkdir -p ~/photonics/
 
 # gdsfactory for layout
-git clone https://github.com/gdsfactory/gdsfactory.git ~/photonics/
+git clone https://github.com/gdsfactory/gdsfactory.git ~/photonics/gdsfactory
 cd ~/photonics/gdsfactory
 make install
 
 # Mode solver
-git clone https://github.com/joamatab/modesolverpy ~/photonics/
-cd ~/photonics/modesolverpy
+git clone https://github.com/joamatab/modesolverpy ~/photonics/modes
+cd ~/photonics/modes
 make install
