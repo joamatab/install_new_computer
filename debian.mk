@@ -5,7 +5,7 @@ help:
 install:
 	sudo timedatectl set-timezone America/Los_Angeles
 	git config --global core.editor "vim"
-	sudo apt install -y -ignore-missing \
+	sudo apt install -y --ignore-missing \
 		build-essential \
 		cmake \
 		curl \
