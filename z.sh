@@ -3,4 +3,5 @@
 
 mkdir -p ~/.local/bin
 ln -sf "$PWD"/z/z.lua ~/.local/bin/
+mkdir -p ~/.config/fish/conf.d/
 cp z.fish ~/.config/fish/conf.d/z.fish

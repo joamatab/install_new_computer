@@ -8,8 +8,8 @@ software:
 	./lf.sh
 	./vim.sh
 	./z.sh
-	./fish.sh
 	./dotfiles.sh
+	./fish.sh
 
 prettier:
 	yarn add prettier --exact

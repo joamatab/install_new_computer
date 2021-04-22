@@ -16,7 +16,7 @@ else
 fi
 
 if [ ! -d $DOTFILES/luke ]; then
-  git clone https://github.com/LukeSmithxyz/voidrice.git luke
+  git clone https://github.com/LukeSmithxyz/voidrice.git "$DOTFILES"/luke
 else
   cd luke
   git pull
@@ -24,16 +24,16 @@ else
 fi
 
 if [ ! -d $DOTFILES/brodie ]; then
-  git clone https://github.com/BrodieRobertson/scripts.git brodie
+  git clone https://github.com/BrodieRobertson/scripts.git  "$DOTFILES"/brodie
 else
   cd brodie
   git pull
   cd ..
 fi
 
-mkdir -p extra
+mkdir -p "$DOTFILES"/extra
 if [ ! -d $DOTFILES/extra/brodie ]; then
-    git clone https://github.com/BrodieRobertson/dotfiles.git extra/brodie
+    git clone https://github.com/BrodieRobertson/dotfiles.git "$DOTFILES"/extra/brodie
 else
     cd extra/brodie
     git pull
