@@ -9,18 +9,18 @@
 # source ./echos.sh
 
 function require_cask() {
-    running "brew cask $1"
+    running "brew install $1"
     brew cask list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install $1 $2"
-        brew cask install $1
+        brew install $1
         if [[ $? != 0 ]]; then
             error "failed to install $1! aborting..."
             # exit -1
         fi
     else
-        action "brew cask upgrade $1 $2"
-        brew cask upgrade $1
+        action "brew upgrade $1 $2"
+        brew upgrade $1
     fi
     ok
 }
