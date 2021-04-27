@@ -31,6 +31,7 @@ for i in \
   ag \
   awk \
   autojump \
+  automake \
   bash \
   fish \
   fzf \
@@ -82,4 +83,3 @@ done
 #     brew install $i
 #   fi
 # done
-
