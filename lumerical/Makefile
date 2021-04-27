@@ -20,25 +20,44 @@ flexlm2.rpm:
 
 ubuntu-deps:
 	sudo apt install -y alien
-	sudo apt-get install libxss1
-	sudo apt-get install libxmlsec1
-	sudo apt-get install libxmlsec1-openssl
-	sudo apt-get install libtk8.5 
+	sudo apt install -y libxss1
+	sudo apt install -y libxmlsec1
+	sudo apt install -y libxmlsec1-openssl
+	sudo apt install -y libtk8.5 
 
 lumerical: lumerical.rpm
 
 lumerical.rpm:
-	wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/igvokb4t5org1q3/Lumerical-2021R1-3-96501af08e.el6.x86_64.rpm?dl=0'
+	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/igvokb4t5org1q3/Lumerical-2021R1-3-96501af08e.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/kz1zbokc1q0482w/Lumerical-2020a-r6-0ff9ee970e.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/emx745lc64whh9z/Lumerical-2020a-r5-e3c7471fdc.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/cigs6krz3y79agf/Lumerical-2020a-r4-0f4fa47357.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/foljdxl3qxbn02d/Lumerical-2020a-r2-eeb054ca61.el6.x86_64.rpm?dl=0'
-	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/xd9yw8f61ysjptn/Lumerical-2019b-r6-1db3676.el6.x86_64.rpm?dl=0'
+	wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/xd9yw8f61ysjptn/Lumerical-2019b-r6-1db3676.el6.x86_64.rpm?dl=0'
 	
 cml.rpm:
 	wget -O 'cml.rpm' 'https://www.dropbox.com/s/5jcfnedzr55unvu/lumerical-cml-compiler-2020a-r2.0.2152-7852fef.el7.x86_64.rpm?dl=0'
 
 cml: cml.rpm
+
+debian:
+	sudo apt install -y --ignore-missing \
+		alien \
+		libxss1 \
+		libtbb2 \
+		libmkl-intel-lp64 \
+		libmkl-intel-thread \
+		libmkl-core \
+		libxmlsec1 \
+		libxmlsec1-openssl \
+		libtk8.5 
+	sudo alien -k --scripts lumerical.rpm
+	sudo mkdir -p /opt/lumerical/2021
+	sudo cp Lumerical-2021R1-3/opt/lumerical/v211 -r /opt/lumerical/2021
+
+cp:
+	sudo mkdir -p /opt/lumerical/2021
+	sudo cp Lumerical-2021R1-3/opt/lumerical/v211 -r /opt/lumerical/2021
 
 home:
 	rm -rf $(HOME)/.lumerical/ 

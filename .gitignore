@@ -39,6 +39,9 @@ larbs.sh
 *.gz
 *.json
 *.lock
+*.sqlite
+jupyterhub_cookie_secret
+
 
 get-pip.py
 __pycache__

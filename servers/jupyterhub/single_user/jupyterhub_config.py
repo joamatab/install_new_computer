@@ -173,7 +173,8 @@
 ## The default URL for users when they arrive (e.g. when user directs to "/")
 #
 #  By default, redirects users to their own server.
-c.JupyterHub.default_url = 'user/awsgui/lab'
+c.Spawner.default_url = '/lab' 
+
 
 ## Register extra tornado Handlers for jupyterhub.
 #
@@ -242,6 +243,7 @@ c.JupyterHub.default_url = 'user/awsgui/lab'
 #
 #  .. versionadded:: 0.9
 #c.JupyterHub.hub_connect_url = ''
+# c.JupyterHub.bind_url = 'http://:8000/jupyter'
 
 ## The ip address for the Hub process to *bind* to.
 #
@@ -467,7 +469,7 @@ c.JupyterHub.default_url = 'user/awsgui/lab'
 #  environment variables. Most, including the default, do not. Consult the
 #  documentation for your spawner to verify!
 #c.Spawner.cmd = ['jupyterhub-singleuser']
-c.Spawner.cmd = ['jupyter-labhub']
+# c.Spawner.cmd = ['jupyter-labhub']
 
 ## Minimum number of cpu-cores a single-user notebook server is guaranteed to
 #  have available.
@@ -547,7 +549,7 @@ c.Spawner.cmd = ['jupyter-labhub']
 #  across upgrades, so if you are using the callable take care to verify it
 #  continues to work after upgrades!
 # c.Spawner.environment = {'JUPYTER_ENABLE_LAB': 'yes'}
-c.Spawner.environment = {'JUPYTER_ENABLE_LAB': 'yes'}
+# c.Spawner.environment = {'JUPYTER_ENABLE_LAB': 'yes'}
 
 ## Timeout (in seconds) before giving up on a spawned HTTP server
 #
