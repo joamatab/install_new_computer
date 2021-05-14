@@ -58,7 +58,6 @@ update:
 
 
 install: update
-	sudo timedatectl set-timezone US/Pacific
 	sudo yum groupinstall -y "Development tools"
 	sudo yum install -y epel-release
 	sudo yum install -y s3fs-fuse

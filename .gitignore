@@ -43,3 +43,4 @@ larbs.sh
 get-pip.py
 __pycache__
 .mypy_cache/
+pycharm*
