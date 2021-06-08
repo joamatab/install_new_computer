@@ -4,12 +4,14 @@ pip install \
   black \
   bumpversion \
   classifier \
-  matplotlib \
   howdoi \
+  gitcli \
+  img2pdf \
   isort \
+  matplotlib \
   nbconvert \
-  notedown \
   neovim \
+  notedown \
   pillow \
   pre-commit \
   pyflakes \
@@ -20,7 +22,6 @@ pip install \
   sphinx_rtd_theme \
   trash-cli \
   virtualenvwrapper\
-  img2pdf \
   PyPDF2
 
 conda install -y \

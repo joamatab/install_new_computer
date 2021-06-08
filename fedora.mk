@@ -18,7 +18,6 @@ software:
 		setxkbmap \
 		tmux \
 		util-linux-user \
-		xcape \
 		kitty
 
 vncserver:
