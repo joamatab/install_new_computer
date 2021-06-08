@@ -6,18 +6,19 @@ help:
 
 software:
 	sudo dnf install -y \
+		cargo \
 		chromium \
 		fish \
 		golang-bin \
 		gparted \
 		htop \
 		neovim \
+		openssh-server \
 		redshift \
-		tmux \
-		xcape \
 		setxkbmap \
-		cargo \
+		tmux \
 		util-linux-user \
+		xcape \
 		kitty
 
 vncserver:

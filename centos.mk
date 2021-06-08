@@ -56,7 +56,6 @@ update:
 	sudo yum update -y
 	sudo yum upgrade -y
 
-
 install: update
 	sudo yum groupinstall -y "Development tools"
 	sudo yum install -y epel-release
