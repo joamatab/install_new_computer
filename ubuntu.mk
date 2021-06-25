@@ -13,13 +13,13 @@ install: update
 	sudo apt install -y --ignore-missing \
 		build-essential \
 		curl \
+		dwm \
 		fish \
 		g++ \
 		gcc \
 		golang-go \
 		git \
 		htop \
-		kitty \
 		libxft-dev \
 		lua5.3 \
 		make \
@@ -38,7 +38,6 @@ install: update
 		wget \
 		xclip \
 		xvfb \
-		yarn \
 		zlib1g-dev
 	sudo apt install -y \
 		python3-dev \

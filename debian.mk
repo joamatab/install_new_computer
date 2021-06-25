@@ -8,6 +8,7 @@ install:
 		build-essential \
 		cmake \
 		curl \
+		dwm \
 		fish \
 		g++ \
 		gcc \
@@ -16,12 +17,15 @@ install:
 		htop \
 		kitty \
 		libxft-dev \
+		lua5.1 \
+		libx11-dev \
 		make \
 		neovim \
 		nodejs \
 		python3 \
 		python3-pip \
 		python3-venv \
+		xz-utils \
 		ripgrep \
 		rsync \
 		ruby \
