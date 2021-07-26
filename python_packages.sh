@@ -26,3 +26,11 @@ pip install \
 
 conda install -y \
   jupyterlab
+
+
+conda config --add channels simpetus
+conda install -y pymeep
+pip install gdsfactory --upgrade
+pip install modes --upgrade
+
+jupyter labextension install @axlair/jupyterlab_vim
