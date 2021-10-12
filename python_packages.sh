@@ -8,9 +8,9 @@ pip install \
   gitcli \
   img2pdf \
   isort \
-  matplotlib \
   nbconvert \
   neovim \
+  mkinit \
   notedown \
   pillow \
   pre-commit \
@@ -29,8 +29,5 @@ conda install -y \
 
 
 conda config --add channels simpetus
-conda install -y pymeep
-pip install gdsfactory --upgrade
-pip install modes --upgrade
-
+conda install -y pymeep matplotlib
 jupyter labextension install @axlair/jupyterlab_vim

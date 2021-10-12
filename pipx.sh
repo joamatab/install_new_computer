@@ -15,3 +15,4 @@ pipx install ranger-fm
 pipx install trash-cli
 pipx install tox
 pipx install virtualfish
+pipx install cookiecutter
