@@ -20,6 +20,7 @@ pip install \
   recommonmark \
   sphinx \
   sphinx_rtd_theme \
+  tox \
   trash-cli \
   virtualenvwrapper\
   PyPDF2

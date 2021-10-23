@@ -10,4 +10,5 @@
 
 
 mkdir -p ~/.local/bin
-curl -L https://github.com/gokcehan/lf/releases/download/r22/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
+# curl -L https://github.com/gokcehan/lf/releases/download/r22/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
+curl -L https://github.com/gokcehan/lf/releases/download/r26/lf-linux-amd64.tar.gz | tar xzC ~/.local/bin
