@@ -7,4 +7,4 @@ chsh -s $(which fish)
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 
 rm -rf ~/.local/share/omf
-curl -L https://get.oh-my.fish | fish
+curl -L -k https://get.oh-my.fish | fish
