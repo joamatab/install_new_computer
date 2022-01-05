@@ -30,6 +30,7 @@ conda install -y \
 
 
 conda config --add channels conda-forge
-conda config --add channels simpetus
+# conda config --add channels simpetus
 conda install -y pymeep matplotlib
+conda install mpi4py -y
 jupyter labextension install @axlair/jupyterlab_vim
