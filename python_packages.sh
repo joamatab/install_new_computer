@@ -12,6 +12,7 @@ pip install \
   neovim \
   mkinit \
   notedown \
+  nbdime \
   pillow \
   pre-commit \
   pyflakes \
