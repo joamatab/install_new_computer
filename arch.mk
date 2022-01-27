@@ -2,6 +2,8 @@
 install:
 	sudo timedatectl set-timezone America/Los_Angeles
 	git config --global core.editor "vim"
+	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+	sudo pacman -Syyu --noconfirm
 	sudo pacman -Sy --noconfirm \
 		chromium \
 		curl \
