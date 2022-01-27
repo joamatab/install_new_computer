@@ -14,14 +14,6 @@ software:
 prettier:
 	yarn add prettier --exact
 
-
-old:
-	./rbenv.sh
-	./autojump.sh
-
-conda:
-	./conda.sh
-
 pyenv:
 	./pyenv.sh
 

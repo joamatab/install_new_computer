@@ -26,16 +26,12 @@ pip install \
   virtualenvwrapper\
   PyPDF2
 
-conda install -y \
+mamba install -y \
   jupyterlab
 
-
-conda config --add channels conda-forge
-# conda config --add channels simpetus
-# conda install mpi4py -y
-
-conda install -y matplotlib
-conda install -y jaxlib
-conda install -c conda-forge pymeep=*=mpi_mpich_* -y
+mamba install -y jaxlib
+mamba install pymeep=*=mpi_mpich_* -y
 
 jupyter labextension install @axlair/jupyterlab_vim
+
+# mamba install -y matplotlib
