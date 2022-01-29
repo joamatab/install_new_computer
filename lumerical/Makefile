@@ -34,7 +34,8 @@ lumerical.rpm:
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/cigs6krz3y79agf/Lumerical-2020a-r4-0f4fa47357.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/foljdxl3qxbn02d/Lumerical-2020a-r2-eeb054ca61.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/xd9yw8f61ysjptn/Lumerical-2019b-r6-1db3676.el6.x86_64.rpm?dl=0'
-	wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/5k6m1l089gsiqjs/Lumerical-2021R2-2-df9013d.el6.x86_64.rpm?dl=0'
+	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/5k6m1l089gsiqjs/Lumerical-2021R2-2-df9013d.el6.x86_64.rpm?dl=0'
+	wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/upulgiky66g9xqp/Lumerical-2022R1-R1-9458412.el7.x86_64.rpm?dl=0'
 	
 cml.rpm:
 	wget -O 'cml.rpm' 'https://www.dropbox.com/s/5jcfnedzr55unvu/lumerical-cml-compiler-2020a-r2.0.2152-7852fef.el7.x86_64.rpm?dl=0'
