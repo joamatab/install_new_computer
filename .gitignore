@@ -27,6 +27,7 @@ z/
 vimb/
 fd/
 CopyQ/
+klayout/klayout-0.27.8/
 
 cloudron-setup
 go1.13.3.linux-amd64.tar.*
