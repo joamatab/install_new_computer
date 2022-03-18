@@ -1,5 +1,8 @@
 #!/bin/sh
 
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+
 pipx install black
 pipx install bumpversion
 pipx install gitcli
