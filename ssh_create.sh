@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ########################################
-# upload git key to gitlab
+# create SSH key and open gitlab / github
 ########################################
 
 if [ ! -f $HOME/.ssh/id_rsa.pub ]; then
