@@ -66,8 +66,6 @@ desktop:
 		flameshot \
 		glances \
 		htop \
-		i3 \
-		i3status \
 		jq \
 		keepassxc \
 		libreoffice \
