@@ -7,9 +7,7 @@ from decorators import count_calls, trace, CountCalls
 def fibonacci(number):
     """ calculate the fibonacci number
     """
-    if number < 2:
-        return 1
-    return fibonacci(number-1) + fibonacci(number-2)
+    return 1 if number < 2 else fibonacci(number-1) + fibonacci(number-2)
 
 
 print(fibonacci(5))

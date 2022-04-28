@@ -102,7 +102,7 @@ def convert_a_cell_ipy2to3(cell, version):
 
 def main(argv):
     if len(argv) != 3:
-        print("Usage: {} fromfile.ipynb tofile.ipynb".format(argv[0]))
+        print(f"Usage: {argv[0]} fromfile.ipynb tofile.ipynb")
         return 1
 
     # maybe to use nbformat to read and write the file like:
@@ -119,9 +119,11 @@ def main(argv):
         if error.startswith("notebook-format-error"):
             return 1
 
-    # took the following from saving a notebook with python3 (see file dummy-v4-py3.ipynb) :
+    # add version information
+    if 'metadata' in ipy_json:
+        # took the following from saving a notebook with python3 (see file dummy-v4-py3.ipynb) :
 
-    version3example = """
+        version3example = """
 {
 "metadata": {
   "kernelspec": {
@@ -145,11 +147,9 @@ def main(argv):
 }
     """
 
-    # add version information
-    if 'metadata' in ipy_json:
         version3example_json = json.loads(version3example)
-        this_version = str(sys.version_info.major) + '.' + str(sys.version_info.minor) + '.' + str(
-            sys.version_info.micro)
+        this_version = f'{str(sys.version_info.major)}.{str(sys.version_info.minor)}.{str(sys.version_info.micro)}'
+
         if 'kernelspec' in ipy_json['metadata']:
             ipy_json['metadata']['kernelspec'] = version3example_json['metadata']['kernelspec']
         if 'language_info' in ipy_json['metadata']:

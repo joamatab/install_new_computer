@@ -42,10 +42,7 @@ if __name__ == "__main__":
     @memoize
     def mysum(numbers, **kwargs):
         print(f"Running mysum, message = '{kwargs.get('message')}'")
-        total = 0
-        for one_number in numbers:
-            total += one_number
-        return total
+        return sum(numbers)
 
     print(add(3, 7))
     print(mul(3, 7))

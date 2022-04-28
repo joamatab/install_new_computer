@@ -43,6 +43,4 @@ def linkcode_resolve(domain, info):
     if not info["module"]:
         return None
     filename = info["module"].replace(".", "/")
-    return "http://github.com/joamatab/install_new_computer/master/{}.py".format(
-        filename
-    )
+    return f"http://github.com/joamatab/install_new_computer/master/{filename}.py"
