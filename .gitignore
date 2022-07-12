@@ -1,4 +1,7 @@
 clipmenu/
+xschem/
+xschem_sky130/
+ngspice/
 extra/
 dust/
 gh-cli/

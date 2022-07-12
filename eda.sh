@@ -1,0 +1,4 @@
+#!/bin/sh
+
+./xschem.sh
+./xschem130.sh

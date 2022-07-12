@@ -39,6 +39,8 @@ where you can replace mac.mk by any of the supported OS:
 
 Links:
 
+- [my dotfiles wiki](https://github.com/joamatab/dotfiles/wiki)
+- [my dotfiles](https://github.com/joamatab/dotfiles)
 - [mac CLI](https://github.com/guarinogabriel/mac-cli)
 - https://github.com/jaywcjlove/awesome-mac.git
 - https://www.stuartellis.name/articles/mac-setup/
