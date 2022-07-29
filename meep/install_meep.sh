@@ -7,11 +7,9 @@ MY_LDFLAGS="-L/usr/local/lib -L/usr/lib/x86_64-linux-gnu/hdf5/openmpi ${RPATH_FL
 MY_CPPFLAGS="-I/usr/local/include -I/usr/include/hdf5/openmpi"
 
 sudo apt-get update
-
 sudo apt-get -y install build-essential gfortran libblas-dev liblapack-dev libgmp-dev swig libgsl-dev autoconf pkg-config libpng-dev git guile-2.2-dev libfftw3-dev libhdf5-openmpi-dev hdf5-tools libpython3-dev python3-pip cmake
 
 mkdir -p ~/install
-
 cd ~/install
 git clone https://github.com/NanoComp/harminv.git
 cd harminv/

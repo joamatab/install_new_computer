@@ -7,6 +7,10 @@ dust/
 gh-cli/
 goroot/
 mdp/
+nvim-linux64/
+nvim-linux64.tar.gz
+pamixer/
+meep/meep/
 cli-dictionary/
 watchman/
 ucollage/
