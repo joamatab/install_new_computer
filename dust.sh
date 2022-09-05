@@ -1,4 +1,5 @@
+#!/bin/sh
 
-git clone git@github.com:bootandy/dust.git
+[ ! -d dust ] && git clone git@github.com:bootandy/dust.git
 cd dust
 cargo install --path .
