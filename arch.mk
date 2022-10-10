@@ -34,6 +34,7 @@ install:
 		transmission-gtk \
 		trash-cli \
 		time \
+		unzip \
 		wget \
 		wireless_tools \
 		xcape \
