@@ -7,4 +7,4 @@ cd netgen
 --x-libraries=/opt/X11/lib \
 CFLAGS=-Wno-error=implicit-function-declaration
 make
-make install
+sudo make install
