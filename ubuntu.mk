@@ -20,6 +20,7 @@ install: update
 		golang-go \
 		git \
 		htop \
+		kdiff3 \
 		libxft-dev \
 		lua5.3 \
 		make \

@@ -16,6 +16,7 @@ install:
 		git \
 		htop \
 		kitty \
+		kdiff3 \
 		libxft-dev \
 		lua5.1 \
 		libx11-dev \
