@@ -17,7 +17,6 @@ pip install \
   pre-commit \
   pyflakes \
   pylint \
-  ranger-fm \
   recommonmark \
   sphinx \
   sphinx_rtd_theme \
@@ -29,9 +28,8 @@ pip install \
 mamba install -y \
   jupyterlab
 
-mamba install -y jaxlib
-mamba install pymeep=*=mpi_mpich_* -y
-
 jupyter labextension install @axlair/jupyterlab_vim
 
+# mamba install -y jaxlib
+# mamba install pymeep=*=mpi_mpich_* -y
 # mamba install -y matplotlib
