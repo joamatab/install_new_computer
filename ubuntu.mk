@@ -6,6 +6,8 @@ help:
 
 update:
 	sudo apt update
+
+upgrade:
 	sudo apt upgrade -y
 
 install: update
@@ -13,7 +15,6 @@ install: update
 	sudo apt install -y --ignore-missing \
 		build-essential \
 		curl \
-		dwm \
 		fish \
 		g++ \
 		gcc \
@@ -31,9 +32,6 @@ install: update
 		python3-pytest \
 		python3-venv \
 		rsync \
-		ruby \
-		ruby-dev \
-		silversearcher-ag \
 		software-properties-common \
 		tmux \
 		wget \
@@ -48,6 +46,10 @@ install: update
 
 software2:
 	sudo apt install -y \
+		dwm \
+		ruby \
+		ruby-dev \
+		silversearcher-ag \
 		python-logilab-common
 
 gui: full ldxe klayout vnc
