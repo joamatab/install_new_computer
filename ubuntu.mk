@@ -27,6 +27,7 @@ install: update
 		make \
 		neovim \
 		nodejs \
+		openssh-client \
 		python3 \
 		python3-pip \
 		python3-pytest \
