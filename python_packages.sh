@@ -23,12 +23,14 @@ pip install \
   tox \
   trash-cli \
   virtualenvwrapper\
+  pytest-watch\
+  pytest-testmon\
+  ruff-lsp\
   PyPDF2
 
-mamba install -y \
-  jupyterlab
-
-jupyter labextension install @axlair/jupyterlab_vim
+# mamba install -y \
+#   jupyterlab
+# jupyter labextension install @axlair/jupyterlab_vim
 
 # mamba install -y jaxlib
 # mamba install pymeep=*=mpi_mpich_* -y
