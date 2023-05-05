@@ -24,8 +24,12 @@ def run(cmd, verbose=True):
     if verbose:
         blue_print(cmd)
     proc = subprocess.Popen(
-        ["/bin/bash", "-c", cmd], bufsize=1, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-        cwd=Path(__file__).parent, universal_newlines=True
+        ["/bin/bash", "-c", cmd],
+        bufsize=1,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        cwd=Path(__file__).parent,
+        universal_newlines=True,
     )
     while True:
         if verbose:
@@ -38,7 +42,7 @@ def run(cmd, verbose=True):
     return proc.poll()
 
 
-fns = []
+fns = [] # functions
 
 
 def collect(fn):
@@ -64,7 +68,9 @@ def skip_if(cmd, should_fail=False, should_raise=False):
                 blue_print("Skipping installing " + pretty_name(fn) + "...")
                 blue_print("=" * 25)
                 print()
+
         return inner
+
     return decorator
 
 
@@ -95,7 +101,9 @@ def sh(check=True):
                     print("\n")
                     raise subprocess.CalledProcessError(returncode, cmd)
             print()
+
         return inner
+
     return decorator
 
 
@@ -104,7 +112,6 @@ def sh(check=True):
 # ==========================
 
 
-@collect
 @sh()
 def zsh():
     return """
@@ -119,7 +126,6 @@ def zsh():
     """
 
 
-@collect
 @sh()
 def vim():
     return """
