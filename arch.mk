@@ -1,9 +1,5 @@
-
 install:
-	sudo timedatectl set-timezone America/Los_Angeles
 	git config --global core.editor "vim"
-	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
-	sudo pacman -Syyu --noconfirm
 	sudo pacman -Sy --noconfirm \
 		chromium \
 		curl \
@@ -42,6 +38,17 @@ install:
 		yarn
 	yarn add prettier
 
+desktop:
+	sudo pacman -Sy --noconfirm \
+		docker \
+		sxhkd
+	pacaur -S mons
+	yay -S klayout
+
+update:
+	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
+	sudo pacman -Syyu --noconfirm
+
 bspwm:
 	sudo pacman -Sy --noconfirm \
 		libxcb \
@@ -51,12 +58,6 @@ bspwm:
 		xcb-util-keysyms \
 		xdo
 
-desktop:
-	sudo pacman -Sy --noconfirm \
-		docker \
-		sxhkd
-	pacaur -S mons
-	yay -S klayout
 
 extra:
 	yay -S googler

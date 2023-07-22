@@ -1,6 +1,6 @@
 install: software prettier
 
-time:
+time-los-angeles:
 	sudo timedatectl set-timezone America/Los_Angeles
 
 software:

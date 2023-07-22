@@ -36,6 +36,8 @@ where you can replace mac.mk by any of the supported OS:
 - mac.mk
 - ubuntu.mk
 
+This install the specific `install` section of the Makefile for the selected distro.
+
 
 Links:
 
