@@ -1,7 +1,7 @@
 install:
 	git config --global core.editor "vim"
 	sudo pacman -Sy --noconfirm \
-		chromium \
+		alacritty \
 		curl \
 		cmus \
 		firefox \
@@ -10,30 +10,24 @@ install:
 		gcc \
 		git \
 		go \
-		gparted \
 		htop \
-		keepassxc \
 		kitty \
-		libreoffice \
 		lsd \
 		make \
 		neovim \
 		npm \
-		pacaur \
-		redshift \
 		ripgrep \
 		rsync \
 		ruby \
-		s3fs \
-		the_silver_searcher \
+		rust \
 		tmux \
-		transmission-gtk \
 		trash-cli \
 		time \
 		unzip \
 		wget \
 		wireless_tools \
 		xcape \
+		xorg-xbacklight  \
 		xclip \
 		yarn
 	yarn add prettier
@@ -41,9 +35,22 @@ install:
 desktop:
 	sudo pacman -Sy --noconfirm \
 		docker \
+		gparted \
+		redshift \
+		rofi \
+		libreoffice \
+		keepassxc \
+		transmission-gtk \
 		sxhkd
-	pacaur -S mons
-	yay -S klayout
+	yay -S mons --noconfirm lf-git  
+	yay -S klayout --noconfirm lf-git  
+
+rust:
+	sudo pacman -Sy --noconfirm mcfly ripgrep tokei sd hyperfine du-dust dutree mcfly skim alacritty 
+	cargo install fastmod
+
+useful:
+	yay -S --noconfirm lf-git
 
 update:
 	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
@@ -58,7 +65,6 @@ bspwm:
 		xcb-util-keysyms \
 		xdo
 
-
 extra:
 	yay -S googler
 	yay -S aur/mons
@@ -66,6 +72,7 @@ extra:
 	sudo pacman -Sy --noconfirm \
 		nextcloud-client \
 		nodejs \
+		s3fs \
 		npm \
 		i3 \
 		qutebrowser \
@@ -119,4 +126,4 @@ vbox:
 		virtualbox \
 		linux-rt-lts-manjaro-virtualbox-host-modules
 
-.PHONY: install nodejs
+.PHONY: install nodejs rust
