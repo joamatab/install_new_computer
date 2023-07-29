@@ -2,6 +2,7 @@ install:
 	git config --global core.editor "vim"
 	sudo pacman -Sy --noconfirm \
 		alacritty \
+		bat \
 		curl \
 		cmus \
 		firefox \
