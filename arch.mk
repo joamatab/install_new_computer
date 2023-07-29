@@ -14,6 +14,7 @@ install:
 		htop \
 		kitty \
 		lsd \
+		nsxiv \
 		make \
 		neovim \
 		npm \
