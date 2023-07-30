@@ -1,7 +1,8 @@
 install:
 	git config --global core.editor "vim"
 	sudo pacman -Sy --noconfirm \
-		chromium \
+		alacritty \
+		bat \
 		curl \
 		cmus \
 		firefox \
@@ -10,13 +11,12 @@ install:
 		gcc \
 		git \
 		go \
-		gparted \
 		htop \
-		keepassxc \
 		kitty \
-		libreoffice \
 		lsd \
+		nsxiv \
 		make \
+		mcfly \
 		neovim \
 		npm \
 		redshift \
@@ -25,23 +25,37 @@ install:
 		ruby \
 		s3fs \
 		tmux \
-		transmission-gtk \
 		trash-cli \
 		time \
 		unzip \
 		wget \
 		wireless_tools \
 		xcape \
+		xorg-xbacklight  \
 		xclip \
+		zoxide \
 		yarn
 	yarn add prettier
 
 desktop:
 	sudo pacman -Sy --noconfirm \
 		docker \
+		gparted \
+		redshift \
+		rofi \
+		libreoffice \
+		keepassxc \
+		transmission-gtk \
 		sxhkd
-	pacaur -S mons
-	yay -S klayout
+	yay -S mons --noconfirm lf-git
+	yay -S klayout --noconfirm lf-git
+
+rust:
+	sudo pacman -Sy --noconfirm mcfly ripgrep tokei sd hyperfine du-dust dutree mcfly skim alacritty
+	cargo install fastmod
+
+useful:
+	yay -S --noconfirm lf-git
 
 update:
 	sudo pacman-mirrors --fasttrack && sudo pacman -Syyu
@@ -55,7 +69,6 @@ bspwm:
 		xcb-util-wm \
 		xcb-util-keysyms \
 		xdo
-
 
 extra:
 	yay -S googler
@@ -118,4 +131,4 @@ vbox:
 		virtualbox \
 		linux-rt-lts-manjaro-virtualbox-host-modules
 
-.PHONY: install nodejs
+.PHONY: install nodejs rust

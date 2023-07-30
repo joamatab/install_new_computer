@@ -66,3 +66,5 @@ __pycache__
 .mypy_cache/
 pycharm*
 Mambaforge-Linux-x86_64.sh
+Miniconda3-latest-Linux-x86_64.sh
+progs.csv

@@ -38,6 +38,11 @@ where you can replace mac.mk by any of the supported OS:
 
 This install the specific `install` section of the Makefile for the selected distro.
 
+To install specific sections of each Makefile you can also run
+
+```
+make -f arck.mk install
+```
 
 Links:
 
