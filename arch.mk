@@ -16,6 +16,7 @@ install:
 		lsd \
 		nsxiv \
 		make \
+		mcfly \
 		neovim \
 		npm \
 		ripgrep \
@@ -31,6 +32,7 @@ install:
 		xcape \
 		xorg-xbacklight  \
 		xclip \
+		zoxide \
 		yarn
 	yarn add prettier
 
