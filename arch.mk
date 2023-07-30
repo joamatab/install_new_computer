@@ -19,13 +19,11 @@ install:
 		make \
 		neovim \
 		npm \
-		pacaur \
 		redshift \
 		ripgrep \
 		rsync \
 		ruby \
 		s3fs \
-		the_silver_searcher \
 		tmux \
 		transmission-gtk \
 		trash-cli \
@@ -66,6 +64,7 @@ extra:
 	sudo pacman -Sy --noconfirm \
 		nextcloud-client \
 		nodejs \
+		the_silver_searcher \
 		npm \
 		i3 \
 		qutebrowser \
