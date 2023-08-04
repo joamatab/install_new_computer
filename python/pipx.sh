@@ -1,21 +1,30 @@
-#!/bin/sh
+#!/bin/bash
 
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 
-pipx install black
-pipx install bumpversion
-pipx install gitcli
-pipx install howdoi
-pipx install ipython
-pipx install jupyter
-pipx install mypy
-pipx install nbdime
-pipx install notedown
-pipx install pre-commit
-pipx install pylint
-pipx install ranger-fm
-pipx install trash-cli
-pipx install tox
-pipx install virtualfish
-pipx install cookiecutter
+
+packages=(
+    black
+    bumpversion
+    cookiecutter
+    howdoi
+    ipython
+    jupyter
+    mypy
+    nbdime
+    neovim
+    notedown
+    pre-commit
+    pylint
+    ranger-fm
+    sourcery
+    tox
+    trash-cli
+    # gitcli
+    # virtualfish
+)
+
+for package in "${packages[@]}"; do
+    pipx install "$package"
+done
