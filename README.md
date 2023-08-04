@@ -2,12 +2,6 @@
 
 Install basic software for different operating systems:
 
-- arch.mk
-- centos.mk
-- fedora.mk
-- mac.mk
-- ubuntu.mk
-
 [See documentation](https://install-new-computer.readthedocs.io/en/latest/)
 
 # Requirements
@@ -25,23 +19,23 @@ Copy-paste these 3 lines into a terminal. For example `bash install mac.mk` will
 ```
 git clone https://github.com/joamatab/install_new_computer.git ~/install_new_computer
 cd install_new_computer
-bash install mac.mk
+bash install mac
 ```
 
 where you can replace mac.mk by any of the supported OS:
 
-- arch.mk
-- centos.mk
-- fedora.mk
-- mac.mk
-- ubuntu.mk
+- arch
+- centos
+- fedora
+- mac
+- ubuntu
 
 This install the specific `install` section of the Makefile for the selected distro.
 
 To install specific sections of each Makefile you can also run
 
 ```
-make -f arck.mk install
+bash install centos desktop
 ```
 
 Links:

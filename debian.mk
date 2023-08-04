@@ -1,7 +1,6 @@
 help:
 	@echo 'make install: Install awesome software (recommended)'
 
-
 install:
 	git config --global core.editor "vim"
 	sudo apt install -y --ignore-missing \
