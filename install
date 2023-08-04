@@ -1,33 +1,15 @@
 #!/bin/bash
-SUPPORTED_DISTS=("mac" "ubuntu" "centos" "arch" "fedora" "suse" "debian")
+#
+target=${2:-install}
 
-function usage {
-    echo "Usage: $0 {${SUPPORTED_DISTS[@]}} [target]"
-    exit 1
-}
+if [[ $1 == 'mac.mk' || $1 == 'ubuntu.mk' || $1 == 'centos.mk' || $1 == 'arch.mk' || $1 == 'fedora.mk' || $1 == 'suse.mk' || $1 == 'debian.mk' ]]; then
+    make -f "$1" "$target"
 
-if [[ $# -lt 1 ]]; then
-    usage
-fi
-
-dist=$1
-target=$2
-
-if [[ ! " ${SUPPORTED_DISTS[@]} " =~ " ${dist} " ]]; then
-    echo "$dist not supported!"
-    usage
-fi
-
-if [[ ! -f "${dist}.mk" ]]; then
-    echo "Error: ${dist}.mk does not exist."
-    exit 1
-fi
-
-echo "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
-
-if make -f "${dist}.mk" install && make install "${target}"; then
-    echo "Installation completed successfully!"
 else
-    echo "Error: Installation failed!"
-    exit 1
+    echo "$1 not suported! Currently supported install commands:"
+    echo "- bash install mac.mk"
+    echo "- bash install ubuntu.mk"
+    echo "- bash install centos.mk"
+    echo "- bash install arch.mk"
+    echo "- bash install fedora.mk"
 fi
