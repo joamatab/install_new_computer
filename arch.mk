@@ -41,14 +41,16 @@ desktop:
 	sudo pacman -Sy --noconfirm \
 		docker \
 		gparted \
+		github-cli \
+		keepassxc \
+		libreoffice \
 		redshift \
 		rofi \
-		libreoffice \
-		keepassxc \
 		transmission-gtk \
 		sxhkd
 	yay -S mons --noconfirm lf-git
 	yay -S klayout --noconfirm lf-git
+	yay -S ultrastartdx-git --noconfirm lf-git
 
 rust:
 	sudo pacman -Sy --noconfirm mcfly ripgrep tokei sd hyperfine du-dust dutree mcfly skim alacritty
