@@ -14,6 +14,7 @@ install:
 		htop \
 		kitty \
 		lsd \
+		libxcrypt-compat \
 		nsxiv \
 		make \
 		mcfly \
