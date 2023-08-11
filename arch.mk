@@ -3,8 +3,11 @@ install:
 	sudo pacman -Sy --noconfirm \
 		alacritty \
 		bat \
+		bottom \
+		broot \
 		curl \
 		cmus \
+		dust \
 		firefox \
 		fish \
 		flameshot \
@@ -20,6 +23,7 @@ install:
 		mcfly \
 		neovim \
 		npm \
+		procs \
 		redshift \
 		ripgrep \
 		rsync \
@@ -27,6 +31,7 @@ install:
 		s3fs \
 		tmux \
 		trash-cli \
+		tealdeer \
 		time \
 		unzip \
 		wget \
