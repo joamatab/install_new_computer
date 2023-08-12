@@ -1,4 +1,0 @@
-pytest-regressions
-lygadgets
-pipx
-neovim
