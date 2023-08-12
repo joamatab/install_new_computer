@@ -9,14 +9,17 @@ restart:
 	vncserver -kill :1
 	vncserver -geometry 2304x1440 # 1440x900 also works
 
-i3: 
+i3:
 	cp xstartup_i3 $(HOME)/.vnc/xstartup
 
-dwm: 
+dwm:
 	cp xstartup_dwm $(HOME)/.vnc/xstartup
 
-ldxe: 
+ldxe:
 	cp xstartup_ldxe $(HOME)/.vnc/xstartup
 
-xfce: 
+xfce:
 	cp xstartup_xfce $(HOME)/.vnc/xstartup
+
+ubuntu-client:
+	sudo apt-get install xtightvncviewer
