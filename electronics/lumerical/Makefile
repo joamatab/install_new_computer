@@ -22,12 +22,15 @@ flexlm2.rpm:
 	cmhmod +x install.sh
 	sudo bash install.sh
 
-ubuntu-deps:
+ubuntu20-deps:
 	sudo apt install -y alien
 	sudo apt install -y libxss1
 	sudo apt install -y libxmlsec1
 	sudo apt install -y libxmlsec1-openssl
 	sudo apt install -y libtk8.5
+
+ubutu-deps:
+	sudo apt-get install -y alien freeglut3-dev libxslt-dev wget
 
 lumerical: lumerical.rpm
 
@@ -77,7 +80,7 @@ clean:
 ubuntu: ubuntu-deps
 	sudo alien -k --scripts lumerical.rpm
 	sudo dpkg -i *.deb
-	sudo rm $(lumpath)/lib/libxmlsec1*
+	# sudo rm $(lumpath)/lib/libxmlsec1*
 
 ubuntu2:
 	sudo rm $(lumpath)/lib/libxmlsec1*
