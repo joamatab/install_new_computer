@@ -29,7 +29,7 @@ ubuntu20-deps:
 	sudo apt install -y libxmlsec1-openssl
 	sudo apt install -y libtk8.5
 
-ubutu-deps:
+ubuntu-deps:
 	sudo apt-get install -y alien freeglut3-dev libxslt-dev wget
 
 lumerical: lumerical.rpm
