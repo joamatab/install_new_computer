@@ -18,7 +18,7 @@ Copy-paste these 3 lines into a terminal. For example `bash install mac.mk` will
 
 ```
 git clone https://github.com/joamatab/install_new_computer.git ~/install_new_computer
-cd install_new_computer
+cd install_new_computer/bash
 bash install mac
 ```
 
