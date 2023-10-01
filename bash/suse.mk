@@ -1,10 +1,10 @@
-install: software 
+install: software
 
 help:
 	@echo 'make install: Install awesome ubuntu software (reccommended)'
 	@echo 'make basic:   Installs only basic ubuntu software'
 
-software: 
+software:
 	sudo zypper install -y \
 		chromium \
 		fish \
@@ -30,7 +30,7 @@ i3:
 
 gnome: sudo zypper install dconf-editor
 
-desktop: 
+desktop:
 	sudo zypper install -y \
 		bpython \
 		dwm \
@@ -45,4 +45,4 @@ desktop:
 		redshift \
 		sxhkd \
 		youtube-dl \
-		zathura  
+		zathura

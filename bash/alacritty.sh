@@ -4,4 +4,3 @@
 cd alacritty
 make install
 ln -sf $PWD/alacritty/target/release/alacritty ~/.local/bin
-

@@ -5,4 +5,3 @@ install:
 update:
 	conda update conda -y
 	conda update --all -y
-	

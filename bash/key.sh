@@ -50,4 +50,3 @@ chmod 600 ~/.ssh/config
 
 ## avoid centos@ip
 # printf "  User centos\n  Hostname $i \n  IdentityFile $id \n  IdentitiesOnly yes \n  StrictHostKeyChecking no\n" >> $HOME/.ssh/config
-

@@ -29,7 +29,7 @@ fi
 
 ################################
 # git config
-# exit(0) indicates successful program termination 
+# exit(0) indicates successful program termination
 # exit(1) (usually) indicates unsucessful termination
 ################################
 
@@ -45,4 +45,3 @@ if [ $? != 0 ]; then
   git config --global core.excludesfile $HOME/.gitignore
   echo "updated .gitconfig with your info ($gituser, $gitemail)"
 fi
-

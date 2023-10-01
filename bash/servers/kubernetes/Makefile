@@ -10,4 +10,3 @@ new:
 
 update:
 	eksctl update cluster -f cluster.yaml
-

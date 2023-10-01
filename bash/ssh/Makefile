@@ -11,7 +11,7 @@ authorize:
 
 install: $(HOME)/.ssh/keys/engineer
 
-$(HOME)/.ssh/keys/engineer: 
+$(HOME)/.ssh/keys/engineer:
 	touch $(HOME)/.ssh/config
 	sh key/install.sh
 

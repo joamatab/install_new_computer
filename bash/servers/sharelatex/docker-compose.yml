@@ -34,28 +34,28 @@ services:
             SHARELATEX_EMAIL_FROM_ADDRESS: noreply@mywebsite.com
             SHARELATEX_EMAIL_REPLY_TO: noreply@mywebsite.com
 
-            # SHARELATEX_EMAIL_AWS_SES_ACCESS_KEY_ID: 
-            # SHARELATEX_EMAIL_AWS_SES_SECRET_KEY: 
+            # SHARELATEX_EMAIL_AWS_SES_ACCESS_KEY_ID:
+            # SHARELATEX_EMAIL_AWS_SES_SECRET_KEY:
             # SHARELATEX_EMAIL_SMTP_HOST: email-smtp.us-west-2.amazonaws.com
             # SHARELATEX_EMAIL_SMTP_PORT: 587
             # SHARELATEX_EMAIL_SMTP_SECURE: 'true'
-            # SHARELATEX_EMAIL_SMTP_USER: 
-            # SHARELATEX_EMAIL_SMTP_PASS: 
+            # SHARELATEX_EMAIL_SMTP_USER:
+            # SHARELATEX_EMAIL_SMTP_PASS:
             # SHARELATEX_EMAIL_SMTP_IGNORE_TLS: 'false'
 
             # SHARELATEX_EMAIL_SMTP_HOST: smtp.office365.com
             # SHARELATEX_EMAIL_SMTP_PORT: 587
             # SHARELATEX_EMAIL_SMTP_SECURE: 'true'
-            # SHARELATEX_EMAIL_SMTP_USER: 
-            # SHARELATEX_EMAIL_SMTP_PASS: 
+            # SHARELATEX_EMAIL_SMTP_USER:
+            # SHARELATEX_EMAIL_SMTP_PASS:
             # SHARELATEX_EMAIL_SMTP_IGNORE_TLS: 'false'
             # SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH: 'false'
             # SHARELATEX_CUSTOM_EMAIL_FOOTER: "<div>This system is run by department x </div>"
-            
+
             # SHARELATEX_EMAIL_SMTP_HOST: smtp.mailgun.org
             # SHARELATEX_EMAIL_SMTP_PORT: 587
-            # SHARELATEX_EMAIL_SMTP_USER: 
-            # SHARELATEX_EMAIL_SMTP_PASS: 
+            # SHARELATEX_EMAIL_SMTP_USER:
+            # SHARELATEX_EMAIL_SMTP_PASS:
             #
             # SHARELATEX_EMAIL_SMTP_SECURE: 'true'
             # SHARELATEX_EMAIL_SMTP_IGNORE_TLS: 'false'
@@ -83,8 +83,8 @@ services:
             # SHARELATEX_TEMPLATES_USER_ID: "578773160210479700917ee5"
             # SHARELATEX_PROXY_LEARN: "true"
             #
-            # SHARELATEX_LDAP_URL: 
-            # SHARELATEX_LDAP_SEARCH_BASE: 
+            # SHARELATEX_LDAP_URL:
+            # SHARELATEX_LDAP_SEARCH_BASE:
 
     mongo:
         restart: always

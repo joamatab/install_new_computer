@@ -11,4 +11,3 @@ cd ~/src/venv/debops
 source bin/activate
 
 pip3 install --user debops[ansible]
-

@@ -1,4 +1,3 @@
-from typing import Tuple
 from dataclasses import dataclass
 
 
@@ -8,7 +7,7 @@ class InventoryItem:
 
     name: str = "item"
     quantity_on_hand: int = 0
-    layer: Tuple[int, int] = (1, 0)
+    layer: tuple[int, int] = (1, 0)
 
     def __getitem__(self, i):
         return self.layer[i]

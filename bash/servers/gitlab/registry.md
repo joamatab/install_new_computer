@@ -32,4 +32,3 @@ registry:
 
 - https://docs.gitlab.com/ee/administration/packages/container_registry.html
 - https://docs.docker.com/registry/deploying/
-

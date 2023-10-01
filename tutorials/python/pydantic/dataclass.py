@@ -1,4 +1,3 @@
-
 from pydantic import AnyUrl
 from pydantic.dataclasses import dataclass
 
@@ -13,5 +12,5 @@ class Navbar:
     button: NavbarButton
 
 
-navbar = Navbar(button=('https://example.com',))
+navbar = Navbar(button=("https://example.com",))
 print(navbar)

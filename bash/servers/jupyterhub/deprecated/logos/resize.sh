@@ -4,4 +4,3 @@
 
 convert meep.png -resize 32x32 ../kernels_centos/meep/logo-32x32.png
 convert meep.png -resize 64x64 ../kernels_centos/meep/logo-64x64.png
-

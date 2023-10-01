@@ -10,7 +10,7 @@ def register(func):
 
 
 def timer(func):
-    """ template for decorators """
+    """template for decorators"""
 
     @functools.wraps(func)
     def _timer(*args, **kwargs):
@@ -24,7 +24,7 @@ def timer(func):
 
 
 def repeat_n(num_times=2):
-    """ repeat n times"""
+    """repeat n times"""
 
     def decorator_repeat(func):
         @functools.wraps(func)
@@ -55,7 +55,7 @@ def repeat(_func=None, *, num_times=2):
 
 
 def trace(func):
-    """ trace """
+    """trace"""
 
     @functools.wraps(func)
     def _wrapper(*args, **kwargs):
@@ -81,7 +81,7 @@ def trace(func):
 
 
 def count_calls(func):
-    """ count the number of calls to a function
+    """count the number of calls to a function
     shows how to keep state in your decorator
     """
 
@@ -94,7 +94,6 @@ def count_calls(func):
     return _count_calls
 
 
-
 class Adder:
     def __init__(self, number):
         self.number = number
@@ -104,7 +103,8 @@ class Adder:
 
 
 class CountCalls:
-    """ count number of calls to a function"""
+    """count number of calls to a function"""
+
     def __init__(self, func):
         self.func = func
         self.num_calls = 0
@@ -115,11 +115,6 @@ class CountCalls:
         return self.func(*args, **kwargs)
 
 
-
-if __name__ == "__main__": 
+if __name__ == "__main__":
     add_3 = Adder(3)
     print(add_3(5))
-
-
-
-

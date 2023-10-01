@@ -9,5 +9,3 @@ systemctl daemon-reload
 systemctl enable vncserver@:1.service
 reboot
 systemctl start vncserver@:1.service
-
-

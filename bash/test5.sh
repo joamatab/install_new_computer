@@ -9,4 +9,3 @@ for i in \
 do
   require_brew $i
 done
-

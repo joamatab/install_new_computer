@@ -115,4 +115,3 @@ volumes:
 
 # Just specify a path and let the Engine create a volume
     # - ~/images/upload:/codimd/public/
-

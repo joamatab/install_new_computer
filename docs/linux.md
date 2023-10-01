@@ -24,4 +24,3 @@ install openvpn
 then you import the file in settings, network, and make sure that you use the VPN only for the services that you need to
 
 ![linux vpn](images/linux_vpn.png)
-

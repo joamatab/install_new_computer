@@ -5,4 +5,3 @@ cd re-search
 make
 mkdir -p ~/.local/bin
 cp re-search ~/.local/bin
-

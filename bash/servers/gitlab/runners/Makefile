@@ -11,4 +11,3 @@ ubuntu: gitlab-runner_amd64.deb
 
 centos: gitlab-runner_amd64.rpm
 	sudo yum install -y gitlab-runner_amd64.rpm
-

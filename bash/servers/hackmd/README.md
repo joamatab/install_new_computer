@@ -63,5 +63,3 @@ delete from "Users" where email = 'user_name@mywebsite.com' and profileid = '';
 delete from "Users" where profileid = 'LDAP-joaquin';
 
 select profileid,email from "Users" where email = 'joaquin';
-
-

@@ -12,11 +12,9 @@ sudo service nginx restart
 sudo service nginx status
 
 
-supervisord -c supervisord.conf  
+supervisord -c supervisord.conf
 # cp config/supervisor-devpi.conf /etc/supervisor/conf.d/
 # supervisorctl status
 # supervisorctl add devpi-server
 # supervisorctl update
 supervisorctl start devpi-server
-
-

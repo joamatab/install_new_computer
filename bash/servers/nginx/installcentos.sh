@@ -7,4 +7,3 @@ sudo /etc/init.d/nginx start
 nginx -s reload
 sudo service nginx restart
 sudo service nginx status
-

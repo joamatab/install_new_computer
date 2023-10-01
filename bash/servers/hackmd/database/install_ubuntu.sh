@@ -5,4 +5,3 @@ sudo systemctl start postgresql
 
 sudo -u postgres createuser ubuntu
 sudo -u postgres createdb -O ubuntu hackmd
-

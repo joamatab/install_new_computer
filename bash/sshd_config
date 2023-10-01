@@ -16,7 +16,6 @@ SyslogFacility AUTHPRIV
 TrustedUserCAKeys /etc/ssh/ca_keys
 UsePAM yes
 X11Forwarding yes
-TCPKeepAlive no 
+TCPKeepAlive no
 ClientAliveInterval 30
 ClientAliveCountMax 240
-

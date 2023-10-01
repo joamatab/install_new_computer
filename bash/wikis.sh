@@ -34,4 +34,3 @@ else
   cd ~/wikis/awesome_photonics
   git pull
 fi
-

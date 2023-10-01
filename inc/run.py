@@ -7,13 +7,13 @@ adapted from https://github.com/hauntsaninja/personal_setup/blob/master/run.py
 import argparse
 import functools
 import subprocess
+import sys
 import textwrap
 from pathlib import Path
-import sys
 
 
 def blue_print(arg):
-    print("\033[1;34m{}\033[0m".format(arg))
+    print(f"\033[1;34m{arg}\033[0m")
 
 
 def pretty_name(fn):
@@ -42,7 +42,7 @@ def run(cmd, verbose=True):
     return proc.poll()
 
 
-fns = [] # functions
+fns = []  # functions
 
 
 def collect(fn):
@@ -92,8 +92,8 @@ def sh(check=True):
                     print()
                     return
             lines = fn(*args, **kwargs).splitlines()
-            for l in lines:
-                cmd = l.strip()
+            for line in lines:
+                cmd = line.strip()
                 if not cmd:
                     continue
                 returncode = run(cmd)

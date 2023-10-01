@@ -1,4 +1,4 @@
-bootstrap.py: 
+bootstrap.py:
 	wget https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py
 
 install_notebooks: bootstrap.py
@@ -8,7 +8,7 @@ install: bootstrap.py
 	sudo su
 	bash install.sh
 
-shared: 
+shared:
 	sudo mkdir -p /srv/data/shared_data_read_only
 	# sudo cp jupyterlab_welcome_notebooks/welcome.ipynb /srv/data/shared_data_read_only/
 	sudo mkdir -p /srv/data/shared_data
@@ -25,4 +25,3 @@ conda:
 	sudo ln -sf /opt/tljh/user/bin/conda /usr/local/bin/conda
 	sudo ln -sf /opt/tljh/user/bin/pip /usr/local/bin/pip
 	# etc/profile.d/conda.sh
-

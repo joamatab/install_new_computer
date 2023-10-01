@@ -1,0 +1,142 @@
+# https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
+
+[project]
+authors = [
+  {name = "joamatab", email = "4514346+joamatab@users.noreply.github.com"}
+]
+classifiers = [
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "typer"
+]
+description = "install new computer"
+keywords = ["python"]
+license = {file = "LICENSE"}
+name = "inc"
+readme = "README.md"
+requires-python = ">=3.10"
+version = "0.0.1"
+
+[project.optional-dependencies]
+dev = [
+  "pre-commit",
+  "pytest",
+  "pytest-cov",
+  "pytest_regressions"
+]
+docs = [
+  "jupytext",
+  "autodoc_pydantic",
+  "matplotlib",
+  "jupyter-book==0.15.1",
+  "sphinx-click"
+]
+
+[project.scripts]
+inc = "inc.cli:app"
+
+[tool.black]
+exclude = '''  # Specify the files/dirs that should be ignored by the black formatter
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | env
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+include = '\.pyi?$'
+line-length = 88
+target-version = ['py310']
+
+[tool.codespell]
+ignore-words-list = "te, te/tm, te, ba, fpr, fpr_spacing, ro, nd, donot, schem"
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+
+[tool.pylsp-mypy]
+enabled = true
+live_mode = true
+strict = true
+
+[tool.pytest.ini_options]
+# addopts = --tb=no
+addopts = '--tb=short'
+norecursedirs = ["extra/*.py"]
+python_files = ["inc/*.py", "notebooks/*.ipynb", "tests/*.py"]
+testpaths = ["inc/", "tests"]
+
+[tool.ruff]
+extend-exclude = ['bash/*']
+fix = true
+ignore = [
+  "E501",  # line too long, handled by black
+  "B008",  # do not perform function calls in argument defaults
+  "C901",  # too complex
+  "B905",  # `zip()` without an explicit `strict=` parameter
+  "C408"  # C408 Unnecessary `dict` call (rewrite as a literal)
+]
+select = [
+  "E",  # pycodestyle errors
+  "W",  # pycodestyle warnings
+  "F",  # pyflakes
+  "I",  # isort
+  "C",  # flake8-comprehensions
+  "B",  # flake8-bugbear
+  "UP"
+]
+
+[tool.ruff.per-file-ignores]
+"bash/*/*.py" = ["F821", 'E402', 'F405', 'F403']
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.setuptools.package-data]
+mypkg = ["*.csv", "*.yaml"]
+
+[tool.setuptools.packages]
+find = {}
+
+[tool.tbump]
+
+[[tool.tbump.file]]
+src = "README.md"
+
+[[tool.tbump.file]]
+src = "pyproject.toml"
+
+[[tool.tbump.file]]
+src = "inc/__init__.py"
+
+[tool.tbump.git]
+message_template = "Bump to {new_version}"
+tag_template = "v{new_version}"
+
+[tool.tbump.version]
+current = "0.0.1"
+# Example of a semver regexp.
+# Make sure this matches current_version before
+# using tbump
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  '''

@@ -1,5 +1,4 @@
-from typing import Tuple
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 
 
 @dataclass
@@ -8,7 +7,7 @@ class InventoryItem:
 
     name: str = "item"
     quantity_on_hand: int = 0
-    layer: Tuple[int, int] = (1, 0)
+    layer: tuple[int, int] = (1, 0)
 
 
 if __name__ == "__main__":

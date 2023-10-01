@@ -1,4 +1,3 @@
-
 from decorators import repeat
 
 
@@ -6,10 +5,11 @@ from decorators import repeat
 def greet(name):
     print(f"Hello {name}")
 
+
 @repeat
 def say_whee():
     print("Whee!")
 
 
-greet('joaquin')
+greet("joaquin")
 say_whee()

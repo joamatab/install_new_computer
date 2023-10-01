@@ -2,7 +2,7 @@
 
 sudo pkill apache
 sudo apt remove apache
-sudo apt-get install -y nginx 
+sudo apt-get install -y nginx
 
 sudo cp nginx.conf /etc/nginx/sites-available/default
 sudo service nginx reload

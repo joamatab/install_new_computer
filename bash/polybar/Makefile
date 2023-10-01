@@ -11,6 +11,3 @@ fedora2:
 fedora:
 	sudo dnf install -y gcc-c++ clang git cmake @development-tools python3-sphinx
 	sudo dnf install -y cairo-devel xcb-util-devel libxcb-devel xcb-proto xcb-util-image-devel xcb-util-wm-devel
-
-
-

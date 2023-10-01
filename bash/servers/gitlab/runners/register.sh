@@ -14,5 +14,3 @@ sudo gitlab-runner register -n \
   --docker-privileged \
   --run-untagged="true" \
   --locked="false"
-
-

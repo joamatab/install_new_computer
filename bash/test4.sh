@@ -16,4 +16,3 @@ do
     echo "install $i"
   fi
 done
-

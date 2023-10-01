@@ -34,4 +34,3 @@ for i in \
 do
   require_cask $i
 done
-

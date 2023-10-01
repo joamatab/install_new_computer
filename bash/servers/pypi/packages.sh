@@ -8,5 +8,3 @@ do
   git pull
   python setup.py sdist
 done
-
-
