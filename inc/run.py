@@ -7,7 +7,6 @@ adapted from https://github.com/hauntsaninja/personal_setup/blob/master/run.py
 import argparse
 import functools
 import subprocess
-import sys
 import textwrap
 from pathlib import Path
 
@@ -65,7 +64,7 @@ def skip_if(cmd, should_fail=False, should_raise=False):
                 raise subprocess.CalledProcessError(returncode, cmd)
             else:
                 blue_print("=" * 25)
-                blue_print("Skipping installing " + pretty_name(fn) + "...")
+                blue_print(f"Skipping installing {pretty_name(fn)}...")
                 blue_print("=" * 25)
                 print()
 
@@ -83,7 +82,7 @@ def sh(check=True):
         @functools.wraps(fn)
         def inner(*args, **kwargs):
             blue_print("=" * 25)
-            blue_print("Installing " + pretty_name(fn) + "...")
+            blue_print(f"Installing {pretty_name(fn)}...")
             blue_print("=" * 25)
             print()
             if not ARGS.yes:
@@ -207,14 +206,6 @@ def brew_casks():
     brew install --cask atom
     brew install --cask visual-studio-code
     """
-    # TODO: install vscode extensions or sync settings
-    # atom one dark theme
-    # atom one light theme
-    # error lens
-    # git lens
-    # pylance
-    # rewrap
-    # selected lines count
 
 
 @collect
@@ -279,12 +270,19 @@ def python_tools():
     """
 
 
-if __name__ == "__main__":
+def main():
+    global ARGS
+    global fns
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--yes", action="store_true", help="Don't ask, just do!")
     parser.add_argument("sections", nargs="*", help="Things to run")
-    ARGS = parser.parse_args(sys.argv[1:])
+    ARGS = parser.parse_args()
 
     for fn in fns:
         if not ARGS.sections or any(x == fn.__name__.lower() for x in ARGS.sections):
             fn()
+
+
+if __name__ == "__main__":
+    main()
