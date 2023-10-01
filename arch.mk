@@ -23,6 +23,7 @@ install:
 		mcfly \
 		neovim \
 		npm \
+		ntp \
 		procs \
 		redshift \
 		ripgrep \
