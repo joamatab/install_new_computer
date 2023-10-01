@@ -1,4 +1,4 @@
-# Install software in a new computer 0.0.2
+# Install software in a new computer 0.0.3
 
 Install basic software for different operating systems:
 
