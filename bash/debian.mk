@@ -13,6 +13,7 @@ install:
 		gcc \
 		golang-go \
 		git \
+		git-lfs \
 		htop \
 		kitty \
 		kdiff3 \
