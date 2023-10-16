@@ -1,3 +1,2 @@
 
-
 cargo install --locked bat
