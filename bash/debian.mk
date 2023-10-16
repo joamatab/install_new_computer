@@ -22,18 +22,15 @@ install:
 		make \
 		neovim \
 		nodejs \
-		python3 \
-		python3-pip \
-		python3-venv \
 		xz-utils \
 		ripgrep \
 		rsync \
 		ruby \
 		ruby-dev \
-		silversearcher-ag \
 		tmux \
 		wget \
 		xclip \
+		sxhkd \
 		yarn \
 		zlib1g-dev
 

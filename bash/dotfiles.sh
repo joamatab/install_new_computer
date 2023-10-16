@@ -10,7 +10,7 @@ if [ -d $DOTFILES ]; then
   sh install.sh
 else
   echo "installing dotfiles"
-  git clone http://github.com/joamatab/dotfiles.git ~/dotfiles
+  git clone git@github.com:joamatab/dotfiles.git $DOTFILES
   cd ~/dotfiles/
   sh install.sh
 fi

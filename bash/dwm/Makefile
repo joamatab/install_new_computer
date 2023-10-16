@@ -10,4 +10,4 @@ ubuntu:
 	sudo apt install libxcb-xinerama0 libxcb-xinerama0-dev
 
 debian:
-	sudo apt install libx11-xcb-dev
+	sudo apt install libx11-xcb-dev libx11-dev libxinerama-dev libxft-dev libx11-xcb-dev libxcb-res0-dev
