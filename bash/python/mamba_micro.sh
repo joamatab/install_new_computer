@@ -9,9 +9,9 @@ if [[ ! -d $HOME/mambaforge ]]; then
   if [[ -d /Applications ]]; then
 
     curl -Ls https://micro.mamba.pm/api/micromamba/osx-64/latest | tar -xvj bin/micromamba
-mv bin/micromamba ./micromamba
 
   else
     wget -qO- https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
   fi
 fi
+cp bin/micromamba ~/.local/bin/micromamba
