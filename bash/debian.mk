@@ -34,6 +34,8 @@ install:
 		sxhkd \
 		yarn \
 		zlib1g-dev
+sway:
+	sudo apt install sway waybar kanshi -y
 
 gui:
 	sudo apt install -y \
