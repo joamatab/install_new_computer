@@ -35,7 +35,7 @@ install:
 		yarn \
 		zlib1g-dev
 sway:
-	sudo apt install sway waybar kanshi light alsa-utils slurp grim -y
+	sudo apt install sway waybar kanshi light alsa-utils slurp grim swaylock -y
 
 gui:
 	sudo apt install -y \
