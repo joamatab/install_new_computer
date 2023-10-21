@@ -10,3 +10,6 @@ debian:
 build: klayout
 	cd klayout
 	./build.sh
+
+nix:
+	nix-shell -p klayout
