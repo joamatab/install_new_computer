@@ -2,25 +2,21 @@
 
 pip install \
   black \
-  bumpversion \
   classifier \
   howdoi \
   gitcli \
   img2pdf \
-  isort \
+  sourcery \
   nbconvert \
   neovim \
   mkinit \
-  notedown \
   nbdime \
   pillow \
   pre-commit \
-  pyflakes \
   pylint \
   recommonmark \
   sphinx \
-  sphinx_rtd_theme \
-  tox \
+  tbump \
   trash-cli \
   virtualenvwrapper\
   pytest-watch\
