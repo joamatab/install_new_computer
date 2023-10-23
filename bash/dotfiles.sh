@@ -11,12 +11,12 @@ if [ -d $DOTFILES ]; then
   echo "updating dotfiles"
   cd $DOTFILES
   git pull
-  sh install.sh
+  sh install
 else
   echo "installing dotfiles"
   git clone git@github.com:joamatab/dotfiles.git $DOTFILES
   cd ~/dotfiles/
-  sh install.sh
+  sh install
 fi
 
 if [ ! -d $DOTFILES_LUKE ]; then
