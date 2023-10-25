@@ -35,7 +35,7 @@ install:
 		yarn \
 		zlib1g-dev
 sway:
-	sudo apt install sway waybar kanshi light alsa-utils slurp grim swaylock wl-clipboard wofi wtype -y
+	sudo apt install sway waybar kanshi light alsa-utils slurp grim swaylock wl-clipboard wofi wtype mako-notifier -y
 
 gui:
 	sudo apt install -y \
