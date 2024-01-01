@@ -4,7 +4,7 @@ debian:
 	nix-channel --update
 
 klayout:
-	nix-shell -p klayout       
+	nix-shell -p klayout
 
 paraview:
-	nix-shell -p paraview        
+	nix-shell -p paraview
