@@ -38,6 +38,8 @@ i3-cinnamon/
 betterlockscreen/
 markdown-to-google-doc/
 .ipynb_checkpoints/
+bash/electronics/qucs-s-2.1.0/
+*.tar.gz*
 st/
 st2/
 tldr
