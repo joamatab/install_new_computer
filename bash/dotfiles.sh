@@ -5,8 +5,6 @@ DOTFILES="$HOME/dotfiles"
 DOTFILES_LUKE="$HOME/dotfiles/extra/luke"
 DOTFILES_BRODIE="$HOME/dotfiles/extra/brodie"
 
-mkdir -p "$HOME/dotfiles/"
-
 if [ -d $DOTFILES ]; then
   echo "updating dotfiles"
   cd $DOTFILES
