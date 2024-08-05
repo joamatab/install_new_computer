@@ -1,12 +1,12 @@
 #! /bin/bash
 
 # Fetch the latest release URL from GitHub API
-latest_url=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep "browser_download_url.*nvim-linux64.tar.gz" | cut -d '"' -f 4)
+#latest_url=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep "browser_download_url.*nvim-linux64.tar.gz" | cut -d '"' -f 4)
 # Download the latest Neovim tarball
-wget "$latest_url" -O nvim-linux64.tar.gz
+#wget "$latest_url" -O nvim-linux64.tar.gz
 
-# Download the Neovim tarball
-# wget https://github.com/neovim/neovim/releases/download/latest/nvim-linux64.tar.gz
+
+wget https://github.com/neovim/neovim/releases/download/v0.10.1/nvim-linux64.tar.gz
 
 # Extract the tarball
 tar xzvf nvim-linux64.tar.gz
@@ -31,4 +31,8 @@ then
     echo "Neovim installed successfully"
 else
     echo "Neovim installation failed"
+fi
+
+if [ ! -f $HOME/.local/share/nvim/site/autoload/plug.vim ]; then
+  curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
