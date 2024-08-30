@@ -7,7 +7,6 @@ install:
 		build-essential \
 		cmake \
 		curl \
-		dwm \
 		fish \
 		g++ \
 		gcc \
@@ -66,18 +65,21 @@ desktop:
 		flameshot \
 		glances \
 		htop \
+		i3 \
+		i3status \
 		jq \
 		keepassxc \
 		libreoffice \
 		openssh-server \
 		pgcli \
 		remmina \
+		rofi \
 		scrot \
 		sxhkd \
 		sxiv \
+		vinagre \
 		xcape \
 		youtube-dl \
-		vinagre \
 		zathura \
 	    redshift
 

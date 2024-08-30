@@ -73,9 +73,9 @@ desktop:
 		scrot \
 		sxhkd \
 		sxiv \
+		vinagre \
 		xcape \
 		youtube-dl \
-		vinagre \
 		zathura \
 	    redshift
 
