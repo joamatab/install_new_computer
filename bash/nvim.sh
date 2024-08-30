@@ -14,7 +14,7 @@ tar xzvf nvim-linux64.tar.gz
 # Check if ~/.local/bin exists
 if [ -d "$HOME/.local/bin" ]; then
     # If ~/.local/bin exists, place the nvim binary there
-    ln -s "$PWD/nvim-linux64/bin/nvim" "$HOME/.local/bin/"
+    ln -sf "$PWD/nvim-linux64/bin/nvim" "$HOME/.local/bin/"
     echo "Neovim binary linked to $HOME/.local/bin"
 else
     # If ~/.local/bin does not exist, place the nvim binary in /usr/local/bin
@@ -23,7 +23,7 @@ else
 fi
 
 # Clean up
-rm -rf nvim-linux64 nvim-linux64.tar.gz
+rm -rf nvim-linux64.tar.gz
 
 # Verify the installation
 if command -v nvim &> /dev/null
