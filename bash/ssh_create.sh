@@ -4,7 +4,7 @@
 # create SSH key and open gitlab / github
 ########################################
 
-export KEY_NAME="ed_key"
+export KEY_NAME="id_ed25519"
 
 if [ ! -f $HOME/.ssh/$KEY_NAME.pub ]; then
   echo 'Lets create a GIT credential and add it to http://github.com and/or gitlab.com'
