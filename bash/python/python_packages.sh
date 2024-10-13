@@ -32,3 +32,4 @@ pip install \
 # mamba install -y jaxlib
 # mamba install pymeep=*=mpi_mpich_* -y
 # mamba install -y matplotlib
+conda install -y  -c conda-forge gh
