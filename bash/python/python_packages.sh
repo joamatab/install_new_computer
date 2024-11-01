@@ -1,27 +1,28 @@
 #!/bin/bash
 
 pip install \
-  black \
   classifier \
-  howdoi \
   gitcli \
+  howdoi \
   img2pdf \
-  sourcery \
-  nbconvert \
-  neovim \
   mkinit \
+  nbconvert \
   nbdime \
+  neovim \
   pillow \
   pre-commit \
   pylint \
+  pytest-testmon\
+  pytest-watch\
   recommonmark \
+  ruff \
+  ruff-lsp\
+  sourcery \
   sphinx \
   tbump \
+  towncrier \
   trash-cli \
   virtualenvwrapper\
-  pytest-watch\
-  pytest-testmon\
-  ruff-lsp\
   PyPDF2
 
 # mamba install -y \
@@ -31,3 +32,4 @@ pip install \
 # mamba install -y jaxlib
 # mamba install pymeep=*=mpi_mpich_* -y
 # mamba install -y matplotlib
+conda install -y  -c conda-forge gh
