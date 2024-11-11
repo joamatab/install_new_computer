@@ -1,24 +1,38 @@
 #!/bin/bash
-# I recommend installing miniconda with pyenv, so you can also install other python versions
 
-echo "checking conda install for python3 64 bits"
+echo "Checking conda install for Python3 64 bits"
+
+# Check if Conda is already installed
 if [[ ! -d $HOME/miniconda3 ]]; then
-  echo "installing conda"
-  if [[ -d /Applications ]]; then
-    wget -O 'miniconda3.sh' 'https://repo.continuum.io/miniconda/Miniconda3-py311_24.7.1-0-MacOSX-x86_64.sh'
+  echo "Installing Conda..."
+
+  # Download the installer using curl if wget isn't available
+  if command -v wget &> /dev/null; then
+    if [[ "$(uname)" == "Darwin" ]]; then
+      wget -O 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-MacOSX-x86_64.sh'
+    else
+      wget -O 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-Linux-x86_64.sh'
+    fi
   else
-    wget -O 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-Linux-x86_64.sh'
+    if [[ "$(uname)" == "Darwin" ]]; then
+      curl -o 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-MacOSX-x86_64.sh'
+    else
+      curl -o 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-Linux-x86_64.sh'
+    fi
   fi
-  bash miniconda3.sh -b
+
+  # Run the installer in batch mode (-b) to skip user prompts
+  bash miniconda3.sh -b -p $HOME/miniconda3
   rm miniconda3.sh
-  # sudo ln -s $HOME/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+
+  # Initialize Conda for current shell session
+  $HOME/miniconda3/bin/conda init
+
+  # Add Conda to PATH for the session
+  export PATH="$HOME/miniconda3/bin:$PATH"
+  echo "Conda installation completed and added to PATH."
+
+else
+  echo "Conda is already installed."
 fi
 
-# sudo ln -sf $HOME/miniconda3/bin/python /usr/local/bin/python
-# sudo ln -sf $HOME/miniconda3/bin/pip /usr/local/bin/pip
-
-# cp $HOME/miniconda3/bin/python /usr/local/bin/python
-# cp $HOME/miniconda3/bin/pip /usr/local/bin/pip
-# conda install -y python=3.6
-# ln -sf $HOME/miniconda3/bin/python3.6 /usr/local/bin/python
-# conda create -n emopt python=2
