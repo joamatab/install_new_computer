@@ -1,38 +1,46 @@
 #!/bin/bash
 
-echo "Checking conda install for Python3 64 bits"
+version="py311_24.7.1-0"
 
-# Check if Conda is already installed
-if [[ ! -d $HOME/miniconda3 ]]; then
-  echo "Installing Conda..."
+echo "checking conda install for python3 64 bits"
 
-  # Download the installer using curl if wget isn't available
-  if command -v wget &> /dev/null; then
-    if [[ "$(uname)" == "Darwin" ]]; then
-      wget -O 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-MacOSX-x86_64.sh'
-    else
-      wget -O 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-Linux-x86_64.sh'
-    fi
+# check if conda is already installed
+if [[ ! -d $home/miniconda3 ]]; then
+  echo "installing conda..."
+
+  # detect architecture
+  architecture=$(uname -m)
+  if [[ "$architecture" == "arm64" ]]; then
+    # arm64 installer for apple silicon
+    echo "detected arm64 architecture. using arm-specific miniconda installer."
+    mkdir -p ~/miniconda3
+    curl -o ~/miniconda3/miniconda.sh "https://repo.anaconda.com/miniconda/miniconda3-${version}-macosx-arm64.sh"
+    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
   else
-    if [[ "$(uname)" == "Darwin" ]]; then
-      curl -o 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-MacOSX-x86_64.sh'
-    else
-      curl -o 'miniconda3.sh' 'https://repo.anaconda.com/miniconda/Miniconda3-py311_24.7.1-0-Linux-x86_64.sh'
-    fi
+    # x86_64 installer for intel macs
+    echo "detected x86_64 architecture. using x86_64 miniconda installer."
+    mkdir -p ~/miniconda3
+    curl -o ~/miniconda3/miniconda.sh "https://repo.anaconda.com/miniconda/miniconda3-${version}-macosx-x86_64.sh"
+    bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+  fi
+  
+  # remove the installer script
+  rm ~/miniconda3/miniconda.sh
+
+  # add conda to path in .bashrc
+  if ! grep -q 'export path="$home/miniconda3/bin:$path"' ~/.bashrc; then
+    echo 'export path="$home/miniconda3/bin:$path"' >> ~/.bashrc
+    echo "conda has been added to .bashrc."
+  else
+    echo "conda is already in .bashrc."
   fi
 
-  # Run the installer in batch mode (-b) to skip user prompts
-  bash miniconda3.sh -b -p $HOME/miniconda3
-  rm miniconda3.sh
-
-  # Initialize Conda for current shell session
-  $HOME/miniconda3/bin/conda init
-
-  # Add Conda to PATH for the session
-  export PATH="$HOME/miniconda3/bin:$PATH"
-  echo "Conda installation completed and added to PATH."
+  # source .bashrc to immediately apply the change
+  source ~/.bashrc
+  echo "conda installation completed and added to path."
 
 else
-  echo "Conda is already installed."
+  echo "conda is already installed."
 fi
+
 
