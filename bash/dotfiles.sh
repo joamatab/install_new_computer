@@ -30,4 +30,3 @@ else
   cd $DOTFILES_BRODIE
   git pull
 fi
-
