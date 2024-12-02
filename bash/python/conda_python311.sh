@@ -23,7 +23,7 @@ if [[ ! -d $home/miniconda3 ]]; then
     curl -o ~/miniconda3/miniconda.sh "https://repo.anaconda.com/miniconda/miniconda3-${version}-macosx-x86_64.sh"
     bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
   fi
-  
+
   # remove the installer script
   rm ~/miniconda3/miniconda.sh
 
@@ -42,5 +42,3 @@ if [[ ! -d $home/miniconda3 ]]; then
 else
   echo "conda is already installed."
 fi
-
-
