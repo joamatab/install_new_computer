@@ -4,7 +4,6 @@ https://github.com/dabeaz/python-cookbook/blob/master/src/9/defining_a_decorator
 
 """
 
-
 import logging
 from functools import partial, wraps
 
