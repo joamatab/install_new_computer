@@ -24,7 +24,3 @@ else
     echo "Error: Font installation failed." >&2
     exit 1
 fi
-
-
-
-

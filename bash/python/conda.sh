@@ -51,4 +51,3 @@ if [[ ! -d "$HOME/miniconda3" ]]; then
 else
   echo "Conda is already installed."
 fi
-

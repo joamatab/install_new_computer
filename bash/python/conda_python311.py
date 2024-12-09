@@ -7,6 +7,7 @@ import sys
 def is_conda_installed():
     return os.path.isdir(os.path.expanduser("~/miniconda3"))
 
+
 def install_conda(version):
     os_name = platform.system()
     architecture = platform.machine()
@@ -15,7 +16,9 @@ def install_conda(version):
     if os_name == "Darwin":
         if architecture == "arm64":
             # arm64 installer for Apple Silicon
-            print("Detected arm64 architecture. Using arm-specific Miniconda installer.")
+            print(
+                "Detected arm64 architecture. Using arm-specific Miniconda installer."
+            )
             installer_url = f"https://repo.anaconda.com/miniconda/Miniconda3-{version}-MacOSX-arm64.sh"
         else:
             # x86_64 installer for Intel Macs
@@ -24,7 +27,9 @@ def install_conda(version):
     elif os_name == "Linux":
         # Linux installer
         print("Detected Linux. Using Linux Miniconda installer.")
-        installer_url = f"https://repo.anaconda.com/miniconda/Miniconda3-{version}-Linux-x86_64.sh"
+        installer_url = (
+            f"https://repo.anaconda.com/miniconda/Miniconda3-{version}-Linux-x86_64.sh"
+        )
     else:
         print("Unsupported operating system.")
         sys.exit(1)
@@ -33,7 +38,9 @@ def install_conda(version):
     # Download installer
     subprocess.run(["curl", "-o", installer_path, installer_url], check=True)
     # Install Miniconda
-    subprocess.run(["bash", installer_path, "-b", "-u", "-p", f"{home_dir}/miniconda3"], check=True)
+    subprocess.run(
+        ["bash", installer_path, "-b", "-u", "-p", f"{home_dir}/miniconda3"], check=True
+    )
     # Remove installer
     os.remove(installer_path)
 
@@ -51,6 +58,7 @@ def install_conda(version):
     subprocess.run(["bash", "-c", "source ~/.bashrc"], check=True)
     print("Conda installation completed and added to PATH.")
 
+
 def main(version):
     print("Checking conda installation for Python 3 (64-bit)...")
     if not is_conda_installed():
@@ -59,7 +67,7 @@ def main(version):
     else:
         print("Conda is already installed.")
 
+
 if __name__ == "__main__":
     version = "py311_24.7.1-0"
     main(version)
-
