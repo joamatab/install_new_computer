@@ -1,10 +1,9 @@
 import os
 import subprocess
 import webbrowser
-import textwrap
 from pathlib import Path
+
 import typer
-import functools
 
 app = typer.Typer()
 
@@ -33,7 +32,6 @@ def ssh_create(
         )
 
         print("SSH key created. Copying the key to the clipboard...")
-
 
         # Start the SSH agent
         subprocess.run(["eval", "$(ssh-agent -s)"], shell=True)
@@ -71,7 +69,7 @@ def ssh_create(
                 )
             else:
                 print("Unsupported OS. Please copy the key manually from:")
-                print(open(f"{key_path}.pub", "r").read())
+                print(open(f"{key_path}.pub").read())
         except Exception as e:
             print(f"Error copying key to clipboard: {e}")
 
@@ -87,11 +85,17 @@ def fish():
 
     try:
         # Find fish binary
-        fish_bin = subprocess.check_output(["which", "fish"], stderr=subprocess.DEVNULL).decode().strip()
+        fish_bin = (
+            subprocess.check_output(["which", "fish"], stderr=subprocess.DEVNULL)
+            .decode()
+            .strip()
+        )
         print(f"Fish binary found at: {fish_bin}")
 
         # Add Fish shell to /etc/shells
-        subprocess.run(["sudo", "tee", "-a", "/etc/shells"], input=f"{fish_bin}\n", text=True)
+        subprocess.run(
+            ["sudo", "tee", "-a", "/etc/shells"], input=f"{fish_bin}\n", text=True
+        )
         print("Fish shell added to /etc/shells.")
 
         # Change default shell to Fish
@@ -101,9 +105,16 @@ def fish():
         # Install Fisher plugin manager
         fisher_path = Path("~/.config/fish/functions/fisher.fish").expanduser()
         fisher_path.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run([
-            "curl", "https://git.io/fisher", "--create-dirs", "-sLo", str(fisher_path)
-        ], check=True)
+        subprocess.run(
+            [
+                "curl",
+                "https://git.io/fisher",
+                "--create-dirs",
+                "-sLo",
+                str(fisher_path),
+            ],
+            check=True,
+        )
         print("Fisher plugin manager installed.")
 
         # Remove existing Oh My Fish installation
@@ -111,7 +122,11 @@ def fish():
         print("Existing Oh My Fish installation removed (if any).")
 
         # Install Oh My Fish
-        subprocess.run(["curl", "-L", "-k", "https://get.oh-my.fish", "|", "fish"], shell=True, check=True)
+        subprocess.run(
+            ["curl", "-L", "-k", "https://get.oh-my.fish", "|", "fish"],
+            shell=True,
+            check=True,
+        )
         print("Oh My Fish installed successfully.")
 
     except subprocess.CalledProcessError as e:
