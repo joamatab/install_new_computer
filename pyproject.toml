@@ -14,7 +14,7 @@ classifiers = [
   "Operating System :: OS Independent"
 ]
 dependencies = [
-  "typer"
+  "typer",
 ]
 description = "install new computer"
 keywords = ["python"]
@@ -38,7 +38,7 @@ docs = [
 ]
 
 [project.scripts]
-inc = "inc.run:main"
+inc = "inc:app"
 
 [tool.black]
 exclude = '''  # Specify the files/dirs that should be ignored by the black formatter
