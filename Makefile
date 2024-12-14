@@ -1,3 +1,10 @@
+uv:
+	curl -LsSf https://astral.sh/uv/0.4.30/install.sh | sh
+
+install:
+	uv venv --python 3.11
+	uv sync --extra docs --extra dev
+
 install:
 	pip install -e .[dev]
 	pre-commit install
