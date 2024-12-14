@@ -25,7 +25,7 @@ git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
 
 update-pre:
-	pre-commit autoupdate 
+	pre-commit autoupdate
 
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
