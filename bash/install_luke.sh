@@ -1,5 +1,5 @@
 #!/bin/sh
-# inspired by Luke's Auto Rice Boostrapping Script (LARBS)
+# inspired by Luke's Auto Rice Bootstrapping Script (LARBS)
 # License: GNU GPLv3
 
 ### OPTIONS AND VARIABLES ###
@@ -310,7 +310,7 @@ manualinstall yay || error "Failed to install AUR helper."
 
 # The command that does all the installing. Reads the progs.csv file and
 # installs each needed program the way required. Be sure to run this only after
-# the user has been created and has priviledges to run sudo without a password
+# the user has been created and has privileges to run sudo without a password
 # and all build dependencies are installed.
 installationloop
 
@@ -319,7 +319,7 @@ installationloop
 putgitrepo "$dotfilesrepo" "/home/$name" "$repobranch"
 rm -rf "/home/$name/.git/" "/home/$name/README.md" "/home/$name/LICENSE" "/home/$name/FUNDING.yml"
 
-# Install vim plugins if not alread present.
+# Install vim plugins if not already present.
 [ ! -f "/home/$name/.config/nvim/autoload/plug.vim" ] && vimplugininstall
 
 # Most important command! Get rid of the beep!

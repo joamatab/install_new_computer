@@ -6,7 +6,6 @@ From Reuven Lerner's "Practical Decorators" talk at PyCon 2019.
 Reuven's courses, books, and newsletter are at https://lerner.co.il/
 """
 
-
 import time
 
 

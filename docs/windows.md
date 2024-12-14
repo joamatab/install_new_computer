@@ -6,7 +6,7 @@ Install python 3, GIT and Make:
 
 - [miniconda3 for python3 64 bits](https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe)
 - [GIT for windows](https://gitforwindows.org/)
-- make: we install a lot of packages using `make` and `Makefiles`. So I reccomend that you install chocolatey
+- make: we install a lot of packages using `make` and `Makefiles`. So I recommend that you install chocolatey
 - you need to login to [gitlab](http://gitlab.com/) or [github](http://github.com/)
 
 ## Install python3 64 bits

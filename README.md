@@ -1,18 +1,16 @@
-# Install software in a new computer 0.0.4
+# Install new computer (inc) 0.0.4
 
 Install basic software for different operating systems:
 
 [See documentation](https://install-new-computer.readthedocs.io/en/latest/)
 
-# Requirements
-
-For MacOs type this into a terminal
+## Installation for users
 
 ```
-xcode-select --install
+pip install inc
 ```
 
-# Installation
+## Installation for developers
 
 Copy-paste these 3 lines into a terminal. For example `bash install mac.mk` will run the macOs installer
 
@@ -36,6 +34,19 @@ To install specific sections of each Makefile you can also run
 
 ```
 bash install centos desktop
+```
+
+For MacOs type this into a terminal
+
+```
+xcode-select --install
+```
+
+
+## Usage
+
+```
+inc --help
 ```
 
 Links:

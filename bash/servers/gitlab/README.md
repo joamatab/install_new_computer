@@ -25,7 +25,7 @@ sudo gitlab-ctl reconfigure
 
 # References
 
-- [Reccommended machine](https://docs.gitlab.com/ee/install/requirements.html#cpu)
+- [Recommended machine](https://docs.gitlab.com/ee/install/requirements.html#cpu)
 - https://docs.gitlab.com/omnibus/settings/nginx.html
 - https://about.gitlab.com/installation/#ubuntu
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ###
-# convienience methods for requiring installed software
+# convenience methods for requiring installed software
 # @author Adam Eivy
 # https://github.com/atomantic/dotfiles/blob/master/lib_sh/requirers.sh
 ###

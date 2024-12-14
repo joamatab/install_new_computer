@@ -7,7 +7,7 @@
 ```
 sudo su
 vi /etc/systemd/system/vncserver@.service
-cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.servece
+cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
 systemctl daemon-reload
 systemctl enable vncserver@:1.service
 
