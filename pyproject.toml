@@ -33,7 +33,7 @@ dev = [
 ]
 docs = [
   "autodoc_pydantic",
-  "jupyter-book>=0.15.1,<1.1",
+  "jupyter-book>=0.15.1,<1.1"
 ]
 
 [project.scripts]
