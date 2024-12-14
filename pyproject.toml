@@ -40,7 +40,6 @@ docs = [
 [project.scripts]
 inc = "inc:app"
 
-
 [tool.codespell]
 ignore-words-list = "te, te/tm, te, ba, fpr, fpr_spacing, ro, nd, donot, schem, hge, iterm, tre, convers"
 
