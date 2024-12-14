@@ -126,3 +126,13 @@ regex = '''
     \.
 (?P<patch>\d+)
     '''
+
+[tool.towncrier]
+directory = ".changelog.d"
+filename = "CHANGELOG.md"
+issue_format = "[#{issue}](https://github.com/joamatab/install_new_computer/issues/{issue})"
+package = "gdsfactory"
+start_string = "<!-- towncrier release notes start -->\n"
+template = ".changelog.d/changelog_template.jinja"
+title_format = "## [{version}](https://github.com/joamatab/install_new_computer/releases/tag/v{version}) - {project_date}"
+underlines = ["", "", ""]
