@@ -35,6 +35,11 @@ docs = [
   "autodoc_pydantic",
   "jupyter-book>=0.15.1,<1.1"
 ]
+maintainer = [
+  'tbump',
+  'towncrier',
+  'ruff'
+]
 
 [project.scripts]
 inc = "inc:app"
@@ -92,6 +97,10 @@ find = {}
 
 [tool.tbump]
 
+[[tool.tbump.before_commit]]
+cmd = "towncrier build --yes --version {new_version}"
+name = "create & check changelog"
+
 [[tool.tbump.file]]
 src = "README.md"
 
@@ -111,9 +120,9 @@ current = "0.0.4"
 # Make sure this matches current_version before
 # using tbump
 regex = '''
-  (?P<major>\d+)
-  \.
-  (?P<minor>\d+)
-  \.
-  (?P<patch>\d+)
-  '''
+(?P<major>\d+)
+    \.
+(?P<minor>\d+)
+    \.
+(?P<patch>\d+)
+    '''
