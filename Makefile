@@ -24,9 +24,8 @@ mypy:
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
 
-
 update-pre:
-	pre-commit autoupdate --bleeding-edge
+	pre-commit autoupdate 
 
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
@@ -42,6 +41,6 @@ ssh:
 	git push --set-upstream origin main
 
 docs:
-	jb build docs
+	uv run jb build docs
 
 .PHONY: drc doc docs
