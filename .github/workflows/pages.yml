@@ -26,14 +26,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Installing the library
+      - name: Build the docs
         run: |
           make uv install
-      - name: Build the docs
-        env:
-          GDSFACTORY_DISPLAY_TYPE: klayout
-          KFACTORY_DISPLAY_TYPE: image
-        run: |
           make docs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
