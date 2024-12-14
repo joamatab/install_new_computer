@@ -1,4 +1,4 @@
-# Instal Pypi server
+# Install Pypi server
 
 https://pypi.org/project/pypiserver/#managing-the-package-directory
 

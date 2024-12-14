@@ -1,6 +1,9 @@
+uv:
+	curl -LsSf https://astral.sh/uv/0.4.30/install.sh | sh
+
 install:
-	pip install -e .[dev]
-	pre-commit install
+	uv venv --python 3.11
+	uv sync --extra docs --extra dev
 
 dev:
 	pip install -e .[dev,docs]
@@ -17,9 +20,8 @@ mypy:
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
 
-
 update-pre:
-	pre-commit autoupdate --bleeding-edge
+	pre-commit autoupdate
 
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
@@ -35,6 +37,6 @@ ssh:
 	git push --set-upstream origin main
 
 docs:
-	jb build docs
+	uv run jb build docs
 
 .PHONY: drc doc docs

@@ -6,7 +6,7 @@ if [[ $1 == 'mac.mk' || $1 == 'ubuntu.mk' || $1 == 'centos.mk' || $1 == 'arch.mk
     make -f "$1" "$target"
 
 else
-    echo "$1 not suported! Currently supported install commands:"
+    echo "$1 not supported! Currently supported install commands:"
     echo "- bash install mac.mk"
     echo "- bash install ubuntu.mk"
     echo "- bash install centos.mk"

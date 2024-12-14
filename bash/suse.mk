@@ -1,7 +1,7 @@
 install: software
 
 help:
-	@echo 'make install: Install awesome ubuntu software (reccommended)'
+	@echo 'make install: Install awesome ubuntu software (recommended)'
 	@echo 'make basic:   Installs only basic ubuntu software'
 
 software:

@@ -1,5 +1,5 @@
 help:
-	@echo 'make install: Install awesome ubuntu software (reccommended)'
+	@echo 'make install: Install awesome ubuntu software (recommended)'
 	@echo 'make basic:   Installs only basic ubuntu software'
 	@echo 'make gui:     Installs light desktop x-environment for GUI servers'
 	@echo 'make desktop: Installs software for ubuntu super desktop'

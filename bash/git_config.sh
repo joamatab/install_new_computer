@@ -30,7 +30,7 @@ fi
 ################################
 # git config
 # exit(0) indicates successful program termination
-# exit(1) (usually) indicates unsucessful termination
+# exit(1) (usually) indicates unsuccessful termination
 ################################
 
 grep -q 'email' ~/.gitconfig > /dev/null 2>&1

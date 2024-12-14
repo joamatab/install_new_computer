@@ -868,7 +868,7 @@ c.Spawner.default_url = "/lab"
 
 ## Whether to open a new PAM session when spawners are started.
 #
-#  This may trigger things like mounting shared filsystems, loading credentials,
+#  This may trigger things like mounting shared filesystems, loading credentials,
 #  etc. depending on system configuration, but it does not always work.
 #
 #  If any errors are encountered when opening/closing PAM sessions, this is

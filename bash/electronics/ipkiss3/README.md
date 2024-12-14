@@ -6,7 +6,7 @@ install jupyter support
 conda install -y nb_conda notebook ipykernel
 ```
 
-Floating license youn can move it between computer
+Floating license you can move it between computer
 Node-locked license locks to a MAC address
 
 ```
