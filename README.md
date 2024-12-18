@@ -1,4 +1,4 @@
-# Install new computer (inc) 0.1.0
+# Install new computer (inc) 0.1.1
 
 Install basic software for different operating systems:
 
