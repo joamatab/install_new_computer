@@ -11,11 +11,18 @@ app = typer.Typer()
 @app.command()
 def ssh_create(
     email: str = typer.Option(..., help="Email address for the SSH key"),
+    overwrite: bool = typer.Option(False, help="Overwrite existing SSH key"),
 ):
     """Create an SSH key and set it up with GitHub and GitLab."""
     KEY_NAME = "id_ed25519"
     ssh_dir = os.path.expanduser("~/.ssh")
     key_path = os.path.join(ssh_dir, KEY_NAME)
+
+    # Check if key already exists
+    if os.path.isfile(key_path) and overwrite:
+        print("Overwriting existing SSH key...")
+        os.remove(key_path)
+        os.remove(f"{key_path}.pub")
 
     # Check if SSH key already exists
     if not os.path.isfile(f"{key_path}.pub"):
@@ -80,8 +87,13 @@ def ssh_create(
 
 
 @app.command()
-def fish():
-    """Setup Fish shell and install Oh My Fish."""
+def fish(
+    make_default: bool = typer.Option(False, help="Make Fish the default shell"),
+):
+    """Setup Fish shell and install Oh My Fish.
+
+    If `make_default` is set to True, Fish shell will be set as the default shell.
+    """
 
     try:
         # Find fish binary
@@ -92,15 +104,16 @@ def fish():
         )
         print(f"Fish binary found at: {fish_bin}")
 
-        # Add Fish shell to /etc/shells
-        subprocess.run(
-            ["sudo", "tee", "-a", "/etc/shells"], input=f"{fish_bin}\n", text=True
-        )
-        print("Fish shell added to /etc/shells.")
+        if make_default:
+            # Add Fish shell to /etc/shells
+            subprocess.run(
+                ["sudo", "tee", "-a", "/etc/shells"], input=f"{fish_bin}\n", text=True
+            )
+            print("Fish shell added to /etc/shells.")
 
-        # Change default shell to Fish
-        subprocess.run(["chsh", "-s", fish_bin], check=True)
-        print("Default shell changed to Fish.")
+            # Change default shell to Fish
+            subprocess.run(["chsh", "-s", fish_bin], check=True)
+            print("Default shell changed to Fish.")
 
         # Install Fisher plugin manager
         fisher_path = Path("~/.config/fish/functions/fisher.fish").expanduser()
