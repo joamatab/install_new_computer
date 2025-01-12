@@ -1,7 +1,7 @@
 #!/bin/bash
 # copy ssh key
 
-export KEY_NAME="id_ed25519"
+export KEY_NAME="id_rsa"
 
 if [ -d /Applications ]; then
   pbcopy < ~/.ssh/$KEY_NAME.pub # copies key to clipboard
