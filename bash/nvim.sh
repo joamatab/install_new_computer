@@ -6,7 +6,7 @@
 #wget "$latest_url" -O nvim-linux64.tar.gz
 
 
-wget https://github.com/neovim/neovim/releases/download/v0.10.4/nvim-linux64.tar.gz
+wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim-linux64.tar.gz
 
 # Extract the tarball
 tar xzvf nvim-linux64.tar.gz
