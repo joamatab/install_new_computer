@@ -6,8 +6,8 @@ script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $script_home/lib_sh/echos.sh
 source $script_home/lib_sh/requirers.sh
 
-running "Disable local Time Machine snapshots"
-sudo tmutil disablelocal;ok
+# running "Disable local Time Machine snapshots"
+# sudo tmutil disablelocal;ok
 
 # running "Set standby delay to 24 hours (default is 10800 = 1 hour)"
 # sudo pmset -a standbydelay 86400;ok
