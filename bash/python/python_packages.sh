@@ -16,7 +16,6 @@ pip install \
   pytest-watch\
   recommonmark \
   ruff \
-  ruff-lsp\
   sourcery \
   sphinx \
   tbump \
