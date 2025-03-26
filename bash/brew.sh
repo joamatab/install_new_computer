@@ -37,6 +37,7 @@ for i in \
   fish \
   fzf \
   gcc \
+  install git-lfs \
   htop \
   lf \
   lsd \

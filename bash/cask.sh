@@ -12,25 +12,26 @@ if [[ $output != 0 ]]; then
 fi
 
 for i in \
-  bitwarden \
-  caffeine \
-  dupeguru \
-  firefox \
-  github \
-  iterm2 \
-  karabiner-elements \
-  keepassx \
-  kitty \
-  klayout \
-  macvim \
-  nextcloud \
+  visual-studio-code \
   openemu \
-  osxfuse \
-  oni \
-  obs \
-  pdftotext \
-  sublime-text \
-  ;
+  ultrastardeluxe \
+  # bitwarden \
+  # caffeine \
+  # dupeguru \
+  # firefox \
+  # github \
+  # iterm2 \
+  # karabiner-elements \
+  # keepassx \
+  # kitty \
+  # klayout \
+  # macvim \
+  # nextcloud \
+  # osxfuse \
+  # oni \
+  # obs \
+  # pdftotext \
+  # sublime-text \
 do
   require_cask $i
 done
