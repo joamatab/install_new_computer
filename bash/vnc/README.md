@@ -32,3 +32,14 @@ sudo systemctl default
 sudo rpm -Uvh http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-
 
 https://devopscube.com/how-to-setup-gui-for-amazon-ec2-rhel-7-instance/
+
+
+
+## Replaced @ with -
+
+```
+  vncserver_:1.service.centos
+  vncserver_:1.service.j
+  vncserver_:1.service.ubuntu
+
+```
