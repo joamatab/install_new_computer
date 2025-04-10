@@ -1,4 +1,4 @@
-egit-sizer/
+/eegit-sizer/
 servers/terraform/
 clipmenu/
 wofi-emoji/
@@ -6,7 +6,6 @@ modules-5.2.0/
 Xyce-Release-7.6.0/
 bash/electronics/qucs-*
 xschem/
-klayout/
 netgen/
 xschem_sky130/
 flameshot/
