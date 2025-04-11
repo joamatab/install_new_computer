@@ -162,13 +162,13 @@ vnc:
 	vncserver -kill :1
 	mkdir -p $(HOME)/.vnc
 	cp vnc/xstartup_ldxe $(HOME)/.vnc/xstartup
-	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
+	sudo cp vnc/vncserver_1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	sudo systemctl enable --now vncserver@1
 
 vncj:
 	sudo apt-get install -y  vnc4server
-	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
+	sudo cp vnc/vncserver_1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
 	vncserver -kill :1
