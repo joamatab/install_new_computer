@@ -13,6 +13,7 @@ install:
 		flameshot \
 		gcc \
 		git \
+		git-lfs \
 		go \
 		htop \
 		kitty \
