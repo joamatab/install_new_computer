@@ -30,20 +30,17 @@ install: update
 		openssh-client \
 		python3 \
 		python3-pip \
+		python3-dev \
 		python3-pytest \
 		python3-venv \
 		rsync \
+		ripgrep \
 		software-properties-common \
 		tmux \
 		wget \
 		xclip \
 		xvfb \
 		zlib1g-dev
-	sudo apt install -y \
-		python3-dev \
-		git \
-		ctags \
-		ripgrep
 
 software2:
 	sudo apt install -y \
