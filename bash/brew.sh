@@ -53,6 +53,7 @@ for i in \
   tree \
   vim \
   wget \
+  ollama \
   yarn \
   ;
 do
