@@ -3,7 +3,8 @@
 pip install \
   classifier \
   gitcli \
-  howdoi \
+  # howdoi \
+  llm \
   img2pdf \
   mkinit \
   nbconvert \
