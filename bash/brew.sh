@@ -31,6 +31,7 @@ fi
 for i in \
   ag \
   awk \
+  atuin \
   autojump \
   automake \
   bash \
