@@ -50,9 +50,9 @@ software2:
 		silversearcher-ag \
 		python-logilab-common
 
-gui: ldxe vnc
+gui: xfce vnc_xfce_setup
 	@echo "GUI environment with VNC has been set up successfully!"
-	@echo "LXDE desktop environment is installed"
+	@echo "XFCE desktop environment is installed"
 	@echo "VNC server is running on port 5901"
 	@echo "Connect using VNC viewer to: <your-server-ip>:5901"
 	@echo "Running additional setup scripts..."
@@ -211,6 +211,14 @@ vnc0:
 	sudo systemctl start vncserver@:1.service
 	sudo systemctl status vncserver@1
 
+xfce:
+	sudo apt-get install -y xfce4 xfce4-goodies
+	# Don't start display manager automatically since we're using VNC
+	sudo systemctl disable lightdm || true
+	sudo systemctl disable gdm3 || true
+	@echo "XFCE desktop environment installed"
+	@echo "Use with VNC for remote desktop access"
+
 ldxe:
 	sudo apt-get install -y lxde-core lxde-common
 	# Don't start lightdm automatically since we're using VNC
@@ -235,4 +243,26 @@ xrdp:
 	sudo apt install -y xrdp
 	sudo passwd ubuntu
 
-.PHONY: install docker photonics vim brew pip software config fish colors anaconda2 iterm tmux ipkiss3 lumerical dotfiles vnc nodejs klayout
+vnc_xfce_setup:
+	sudo apt-get install -y tightvncserver
+	# Stop any existing VNC servers
+	vncserver -kill :1 || true
+	# Create VNC directory and setup xstartup for XFCE
+	mkdir -p $(HOME)/.vnc
+	cp vnc/xstartup_xfce $(HOME)/.vnc/xstartup
+	chmod +x $(HOME)/.vnc/xstartup
+	# Set up VNC password (you'll be prompted)
+	@echo "Please set VNC password when prompted:"
+	vncpasswd
+	# Start VNC once to initialize
+	vncserver -geometry 2304x1440 :1
+	vncserver -kill :1
+	# Setup systemd service
+	sudo cp vnc/vncserver_1.service.ubuntu /etc/systemd/system/vncserver@.service
+	sudo systemctl daemon-reload
+	sudo systemctl enable vncserver@1
+	sudo systemctl start vncserver@1
+	@echo "VNC server started on :1 (port 5901) with XFCE"
+	@echo "You can connect using: <your-server-ip>:5901"
+
+.PHONY: install docker photonics vim brew pip software config fish colors anaconda2 iterm tmux ipkiss3 lumerical dotfiles vnc nodejs klayout xfce vnc_xfce_setup
