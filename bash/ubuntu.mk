@@ -1,7 +1,8 @@
 help:
 	@echo 'make install: Install awesome ubuntu software (recommended)'
 	@echo 'make basic:   Installs only basic ubuntu software'
-	@echo 'make gui:     Installs light desktop x-environment for GUI servers'
+	@echo 'make gui:     Installs light desktop x-environment for GUI servers (XFCE)'
+	@echo 'make gui_kde: Installs KDE Plasma desktop with VNC for GUI servers'
 	@echo 'make desktop: Installs software for ubuntu super desktop'
 
 update:
@@ -53,6 +54,15 @@ software2:
 gui: xfce vnc_xfce_setup
 	@echo "GUI environment with VNC has been set up successfully!"
 	@echo "XFCE desktop environment is installed"
+	@echo "VNC server is running on port 5901"
+	@echo "Connect using VNC viewer to: <your-server-ip>:5901"
+	@echo "Running additional setup scripts..."
+	sh efs_ubuntu.sh
+	sh s3.sh
+
+gui_kde: kde vnc_kde_setup
+	@echo "KDE GUI environment with VNC has been set up successfully!"
+	@echo "KDE Plasma desktop environment is installed"
 	@echo "VNC server is running on port 5901"
 	@echo "Connect using VNC viewer to: <your-server-ip>:5901"
 	@echo "Running additional setup scripts..."
@@ -219,6 +229,15 @@ xfce:
 	@echo "XFCE desktop environment installed"
 	@echo "Use with VNC for remote desktop access"
 
+kde:
+	sudo apt-get install -y kde-plasma-desktop plasma-workspace kde-standard
+	# Don't start display manager automatically since we're using VNC
+	sudo systemctl disable lightdm || true
+	sudo systemctl disable gdm3 || true
+	sudo systemctl disable sddm || true
+	@echo "KDE Plasma desktop environment installed"
+	@echo "Use with VNC for remote desktop access"
+
 ldxe:
 	sudo apt-get install -y lxde-core lxde-common
 	# Don't start lightdm automatically since we're using VNC
@@ -265,4 +284,26 @@ vnc_xfce_setup:
 	@echo "VNC server started on :1 (port 5901) with XFCE"
 	@echo "You can connect using: <your-server-ip>:5901"
 
-.PHONY: install docker photonics vim brew pip software config fish colors anaconda2 iterm tmux ipkiss3 lumerical dotfiles vnc nodejs klayout xfce vnc_xfce_setup
+vnc_kde_setup:
+	sudo apt-get install -y tightvncserver
+	# Stop any existing VNC servers
+	vncserver -kill :1 || true
+	# Create VNC directory and setup xstartup for KDE
+	mkdir -p $(HOME)/.vnc
+	cp vnc/xstartup_kde $(HOME)/.vnc/xstartup
+	chmod +x $(HOME)/.vnc/xstartup
+	# Set up VNC password (you'll be prompted)
+	@echo "Please set VNC password when prompted:"
+	vncpasswd
+	# Start VNC once to initialize
+	vncserver -geometry 2304x1440 :1
+	vncserver -kill :1
+	# Setup systemd service
+	sudo cp vnc/vncserver_1.service.ubuntu /etc/systemd/system/vncserver@.service
+	sudo systemctl daemon-reload
+	sudo systemctl enable vncserver@1
+	sudo systemctl start vncserver@1
+	@echo "VNC server started on :1 (port 5901) with KDE Plasma"
+	@echo "You can connect using: <your-server-ip>:5901"
+
+.PHONY: install docker photonics vim brew pip software config fish colors anaconda2 iterm tmux ipkiss3 lumerical dotfiles vnc nodejs klayout xfce vnc_xfce_setup vnc_kde_setup kde gui_kde

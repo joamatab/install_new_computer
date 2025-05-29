@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Uncomment the following two lines for normal desktop:
+unset SESSION_MANAGER
+#exec /etc/X11/xinit/xinitrc
+unset DBUS_SESSION_BUS_ADDRESS
+
+# Start KDE Plasma session
+export XDG_SESSION_DESKTOP=KDE
+export XDG_CURRENT_DESKTOP=KDE
+export DESKTOP_SESSION=plasma
+startkde &
+
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+xsetroot -solid grey
+vncconfig -iconic &
+konsole -geometry 80x24+10+10 -title "$VNCDESKTOP Desktop" & 
