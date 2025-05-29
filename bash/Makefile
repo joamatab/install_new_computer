@@ -1,4 +1,4 @@
-install: software prettier
+install: software 
 
 time-los-angeles:
 	sudo timedatectl set-timezone America/Los_Angeles
@@ -10,9 +10,6 @@ software:
 	./z.sh
 	./dotfiles.sh
 	./fish.sh
-
-prettier:
-	yarn add prettier --exact
 
 pyenv:
 	./pyenv.sh

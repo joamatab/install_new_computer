@@ -51,6 +51,11 @@ software2:
 		python-logilab-common
 
 gui: ldxe vnc
+	@echo "GUI environment with VNC has been set up successfully!"
+	@echo "LXDE desktop environment is installed"
+	@echo "VNC server is running on port 5901"
+	@echo "Connect using VNC viewer to: <your-server-ip>:5901"
+	@echo "Running additional setup scripts..."
 	sh efs_ubuntu.sh
 	sh s3.sh
 
@@ -150,17 +155,29 @@ klayout: klayout.deb
 	sudo dpkg -i klayout.deb
 
 vnc:
-	sudo apt-get install -y  vnc4server
-	vncserver -geometry 2304x1440
-	vncserver -kill :1
+	sudo apt-get install -y tightvncserver
+	# Stop any existing VNC servers
+	vncserver -kill :1 || true
+	# Create VNC directory and setup xstartup
 	mkdir -p $(HOME)/.vnc
 	cp vnc/xstartup_ldxe $(HOME)/.vnc/xstartup
+	chmod +x $(HOME)/.vnc/xstartup
+	# Set up VNC password (you'll be prompted)
+	@echo "Please set VNC password when prompted:"
+	vncpasswd
+	# Start VNC once to initialize
+	vncserver -geometry 2304x1440 :1
+	vncserver -kill :1
+	# Setup systemd service
 	sudo cp vnc/vncserver_1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
-	sudo systemctl enable --now vncserver@1
+	sudo systemctl enable vncserver@1
+	sudo systemctl start vncserver@1
+	@echo "VNC server started on :1 (port 5901)"
+	@echo "You can connect using: <your-server-ip>:5901"
 
 vncj:
-	sudo apt-get install -y  vnc4server
+	sudo apt-get install -y tightvncserver
 	sudo cp vnc/vncserver_1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
@@ -170,7 +187,7 @@ vncj:
 	vncserver -geometry 2304x1440
 
 vnc1:
-	sudo apt-get install -y  vnc4server
+	sudo apt-get install -y tightvncserver
 	sudo cp vnc/vncserver@:1.service.ubuntu /etc/systemd/system/vncserver@.service
 	sudo systemctl daemon-reload
 	vncserver -geometry 2304x1440
@@ -180,7 +197,7 @@ vnc1:
 	vncserver -geometry 2304x1440
 
 vnc0:
-	sudo apt-get install -y  vnc4server tightvncserver
+	sudo apt-get install -y tightvncserver
 	# vncserver -geometry 2304x1440
 	# vncserver -kill :1
 	mkdir -p $(HOME)/.vnc
@@ -195,16 +212,18 @@ vnc0:
 	sudo systemctl status vncserver@1
 
 ldxe:
-	sudo apt-get install -y lxde
-	sudo service lightdm start
-	# sudo start lxdm # for ubuntu18
+	sudo apt-get install -y lxde-core lxde-common
+	# Don't start lightdm automatically since we're using VNC
+	sudo systemctl disable lightdm || true
+	@echo "LXDE desktop environment installed"
+	@echo "Use with VNC for remote desktop access"
 
 vnc_ldxe:
-	sudo apt-get install -y  vnc4server
+	sudo apt-get install -y tightvncserver
 
 vnc_xfce:
 	sudo apt-get install -y gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
-	sudo apt-get install -y gnome-core xfce4 firefox vnc4server
+	sudo apt-get install -y gnome-core xfce4 firefox tightvncserver
 	sudo apt-get install -y xubuntu-desktop
 	mkdir -p ~/.vnc
 	cp xstartup /home/ubuntu/.vnc/xstartup
