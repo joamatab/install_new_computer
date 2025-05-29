@@ -50,7 +50,7 @@ software2:
 		silversearcher-ag \
 		python-logilab-common
 
-gui: full ldxe klayout vnc
+gui: ldxe vnc
 	sh efs_ubuntu.sh
 	sh s3.sh
 
@@ -86,10 +86,6 @@ desktop2:
 		openvpn \
 		gnome-tweak-tool
 
-cyberduck:
-	echo -e "deb https://s3.amazonaws.com/repo.deb.cyberduck.io stable main" | sudo tee /etc/apt/sources.list.d/cyberduck.list > /dev/null
-	sudo apt-get update
-	sudo apt-get install duck
 
 x2goserver:
 	sudo add-apt-repository ppa:x2go/stable
