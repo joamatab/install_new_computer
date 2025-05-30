@@ -39,11 +39,11 @@ rdp:
 	@echo "Note: You may need to set a password with 'sudo passwd <username>'"
 
 x2go:
-	sudo dnf install -y epel-release
+	# X2Go is available in official Fedora repos since Fedora 19
 	sudo dnf install -y x2goserver x2goserver-xsession
-	sudo systemctl enable x2goserver
-	sudo systemctl start x2goserver
-	sudo firewall-cmd --permanent --add-port=22/tcp
+	sudo systemctl enable sshd
+	sudo systemctl start sshd
+	sudo firewall-cmd --permanent --add-service=ssh
 	sudo firewall-cmd --reload
 	@echo "X2Go server has been installed and started"
 	@echo "Connect using X2Go client to: <your-server-ip>:22"
