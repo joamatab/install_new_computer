@@ -43,13 +43,18 @@ x2go:
 	sudo dnf install -y x2goserver x2goserver-xsession
 	sudo systemctl enable sshd
 	sudo systemctl start sshd
-	sudo firewall-cmd --permanent --add-service=ssh
-	sudo firewall-cmd --reload
+	# Configure firewall if firewalld is available
+	sudo dnf install -y firewalld || true
+	sudo systemctl enable firewalld || true
+	sudo systemctl start firewalld || true
+	sudo firewall-cmd --permanent --add-service=ssh || true
+	sudo firewall-cmd --reload || true
 	@echo "X2Go server has been installed and started"
 	@echo "Connect using X2Go client to: <your-server-ip>:22"
 	@echo "Use your system username and password to login"
 	@echo "Session type: Select your desktop environment (GNOME, KDE, XFCE, etc.)"
 	@echo "Download X2Go client from: https://wiki.x2go.org/doku.php/download:start"
+	@echo "Note: If firewall is disabled, ensure SSH port 22 is accessible"
 
 docker:
 	./docker.sh
