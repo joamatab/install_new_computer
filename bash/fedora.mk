@@ -1,8 +1,10 @@
 install: software
 
 help:
-	@echo 'make install: Install awesome ubuntu software (recommended)'
-	@echo 'make basic:   Installs only basic ubuntu software'
+	@echo 'make install: Install awesome fedora software (recommended)'
+	@echo 'make basic:   Installs only basic fedora software'
+	@echo 'make rdp:     Installs and configures RDP server for remote desktop access'
+	@echo 'make x2go:    Installs and configures X2Go server for high-performance remote desktop'
 
 software:
 	sudo dnf install -y \
@@ -25,6 +27,29 @@ vncserver:
 	mkdir -p $(HOME)/.vnc
 	echo 'i3 &' > $(HOME)/.vnc/xstartup
 
+rdp:
+	sudo dnf install -y xrdp xorgxrdp
+	sudo systemctl enable xrdp
+	sudo systemctl start xrdp
+	sudo firewall-cmd --permanent --add-port=3389/tcp
+	sudo firewall-cmd --reload
+	@echo "RDP server has been installed and started"
+	@echo "Connect using RDP client to: <your-server-ip>:3389"
+	@echo "Use your system username and password to login"
+	@echo "Note: You may need to set a password with 'sudo passwd <username>'"
+
+x2go:
+	sudo dnf install -y epel-release
+	sudo dnf install -y x2goserver x2goserver-xsession
+	sudo systemctl enable x2goserver
+	sudo systemctl start x2goserver
+	sudo firewall-cmd --permanent --add-port=22/tcp
+	sudo firewall-cmd --reload
+	@echo "X2Go server has been installed and started"
+	@echo "Connect using X2Go client to: <your-server-ip>:22"
+	@echo "Use your system username and password to login"
+	@echo "Session type: Select your desktop environment (GNOME, KDE, XFCE, etc.)"
+	@echo "Download X2Go client from: https://wiki.x2go.org/doku.php/download:start"
 
 docker:
 	./docker.sh
@@ -58,4 +83,4 @@ extra:
 		vifm
 
 
-.PHONY: docker extra
+.PHONY: docker extra rdp x2go
