@@ -58,12 +58,9 @@ x2go:
 	@echo "Note: If firewall is disabled, ensure SSH port 22 is accessible"
 
 chrome_rdp:
-	# Install Google Chrome repository and Chrome browser
-	sudo dnf install -y dnf-plugins-core
-	sudo dnf config-manager --set-enabled google-chrome
-	wget -O /tmp/google-chrome.repo https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm || \
-	{ sudo dnf config-manager --add-repo https://dl.google.com/linux/chrome/rpm/stable/x86_64/google-chrome.repo; \
-	  sudo dnf install -y google-chrome-stable; }
+	# Install Google Chrome directly from RPM package
+	wget -O /tmp/google-chrome-stable.rpm https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+	sudo dnf install -y /tmp/google-chrome-stable.rpm
 	# Install Chrome Remote Desktop
 	wget -O /tmp/chrome-remote-desktop.rpm https://dl.google.com/linux/direct/chrome-remote-desktop_current_x86_64.rpm
 	sudo dnf install -y /tmp/chrome-remote-desktop.rpm
@@ -75,6 +72,8 @@ chrome_rdp:
 	sudo systemctl start firewalld || true
 	sudo firewall-cmd --permanent --add-port=22/tcp || true
 	sudo firewall-cmd --reload || true
+	# Clean up downloaded files
+	rm -f /tmp/google-chrome-stable.rpm /tmp/chrome-remote-desktop.rpm
 	@echo "Chrome Remote Desktop has been installed"
 	@echo "Setup steps:"
 	@echo "1. Open Google Chrome and go to: https://remotedesktop.google.com/headless"
