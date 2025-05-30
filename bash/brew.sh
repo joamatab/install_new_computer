@@ -30,21 +30,23 @@ fi
 
 for i in \
   ag \
-  awk \
   atuin \
   autojump \
   automake \
+  awk \
   bash \
   fish \
   fzf \
   gcc \
-  install git-lfs \
+  go \
   htop \
+  install git-lfs \
   lf \
   lsd \
   m-cli \
   neovim \
   node \
+  ollama \
   postgres \
   s-search \
   s3fs \
@@ -54,7 +56,6 @@ for i in \
   tree \
   vim \
   wget \
-  ollama \
   yarn \
   ;
 do
