@@ -5,6 +5,7 @@ help:
 	@echo 'make basic:   Installs only basic fedora software'
 	@echo 'make rdp:     Installs and configures RDP server for remote desktop access'
 	@echo 'make x2go:    Installs and configures X2Go server for high-performance remote desktop'
+	@echo 'make chrome_rdp: Installs and configures Chrome Remote Desktop'
 
 software:
 	sudo dnf install -y \
@@ -56,6 +57,33 @@ x2go:
 	@echo "Download X2Go client from: https://wiki.x2go.org/doku.php/download:start"
 	@echo "Note: If firewall is disabled, ensure SSH port 22 is accessible"
 
+chrome_rdp:
+	# Install Google Chrome repository and Chrome browser
+	sudo dnf install -y dnf-plugins-core
+	sudo dnf config-manager --set-enabled google-chrome
+	wget -O /tmp/google-chrome.repo https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm || \
+	{ sudo dnf config-manager --add-repo https://dl.google.com/linux/chrome/rpm/stable/x86_64/google-chrome.repo; \
+	  sudo dnf install -y google-chrome-stable; }
+	# Install Chrome Remote Desktop
+	wget -O /tmp/chrome-remote-desktop.rpm https://dl.google.com/linux/direct/chrome-remote-desktop_current_x86_64.rpm
+	sudo dnf install -y /tmp/chrome-remote-desktop.rpm
+	# Configure Chrome Remote Desktop service
+	sudo systemctl enable chrome-remote-desktop@$(whoami).service
+	# Configure firewall for Chrome Remote Desktop
+	sudo dnf install -y firewalld || true
+	sudo systemctl enable firewalld || true
+	sudo systemctl start firewalld || true
+	sudo firewall-cmd --permanent --add-port=22/tcp || true
+	sudo firewall-cmd --reload || true
+	@echo "Chrome Remote Desktop has been installed"
+	@echo "Setup steps:"
+	@echo "1. Open Google Chrome and go to: https://remotedesktop.google.com/headless"
+	@echo "2. Sign in to your Google account"
+	@echo "3. Click 'Set up via SSH' and follow the instructions"
+	@echo "4. Run the command provided by Google to complete setup"
+	@echo "5. You can then access this computer from https://remotedesktop.google.com"
+	@echo "Note: You may need to install a desktop environment if running headless"
+
 docker:
 	./docker.sh
 
@@ -88,4 +116,4 @@ extra:
 		vifm
 
 
-.PHONY: docker extra rdp x2go
+.PHONY: docker extra rdp x2go chrome_rdp
