@@ -47,6 +47,7 @@ for i in \
   neovim \
   node \
   ollama \
+  ghostscript \
   postgres \
   s-search \
   s3fs \
