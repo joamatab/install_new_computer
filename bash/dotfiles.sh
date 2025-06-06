@@ -12,7 +12,11 @@ if [ -d $DOTFILES ]; then
   sh install
 else
   echo "installing dotfiles"
-  git clone git@github.com:joamatab/dotfiles.git $DOTFILES
+  # Try SSH first, fallback to HTTPS
+  if ! git clone git@github.com:joamatab/dotfiles.git $DOTFILES; then
+    echo "SSH clone failed, trying HTTPS..."
+    git clone https://github.com/joamatab/dotfiles.git $DOTFILES
+  fi
   cd ~/dotfiles/
   sh install
 fi
