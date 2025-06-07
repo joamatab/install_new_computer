@@ -63,6 +63,18 @@ do
   require_brew $i
 done
 
+for i in \
+  chatgpt \
+  granola \
+  ;
+do
+  bin=$(which $i) 2>&1 > /dev/null
+  if [[ $? != 0 ]]; then
+    echo brew install $i
+    brew install $i
+  fi
+done
+
 
 # for i in \
 #   autoenv \
