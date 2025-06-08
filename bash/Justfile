@@ -1,0 +1,5 @@
+spack:
+    [ -d spack ] || git clone -c feature.manyFiles=true --depth=2 https://github.com/spack/spack.git
+    ln -s $PWD/spack/bin/spack $HOME/.local/bin/spack
+
+

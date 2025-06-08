@@ -10,6 +10,7 @@ xschem/
 netgen/
 xschem_sky130/
 flameshot/
+bash/spack
 ngspice/
 extra/
 sxhkd/
