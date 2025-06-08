@@ -44,7 +44,8 @@ lumerical.rpm:
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/5k6m1l089gsiqjs/Lumerical-2021R2-2-df9013d.el6.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/s/upulgiky66g9xqp/Lumerical-2022R1-R1-9458412.el7.x86_64.rpm?dl=0'
 	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/scl/fi/f7n3tiryzvol3zc5qc6fc/Lumerical-2023R2-1-4fbca54c6c.el7.x86_64.rpm?rlkey=p84vlwoswlcn77rlpnph8wnkw&dl=0'
-	wget -O 'lumerical.rpm' 'https://www.dropbox.com/scl/fi/9mt6q8gkhn3fbyqmsxt60/Lumerical-2024R2-3-0f4a663eb8d.el7.x86_64.rpm?rlkey=rl4kwnvfnqqioqojg8osbju2d&st=zeurg6x3&dl=0'
+	# wget -O 'lumerical.rpm' 'https://www.dropbox.com/scl/fi/9mt6q8gkhn3fbyqmsxt60/Lumerical-2024R2-3-0f4a663eb8d.el7.x86_64.rpm?rlkey=rl4kwnvfnqqioqojg8osbju2d&st=zeurg6x3&dl=0'
+	wget -O 'lumerical.rpm' 'https://www.dropbox.com/scl/fi/ipw23cmlc0j1tjtef17aa/Lumerical-2025R1-3-d3319e73aed.el8.x86_64.rpm?rlkey=tib7w748l4ek13g8z7ny7f0lf&st=asahvbck&dl=0'
 
 cml.rpm:
 	wget -O 'cml.rpm' 'https://www.dropbox.com/s/5jcfnedzr55unvu/lumerical-cml-compiler-2020a-r2.0.2152-7852fef.el7.x86_64.rpm?dl=0'
