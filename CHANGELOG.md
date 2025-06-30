@@ -2,6 +2,11 @@
 
 <!-- towncrier release notes start -->
 
+## [0.1.2](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.2) - 2025-06-30
+
+No significant changes.
+
+
 ## [0.1.1](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.1) - 2024-12-17
 
 No significant changes.
