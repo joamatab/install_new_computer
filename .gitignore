@@ -1,6 +1,7 @@
 /eegit-sizer/
 servers/terraform/
 clipmenu/
+dist/
 ansible/
 wofi-emoji/
 modules-5.2.0/
