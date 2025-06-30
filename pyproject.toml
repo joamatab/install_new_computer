@@ -90,7 +90,7 @@ select = [
 convention = "google"
 
 [tool.setuptools.package-data]
-mypkg = ["*.csv", "*.yaml"]
+"*" = ["*.csv", "*.yaml", "*.sh"]
 
 [tool.setuptools.packages]
 find = {}
