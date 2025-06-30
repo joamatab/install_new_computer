@@ -152,7 +152,7 @@ def fish(
 
 
 @app.command()
-def bash_list():
+def ls():
     """List all available bash scripts."""
     bash_dir = PATH.module / "bash"
     if not bash_dir.exists():
@@ -170,7 +170,7 @@ def bash_list():
 
 
 @app.command()
-def bash_run(
+def run(
     script: str = typer.Argument(..., help="Name of the bash script to run (without .sh extension)"),
     args: Optional[List[str]] = typer.Argument(None, help="Additional arguments to pass to the script"),
     dry_run: bool = typer.Option(False, help="Print the command that would be executed without running it"),
@@ -208,7 +208,7 @@ def bash_run(
 
 
 @app.command()
-def bash_cat(
+def cat(
     script: str = typer.Argument(..., help="Name of the bash script to display (without .sh extension)"),
 ):
     """Display the contents of a bash script."""
