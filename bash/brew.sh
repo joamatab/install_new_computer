@@ -65,8 +65,10 @@ done
 
 for i in \
   chatgpt \
-  granola \
-  google-drive \
+  ghostty \
+  flameshot \
+  # granola \
+  # google-drive \
   ;
 do
   bin=$(which $i) 2>&1 > /dev/null
