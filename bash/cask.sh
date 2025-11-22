@@ -20,6 +20,7 @@ for i in \
   obs \
   macvim \
   firefox \
+  flameshot \
   google-chrome \
   ghostty
   # bitwarden \
