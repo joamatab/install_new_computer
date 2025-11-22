@@ -13,12 +13,14 @@ fi
 
 for i in \
   visual-studio-code \
+  cursor \
   openemu \
   ultrastardeluxe \
   caffeine \
   obs \
   macvim \
   firefox \
+  google-chrome \
   ghostty
   # bitwarden \
   # dupeguru \
