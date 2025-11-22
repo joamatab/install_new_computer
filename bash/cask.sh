@@ -22,7 +22,8 @@ for i in \
   firefox \
   flameshot \
   google-chrome \
-  ghostty
+  ghostty \
+  zed
   # bitwarden \
   # dupeguru \
   # github \
