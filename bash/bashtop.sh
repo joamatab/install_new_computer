@@ -1,3 +1,4 @@
+#!/bin/bash
 
 [[ -d ~/apps/bashtop ]] && exit
 mkdir -p ~/apps
