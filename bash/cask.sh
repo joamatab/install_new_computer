@@ -15,21 +15,22 @@ for i in \
   visual-studio-code \
   openemu \
   ultrastardeluxe \
+  caffeine \
+  obs \
+  macvim \
+  firefox \
+  ghostty
   # bitwarden \
-  # caffeine \
   # dupeguru \
-  # firefox \
   # github \
   # iterm2 \
   # karabiner-elements \
   # keepassx \
   # kitty \
   # klayout \
-  # macvim \
   # nextcloud \
   # osxfuse \
   # oni \
-  # obs \
   # pdftotext \
   # sublime-text \
 do

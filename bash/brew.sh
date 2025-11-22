@@ -38,6 +38,8 @@ for i in \
   fish \
   fzf \
   gcc \
+  gh \
+  ghostscript \
   go \
   htop \
   install git-lfs \
@@ -47,7 +49,6 @@ for i in \
   neovim \
   node \
   ollama \
-  ghostscript \
   postgres \
   s-search \
   s3fs \
