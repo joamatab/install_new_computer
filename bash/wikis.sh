@@ -36,7 +36,7 @@ else
 fi
 
 if [ ! -d $HOME/wikis/dpd ]; then
-  git@github.com:doplaydo/wiki.wiki.git ~/wikis/dpd
+  git clone git@github.com:doplaydo/wiki.wiki.git ~/wikis/dpd
 else
   cd ~/wikis/dpd
   git pull
