@@ -34,3 +34,10 @@ else
   cd ~/wikis/awesome_photonics
   git pull
 fi
+
+if [ ! -d $HOME/wikis/dpd ]; then
+  git@github.com:doplaydo/wiki.wiki.git ~/wikis/dpd
+else
+  cd ~/wikis/dpd
+  git pull
+fi
