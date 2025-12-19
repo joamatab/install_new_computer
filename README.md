@@ -49,6 +49,44 @@ xcode-select --install
 inc --help
 ```
 
+### List available scripts
+
+```
+inc ls
+```
+
+Example output:
+```
+Available bash scripts:
+  conda_python311
+  conda_python312
+  dotfiles
+  gmsh
+  hello
+```
+
+### Run a script
+
+```
+inc run <script_name>
+```
+
+For example, to install gmsh:
+```
+inc run gmsh
+```
+
+To see what a script would do without running it:
+```
+inc run gmsh --dry-run
+```
+
+### View script contents
+
+```
+inc cat <script_name>
+```
+
 Links:
 
 - [my dotfiles wiki](https://github.com/joamatab/dotfiles/wiki)
