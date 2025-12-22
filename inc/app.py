@@ -2,7 +2,6 @@ import os
 import subprocess
 import webbrowser
 from pathlib import Path
-from typing import List, Optional
 
 import typer
 
@@ -174,7 +173,7 @@ def run(
     script: str = typer.Argument(
         ..., help="Name of the bash script to run (without .sh extension)"
     ),
-    args: Optional[List[str]] = typer.Argument(
+    args: list[str] | None = typer.Argument(
         None, help="Additional arguments to pass to the script"
     ),
     dry_run: bool = typer.Option(
@@ -225,7 +224,7 @@ def cat(
         return
 
     try:
-        with open(script_path, "r") as f:
+        with open(script_path) as f:
             print(f.read())
     except Exception as e:
         print(f"Error reading script: {e}")
