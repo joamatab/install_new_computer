@@ -36,6 +36,8 @@ for i in \
   awk \
   bash \
   bottom \
+  git-delta \
+  eza \
   fish \
   fzf \
   gcc \
