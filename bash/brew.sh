@@ -35,6 +35,7 @@ for i in \
   automake \
   awk \
   bash \
+  bottom \
   fish \
   fzf \
   gcc \
@@ -43,6 +44,7 @@ for i in \
   go \
   htop \
   install git-lfs \
+  lazygit \
   lf \
   lsd \
   m-cli \
