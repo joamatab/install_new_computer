@@ -1,4 +1,4 @@
-install: software 
+install: software
 
 time-los-angeles:
 	sudo timedatectl set-timezone America/Los_Angeles
