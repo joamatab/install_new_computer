@@ -225,7 +225,7 @@ def cat(
         return
 
     try:
-        with open(script_path, "r") as f:
+        with open(script_path) as f:
             print(f.read())
     except Exception as e:
         print(f"Error reading script: {e}")
