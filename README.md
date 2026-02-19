@@ -29,7 +29,7 @@ Available bash scripts:
   conda_python312
   dotfiles
   gmsh
-  hello
+  install_new_mac
 ```
 
 ### Run a script
