@@ -2,20 +2,15 @@ uv:
 	curl -LsSf https://astral.sh/uv/install.sh | sh
 
 install:
-	uv venv --python 3.11
+	uv venv --python 3.12
 	uv sync --extra docs --extra dev
 
 dev:
-	pip install -e .[dev,docs]
+	uv sync --extra docs --extra dev
 
 test-mac:
-	inc run install_new_mac
+	uv run inc run install_new_mac
 
-cov:
-	pytest --cov=inc
-
-mypy:
-	mypy . --ignore-missing-imports
 
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
