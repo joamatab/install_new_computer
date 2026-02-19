@@ -1,8 +1,9 @@
+from __future__ import annotations
+
 import os
 import subprocess
 import webbrowser
 from pathlib import Path
-from typing import List, Optional
 
 import typer
 
@@ -188,7 +189,7 @@ def run(
         ...,
         help="Name of the bash script to run (without .sh extension). Use / for subdirectories (e.g. electronics/klayout/install_mac)",
     ),
-    args: Optional[List[str]] = typer.Argument(
+    args: list[str] | None = typer.Argument(
         None, help="Additional arguments to pass to the script"
     ),
     dry_run: bool = typer.Option(
