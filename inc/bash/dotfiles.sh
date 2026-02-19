@@ -2,8 +2,6 @@
 # Install config files with shortcuts, paths, etc.
 
 DOTFILES="$HOME/dotfiles"
-DOTFILES_LUKE="$HOME/dotfiles/extra/luke"
-DOTFILES_BRODIE="$HOME/dotfiles/extra/brodie"
 
 if [ -d $DOTFILES ]; then
   echo "updating dotfiles"
@@ -21,16 +19,18 @@ else
   sh install
 fi
 
-if [ ! -d $DOTFILES_LUKE ]; then
-  git clone https://github.com/LukeSmithxyz/voidrice.git $DOTFILES_LUKE
-else
-  cd $DOTFILES_LUKE
-  git pull
-fi
+# DOTFILES_LUKE="$HOME/dotfiles/extra/luke"
+# DOTFILES_BRODIE="$HOME/dotfiles/extra/brodie"
+# if [ ! -d $DOTFILES_LUKE ]; then
+#   git clone https://github.com/LukeSmithxyz/voidrice.git $DOTFILES_LUKE
+# else
+#   cd $DOTFILES_LUKE
+#   git pull
+# fi
 
-if [ ! -d $DOTFILES_BRODIE ]; then
-  git clone https://github.com/BrodieRobertson/scripts.git  $DOTFILES_BRODIE
-else
-  cd $DOTFILES_BRODIE
-  git pull
-fi
+# if [ ! -d $DOTFILES_BRODIE ]; then
+#   git clone https://github.com/BrodieRobertson/scripts.git  $DOTFILES_BRODIE
+# else
+#   cd $DOTFILES_BRODIE
+#   git pull
+# fi
