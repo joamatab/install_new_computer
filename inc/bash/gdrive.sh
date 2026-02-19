@@ -1,5 +1,8 @@
 #!/bin/sh
-# gdrive is a command line utility for interacting with Google Drive.
-# https://github.com/gdrive-org/gdrive
+
+echo "==> Installing gdrive (Google Drive CLI)..."
+echo "    https://github.com/gdrive-org/gdrive"
 
 go get github.com/prasmussen/gdrive
+
+echo "==> Done! gdrive installed."

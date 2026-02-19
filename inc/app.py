@@ -12,6 +12,18 @@ from .config import PATH
 app = typer.Typer()
 
 
+def complete_script(incomplete: str) -> list[str]:
+    """Return matching bash script names for autocompletion."""
+    bash_dir = PATH.bash
+    if not bash_dir.exists():
+        return []
+    scripts = sorted(
+        str(f.relative_to(bash_dir)).removesuffix(".sh")
+        for f in bash_dir.rglob("*.sh")
+    )
+    return [s for s in scripts if s.startswith(incomplete)]
+
+
 @app.command()
 def ssh_create(
     email: str = typer.Option(..., help="Email address for the SSH key"),
@@ -188,6 +200,7 @@ def run(
     script: str = typer.Argument(
         ...,
         help="Name of the bash script to run (without .sh extension). Use / for subdirectories (e.g. electronics/klayout/install_mac)",
+        autocompletion=complete_script,
     ),
     args: list[str] | None = typer.Argument(
         None, help="Additional arguments to pass to the script"
@@ -229,6 +242,7 @@ def cat(
     script: str = typer.Argument(
         ...,
         help="Name of the bash script to display (without .sh extension). Use / for subdirectories",
+        autocompletion=complete_script,
     ),
 ):
     """Display the contents of a bash script."""
