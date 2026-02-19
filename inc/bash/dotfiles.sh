@@ -1,18 +1,19 @@
 #!/bin/sh
 # Install config files with shortcuts, paths, etc.
+echo "==> Installing dotfiles from github.com/joamatab/dotfiles..."
 
 DOTFILES="$HOME/dotfiles"
 
 if [ -d $DOTFILES ]; then
-  echo "updating dotfiles"
+  echo "    Dotfiles already cloned. Pulling latest changes..."
   cd $DOTFILES
   git pull
   sh install
 else
-  echo "installing dotfiles"
+  echo "    Cloning dotfiles repo..."
   # Try SSH first, fallback to HTTPS
   if ! git clone git@github.com:joamatab/dotfiles.git $DOTFILES; then
-    echo "SSH clone failed, trying HTTPS..."
+    echo "    SSH clone failed, trying HTTPS..."
     git clone https://github.com/joamatab/dotfiles.git $DOTFILES
   fi
   cd ~/dotfiles/
@@ -34,3 +35,5 @@ fi
 #   cd $DOTFILES_BRODIE
 #   git pull
 # fi
+
+echo "==> Done! Dotfiles installed."

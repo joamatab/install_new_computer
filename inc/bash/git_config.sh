@@ -4,6 +4,7 @@
 source lib_sh/echos.sh
 source lib_sh/requirers.sh
 
+echo "==> Configuring Git and sudo..."
 
 ################################
 # passwordless sudo for MacOs
@@ -45,3 +46,5 @@ if [ $? != 0 ]; then
   git config --global core.excludesfile $HOME/.gitignore
   echo "updated .gitconfig with your info ($gituser, $gitemail)"
 fi
+
+echo "==> Done! Git configured."

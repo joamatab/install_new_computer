@@ -6,6 +6,8 @@ script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $script_home/lib_sh/echos.sh
 source $script_home/lib_sh/requirers.sh
 
+echo "==> Configuring macOS defaults (Dock, Finder, iTerm2)..."
+
 # running "Disable local Time Machine snapshots"
 # sudo tmutil disablelocal;ok
 
@@ -57,3 +59,5 @@ defaults write com.googlecode.iterm2 ShowPaneTitles -bool false;ok
 
 # running "set system-wide hotkey to show/hide iterm with ^\`"
 # defaults write com.googlecode.iterm2 Hotkey -bool true;ok
+
+echo "==> Done! macOS defaults configured."

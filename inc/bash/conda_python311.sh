@@ -1,8 +1,7 @@
 #!/bin/bash
+echo "==> Installing Miniconda (Python 3.11)..."
 
 version="py311_24.7.1-0"
-
-echo "Checking conda installation for Python 3 (64-bit)..."
 
 os_name=$(uname -s)
 
@@ -30,7 +29,7 @@ if [[ ! -d "$HOME/miniconda3" ]]; then
     curl -o miniconda.sh "https://repo.anaconda.com/miniconda/Miniconda3-${version}-Linux-x86_64.sh"
     bash miniconda.sh -b -u -p "$HOME/miniconda3"
   else
-    echo "Unsupported operating system."
+    echo "    Error: Unsupported operating system ($(uname -s))"
     exit 1
   fi
 
@@ -47,7 +46,7 @@ if [[ ! -d "$HOME/miniconda3" ]]; then
 
   # Source .bashrc to immediately apply the change
   source ~/.bashrc
-  echo "Conda installation completed and added to PATH."
+  echo "==> Done! Miniconda (Python 3.11) installed."
 else
-  echo "Conda is already installed."
+  echo "==> Miniconda already installed at $HOME/miniconda3"
 fi

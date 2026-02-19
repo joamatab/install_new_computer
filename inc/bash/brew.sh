@@ -3,6 +3,8 @@
 source ./lib_sh/echos.sh
 source ./lib_sh/requirers.sh
 
+echo "==> Installing Homebrew and core packages..."
+
 ################################
 # install brew
 ################################
@@ -111,3 +113,5 @@ done
 #     brew install $i
 #   fi
 # done
+
+echo "==> Done! Homebrew packages installed."
