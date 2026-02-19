@@ -17,9 +17,6 @@ classifiers = [
   "Operating System :: OS Independent"
 ]
 dependencies = [
-  "Operating System :: OS Independent"
-]
-dependencies = [
   "typer"
 ]
 description = "install new computer"
