@@ -7,6 +7,7 @@ dev:
 	uv sync --extra docs --extra dev
 
 test-mac:
+	uv run inc run brew
 	uv run inc run install_new_mac
 
 git-rm-merged:
