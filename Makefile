@@ -3,6 +3,7 @@ install:
 	uv sync --extra docs --extra dev
 
 dev:
+	uv venv --python 3.12
 	uv sync --extra docs --extra dev
 
 test-mac:
