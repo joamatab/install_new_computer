@@ -1,6 +1,3 @@
-uv:
-	curl -LsSf https://astral.sh/uv/install.sh | sh
-
 install:
 	uv venv --python 3.12
 	uv sync --extra docs --extra dev
@@ -11,15 +8,11 @@ dev:
 test-mac:
 	uv run inc run install_new_mac
 
-
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`
 
 update-pre:
 	pre-commit autoupdate
-
-git-rm-merged:
-	git branch -D `git branch --merged | grep -v \* | xargs`
 
 build:
 	rm -rf dist
