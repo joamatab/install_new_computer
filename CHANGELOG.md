@@ -4,8 +4,9 @@
 
 ## [0.1.8](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.8) - 2026-02-19
 
-No significant changes.
-
+- Add autocomplete [#18](https://github.com/joamatab/install_new_computer/pull/#18)
+- test brew [#17](https://github.com/joamatab/install_new_computer/pull/#17)
+- add more bash scripts [#16](https://github.com/joamatab/install_new_computer/pull/#16)
 
 ## [0.1.7](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.7) - 2025-12-19
 
