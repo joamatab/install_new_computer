@@ -45,17 +45,19 @@ for i in \
   ghostscript \
   go \
   htop \
-  install git-lfs \
+  git-lfs \
   lazygit \
   lf \
   lsd \
   m-cli \
+  mame \
   neovim \
   node \
   ollama \
   postgres \
   s-search \
   s3fs \
+  s-search \
   shellcheck \
   starship \
   tmux \

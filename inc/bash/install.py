@@ -28,9 +28,9 @@ def install(makefile: str, target: str = typer.Argument(None)) -> None:
             else:
                 subprocess.check_call(["make", "-f", makefile, "install"])
             typer.echo("Installation completed successfully!")
-        except subprocess.CalledProcessError:
+        except subprocess.CalledProcessError as err:
             typer.echo("Error: Installation failed!")
-            raise typer.Exit(code=1)
+            raise typer.Exit(code=1) from err
 
     else:
         typer.echo(f"{makefile} not supported! Currently supported install commands:")

@@ -177,4 +177,4 @@ xrdp:
 	sudo systemctl enable --now xrdp
 	sudo passwd rocky
 
-.PHONY: install docker photonics vim brew pip software config fish colors anaconda2 iterm tmux ipkiss3 lumerical dotfiles vnc nodejs klayout 
+.PHONY: install docker photonics vim brew pip software config fish colors anaconda2 iterm tmux ipkiss3 lumerical dotfiles vnc nodejs klayout

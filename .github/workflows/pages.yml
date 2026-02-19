@@ -1,37 +1,36 @@
 name: build docs
+
 on:
   pull_request:
   push:
     branches:
       - main
   workflow_dispatch:
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
 jobs:
   build-docs:
     runs-on: ubuntu-latest
     name: Sphinx docs to gh-pages
     steps:
-      - name: Cancel Workflow Action
-        uses: styfle/cancel-workflow-action@0.12.1
-      - uses: actions/checkout@v4
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ~/.gdsfactory/
-          key: 0.0.1
-          restore-keys: 0.0.1
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-      - name: Build the docs
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
+      - name: Install dependencies
         run: |
-          make uv install
+          make dev
+      - name: make docs
+        run: |
           make docs
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: "./docs/_build/html/"
   deploy-docs:
@@ -40,9 +39,11 @@ jobs:
     permissions:
       pages: write
       id-token: write
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages

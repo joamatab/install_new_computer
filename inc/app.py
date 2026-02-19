@@ -1,8 +1,9 @@
+from __future__ import annotations
+
 import os
 import subprocess
 import webbrowser
 from pathlib import Path
-from typing import List, Optional
 
 import typer
 
@@ -152,14 +153,27 @@ def fish(
 
 
 @app.command()
-def ls():
+def ls(
+    recursive: bool = typer.Option(
+        False, "-r", help="List scripts in subdirectories too"
+    ),
+):
     """List all available bash scripts."""
     bash_dir = PATH.bash
     if not bash_dir.exists():
         print("Bash directory not found.")
         return
 
-    scripts = sorted([f.stem for f in bash_dir.glob("*.sh")])
+    if recursive:
+        scripts = sorted(
+            [
+                str(f.relative_to(bash_dir)).removesuffix(".sh")
+                for f in bash_dir.rglob("*.sh")
+            ]
+        )
+    else:
+        scripts = sorted([f.stem for f in bash_dir.glob("*.sh")])
+
     if not scripts:
         print("No bash scripts found.")
         return
@@ -172,9 +186,10 @@ def ls():
 @app.command()
 def run(
     script: str = typer.Argument(
-        ..., help="Name of the bash script to run (without .sh extension)"
+        ...,
+        help="Name of the bash script to run (without .sh extension). Use / for subdirectories (e.g. electronics/klayout/install_mac)",
     ),
-    args: Optional[List[str]] = typer.Argument(
+    args: list[str] | None = typer.Argument(
         None, help="Additional arguments to pass to the script"
     ),
     dry_run: bool = typer.Option(
@@ -187,7 +202,7 @@ def run(
 
     if not script_path.exists():
         print(f"Script '{script}.sh' not found in bash directory.")
-        print("Use 'inc ls' to see available scripts.")
+        print("Use 'inc ls' or 'inc ls -r' to see available scripts.")
         return
 
     # Build the command
@@ -202,7 +217,7 @@ def run(
     try:
         print(f"Running: {script}.sh")
         result = subprocess.run(
-            cmd, cwd=bash_dir, check=False, text=True, capture_output=False
+            cmd, cwd=script_path.parent, check=False, text=True, capture_output=False
         )
         print(f"Script completed with exit code: {result.returncode}")
     except Exception as e:
@@ -212,7 +227,8 @@ def run(
 @app.command()
 def cat(
     script: str = typer.Argument(
-        ..., help="Name of the bash script to display (without .sh extension)"
+        ...,
+        help="Name of the bash script to display (without .sh extension). Use / for subdirectories",
     ),
 ):
     """Display the contents of a bash script."""
@@ -221,11 +237,11 @@ def cat(
 
     if not script_path.exists():
         print(f"Script '{script}.sh' not found in bash directory.")
-        print("Use 'inc ls' to see available scripts.")
+        print("Use 'inc ls' or 'inc ls -r' to see available scripts.")
         return
 
     try:
-        with open(script_path, "r") as f:
+        with open(script_path) as f:
             print(f.read())
     except Exception as e:
         print(f"Error reading script: {e}")
