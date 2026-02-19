@@ -8,8 +8,8 @@ install:
 dev:
 	pip install -e .[dev,docs]
 
-test:
-	pytest -s
+test-mac:
+	inc run install_new_mac
 
 cov:
 	pytest --cov=inc

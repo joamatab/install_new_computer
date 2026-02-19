@@ -153,7 +153,9 @@ def fish(
 
 @app.command()
 def ls(
-    recursive: bool = typer.Option(False, "-r", help="List scripts in subdirectories too"),
+    recursive: bool = typer.Option(
+        False, "-r", help="List scripts in subdirectories too"
+    ),
 ):
     """List all available bash scripts."""
     bash_dir = PATH.bash
@@ -183,7 +185,8 @@ def ls(
 @app.command()
 def run(
     script: str = typer.Argument(
-        ..., help="Name of the bash script to run (without .sh extension). Use / for subdirectories (e.g. electronics/klayout/install_mac)"
+        ...,
+        help="Name of the bash script to run (without .sh extension). Use / for subdirectories (e.g. electronics/klayout/install_mac)",
     ),
     args: Optional[List[str]] = typer.Argument(
         None, help="Additional arguments to pass to the script"
@@ -223,7 +226,8 @@ def run(
 @app.command()
 def cat(
     script: str = typer.Argument(
-        ..., help="Name of the bash script to display (without .sh extension). Use / for subdirectories"
+        ...,
+        help="Name of the bash script to display (without .sh extension). Use / for subdirectories",
     ),
 ):
     """Display the contents of a bash script."""
@@ -236,7 +240,7 @@ def cat(
         return
 
     try:
-        with open(script_path, "r") as f:
+        with open(script_path) as f:
             print(f.read())
     except Exception as e:
         print(f"Error reading script: {e}")

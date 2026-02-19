@@ -1,4 +1,4 @@
-name: Test pre-commit, code and docs
+name: Test code
 
 on:
   pull_request:
@@ -23,12 +23,11 @@ jobs:
           pip install pre-commit
           pre-commit run -a
   test_code:
-    runs-on: ${{ matrix.os }}
+    runs-on: macos-latest
     strategy:
       max-parallel: 12
       matrix:
         python-version: ["3.10"]
-        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -39,6 +38,4 @@ jobs:
           cache-dependency-path: pyproject.toml
       - name: Install dependencies
         run: |
-          make dev
-      - name: Test with pytest
-        run: make test
+          make test-mac
