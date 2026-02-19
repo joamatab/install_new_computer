@@ -45,7 +45,7 @@ for i in \
   ghostscript \
   go \
   htop \
-  install git-lfs \
+  git-lfs \
   lazygit \
   lf \
   lsd \
