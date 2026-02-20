@@ -61,3 +61,12 @@ defaults write com.googlecode.iterm2 ShowPaneTitles -bool false;ok
 # defaults write com.googlecode.iterm2 Hotkey -bool true;ok
 
 echo "==> Done! macOS defaults configured."
+
+bash $script_home/brew.sh
+bash $script_home/brew_cask.sh
+bash $script_home/nvim.sh
+bash $script_home/rust_packages.sh
+bash $script_home/fish.sh
+bash $script_home/dotfiles.sh
+bash $script_home/create_ssh_key.sh
+bash $script_home/vim.sh
