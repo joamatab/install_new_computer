@@ -2,6 +2,11 @@
 
 <!-- towncrier release notes start -->
 
+## [0.1.9](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.9) - 2026-02-20
+
+No significant changes.
+
+
 ## [0.1.8](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.8) - 2026-02-19
 
 - Add autocomplete [#18](https://github.com/joamatab/install_new_computer/pull/#18)
