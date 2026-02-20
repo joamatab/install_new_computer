@@ -14,29 +14,8 @@ if [[ $output != 0 ]]; then
 fi
 
 for i in \
-  visual-studio-code \
-  cursor \
-  caffeine \
-  obs \
-  macvim \
-  firefox \
-  flameshot \
-  google-chrome \
-  ghostty \
-  zed
-  # bitwarden \
-  # dupeguru \
-  # github \
-  # iterm2 \
-  # karabiner-elements \
-  # keepassx \
-  # kitty \
-  # klayout \
-  # nextcloud \
-  # osxfuse \
-  # oni \
-  # pdftotext \
-  # sublime-text \
+  openemu \
+  ultrastardeluxe 
 do
   require_cask $i
 done
