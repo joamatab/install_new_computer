@@ -6,8 +6,16 @@ Install basic software for different operating systems:
 
 ## Installation for users
 
+First install [uv](https://docs.astral.sh/uv/):
+
 ```
-pip install inc
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Then install `inc`:
+
+```
+uv tool install inc
 ```
 
 ## Usage
@@ -55,31 +63,13 @@ inc cat <script_name>
 ```
 ## Installation for developers
 
-Copy-paste these 3 lines into a terminal. For example `bash install mac.mk` will run the macOs installer
-
 ```
 git clone https://github.com/joamatab/install_new_computer.git ~/install_new_computer
-cd inc/bash
-bash install mac
+cd ~/install_new_computer
+uv sync
 ```
 
-where you can replace mac.mk by any of the supported OS:
-
-- arch
-- centos
-- fedora
-- mac
-- ubuntu
-
-This install the specific `install` section of the Makefile for the selected distro.
-
-To install specific sections of each Makefile you can also run
-
-```
-bash install centos desktop
-```
-
-For MacOs type this into a terminal
+For MacOs type this into a terminal first:
 
 ```
 xcode-select --install
