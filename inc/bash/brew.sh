@@ -12,13 +12,21 @@ echo "==> Installing Homebrew and core packages..."
 running "checking homebrew install"
 brew_bin=$(which brew) 2>&1 > /dev/null
 if [[ $? != 0 ]]; then
+  # Homebrew installer requires admin privileges
+  if ! dseditgroup -o checkmember -m "$(whoami)" admin &>/dev/null; then
+    error "Homebrew installation requires an administrator account."
+    error "Your user ‘$(whoami)’ is not in the admin group."
+    error "Either run this from an admin account, or add your user to the admin group:"
+    error "  sudo dseditgroup -o edit -a $(whoami) -t user admin"
+    exit 2
+  fi
   action "installing homebrew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
     if [[ $? != 0 ]]; then
       error "unable to install homebrew, script $0 abort!"
       exit 2
     fi
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
   ok
   # Make sure we’re using the latest Homebrew
@@ -38,36 +46,46 @@ for i in \
   automake \
   awk \
   bash \
+  bat \
   bottom \
-  git-delta \
+  dust \
   eza \
+  fastmod \
+  fd \
   fish \
   fzf \
   gcc \
   gh \
   ghostscript \
+  git-delta \
+  git-lfs \
   go \
   htop \
-  git-lfs \
+  hyperfine \
   lazygit \
   lf \
   lsd \
   m-cli \
   mame \
+  mcfly \
   neovim \
   node \
   ollama \
   postgres \
+  ripgrep \
   s-search \
   s3fs \
-  s-search \
+  sd \
   shellcheck \
+  skim \
   starship \
   tmux \
+  tokei \
   tree \
   vim \
   wget \
   yarn \
+  zoxide \
   ;
 do
   require_brew $i

@@ -12,7 +12,7 @@ fi
 
 echo "    Installing cargo packages: starship, ripgrep, tokei, sd, hyperfine, du-dust, dutree, mcfly, skim, fastmod, bat, fd"
 
-cargo install starship ripgrep tokei sd hyperfine du-dust dutree mcfly skim fastmod bat fd
+cargo install ripgrep tokei sd hyperfine du-dust dutree mcfly skim fastmod bat fd
 
 echo "    Installing zoxide..."
 curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ajeetdsouza/zoxide/master/install.sh | sh
