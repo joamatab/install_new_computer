@@ -1,17 +1,11 @@
 #!/bin/bash
 # brew cask installs GUI based applications
 
-source ./lib_sh/echos.sh
-source ./lib_sh/requirers.sh
+script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$script_home/lib_sh/echos.sh"
+source "$script_home/lib_sh/requirers.sh"
 
 echo "==> Installing desktop apps via Homebrew Cask..."
-
-running "checking brew-cask install"
-output=$(brew tap | grep cask)
-if [[ $output != 0 ]]; then
-  action "installing brew-cask"
-  require_brew caskroom/cask/brew-cask
-fi
 
 for i in \
   visual-studio-code \

@@ -1,7 +1,8 @@
 #!/bin/bash
 
-source ./lib_sh/echos.sh
-source ./lib_sh/requirers.sh
+script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source "$script_home/lib_sh/echos.sh"
+source "$script_home/lib_sh/requirers.sh"
 
 echo "==> Installing Homebrew and core packages..."
 

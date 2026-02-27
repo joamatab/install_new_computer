@@ -34,6 +34,15 @@ echo "==> Configuring macOS defaults (Dock, Finder, iTerm2)..."
 # Disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
+running “Disable natural (reversed) scrolling direction”
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
+
+running “Set key repeat rate to fastest”
+defaults write NSGlobalDomain KeyRepeat -int 1;ok
+
+running “Set initial key repeat delay to shortest”
+defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
+
 # running "Disable the crash reporter"
 # defaults write com.apple.CrashReporter DialogType -string "none";ok
 # running "Avoid creating .DS_Store files on network volumes"
@@ -81,9 +90,8 @@ echo "==> Done! macOS defaults configured."
 
 bash $script_home/brew.sh
 bash $script_home/brew_cask.sh
-bash $script_home/nvim.sh
 bash $script_home/rust_packages.sh
 bash $script_home/fish.sh
+bash $script_home/ssh_create_key.sh
 bash $script_home/dotfiles.sh
-bash $script_home/create_ssh_key.sh
 bash $script_home/vim.sh
