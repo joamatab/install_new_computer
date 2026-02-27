@@ -6,6 +6,23 @@ script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $script_home/lib_sh/echos.sh
 source $script_home/lib_sh/requirers.sh
 
+###############################################################################
+# Xcode Command Line Tools (silent install, no popup)
+###############################################################################
+if ! xcode-select -p &>/dev/null; then
+  echo "==> Installing Xcode Command Line Tools..."
+  touch /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+  CLT_PKG=$(softwareupdate --list 2>/dev/null | grep -o ".*Command Line Tools.*" | grep -v "^\\*" | sed 's/^[[:space:]]*//' | sort -V | tail -1)
+  if [ -n "$CLT_PKG" ]; then
+    softwareupdate --install "$CLT_PKG" --verbose
+  else
+    echo "ERROR: Could not find Command Line Tools package. Run 'xcode-select --install' manually."
+  fi
+  rm -f /tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress
+else
+  echo "==> Xcode Command Line Tools already installed."
+fi
+
 echo "==> Configuring macOS defaults (Dock, Finder, iTerm2)..."
 
 # running "Disable local Time Machine snapshots"
