@@ -31,16 +31,16 @@ echo "==> Configuring macOS defaults (Dock, Finder, iTerm2)..."
 # running "Set standby delay to 24 hours (default is 10800 = 1 hour)"
 # sudo pmset -a standbydelay 86400;ok
 
-# Disable the “Are you sure you want to open this application?” dialog
+# Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-running “Disable natural (reversed) scrolling direction”
+running "Disable natural (reversed) scrolling direction"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
-running “Set key repeat rate to fastest”
+running "Set key repeat rate to fastest"
 defaults write NSGlobalDomain KeyRepeat -int 1;ok
 
-running “Set initial key repeat delay to shortest”
+running "Set initial key repeat delay to shortest"
 defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
 
 # running "Disable the crash reporter"
@@ -65,7 +65,7 @@ running "Change minimize/maximize window effect to scale"
 defaults write com.apple.dock mineffect -string "scale";ok
 
 # Wipe all (default) app icons from the Dock
-# This is only really useful when setting up a new Mac, or if you don’t use
+# This is only really useful when setting up a new Mac, or if you don't use
 # the Dock to launch apps.
 
 defaults write com.apple.dock persistent-apps -array
@@ -76,7 +76,7 @@ defaults write com.apple.finder AppleShowAllFiles TRUE
 ###############################################################################
 # Iterm2
 ###############################################################################
-running "Don’t display the annoying prompt when quitting iTerm"
+running "Don't display the annoying prompt when quitting iTerm"
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false;ok
 running "hide tab title bars"
 defaults write com.googlecode.iterm2 HideTab -bool true;ok
