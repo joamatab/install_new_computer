@@ -46,35 +46,46 @@ for i in \
   automake \
   awk \
   bash \
+  bat \
   bottom \
-  git-delta \
+  dust \
   eza \
+  fastmod \
+  fd \
   fish \
   fzf \
   gcc \
   gh \
   ghostscript \
+  git-delta \
+  git-lfs \
   go \
   htop \
-  git-lfs \
+  hyperfine \
   lazygit \
   lf \
   lsd \
   m-cli \
   mame \
+  mcfly \
   neovim \
   node \
   ollama \
   postgres \
+  ripgrep \
   s-search \
   s3fs \
+  sd \
   shellcheck \
+  skim \
   starship \
   tmux \
+  tokei \
   tree \
   vim \
   wget \
   yarn \
+  zoxide \
   ;
 do
   require_brew $i
