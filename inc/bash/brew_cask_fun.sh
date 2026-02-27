@@ -15,7 +15,7 @@ fi
 
 for i in \
   openemu \
-  ultrastardeluxe 
+  ultrastardeluxe
 do
   require_cask $i
 done

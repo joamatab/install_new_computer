@@ -18,8 +18,7 @@ def complete_script(incomplete: str) -> list[str]:
     if not bash_dir.exists():
         return []
     scripts = sorted(
-        str(f.relative_to(bash_dir)).removesuffix(".sh")
-        for f in bash_dir.rglob("*.sh")
+        str(f.relative_to(bash_dir)).removesuffix(".sh") for f in bash_dir.rglob("*.sh")
     )
     return [s for s in scripts if s.startswith(incomplete)]
 

@@ -90,7 +90,7 @@ echo "==> Done! macOS defaults configured."
 
 bash $script_home/brew.sh
 bash $script_home/brew_cask.sh
-bash $script_home/rust_packages.sh
+bash $script_home/rust_packages.sh # TODO: move packages to brew script
 bash $script_home/fish.sh
 bash $script_home/ssh_create_key.sh
 bash $script_home/dotfiles.sh
