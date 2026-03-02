@@ -15,7 +15,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 Then install `inc`:
 
 ```
-uv tool install inc
+uv tool install inc --python 3.12
 ```
 
 ## Usage
