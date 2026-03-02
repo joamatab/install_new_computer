@@ -25,14 +25,15 @@ fi
 
 echo "==> Configuring macOS defaults (Dock, Finder, iTerm2)..."
 
-# running "Disable local Time Machine snapshots"
-# sudo tmutil disablelocal;ok
+###############################################################################
+# Gatekeeper & App Security
+###############################################################################
 
-# running "Set standby delay to 24 hours (default is 10800 = 1 hour)"
-# sudo pmset -a standbydelay 86400;ok
+running "Allow apps from App Store and identified developers (disable Gatekeeper)"
+sudo spctl --master-disable;ok
 
-# Disable the "Are you sure you want to open this application?" dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+running "Disable quarantine prompt for downloaded apps"
+defaults write com.apple.LaunchServices LSQuarantine -bool false;ok
 
 running "Disable natural (reversed) scrolling direction"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
