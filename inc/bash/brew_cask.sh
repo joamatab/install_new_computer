@@ -12,13 +12,13 @@ for i in \
   cursor \
   caffeine \
   obs \
-  macvim \
   firefox \
   flameshot \
   google-chrome \
   ghostty \
   zed
   # bitwarden \
+  # macvim \
   # dupeguru \
   # github \
   # iterm2 \

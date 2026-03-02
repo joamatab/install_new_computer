@@ -16,6 +16,7 @@ fi
 for i in \
   openemu \
   ghostscript \
+  starship \
   mame \
   gcc \
   ultrastardeluxe

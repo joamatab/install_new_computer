@@ -75,7 +75,6 @@ for i in \
   sd \
   shellcheck \
   skim \
-  starship \
   tmux \
   tokei \
   tree \
