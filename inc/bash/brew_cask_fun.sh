@@ -15,6 +15,8 @@ fi
 
 for i in \
   openemu \
+  mame \
+  gcc \
   ultrastardeluxe
 do
   require_cask $i

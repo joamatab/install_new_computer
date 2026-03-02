@@ -54,7 +54,6 @@ for i in \
   fd \
   fish \
   fzf \
-  gcc \
   gh \
   ghostscript \
   git-delta \
@@ -66,7 +65,6 @@ for i in \
   lf \
   lsd \
   m-cli \
-  mame \
   mcfly \
   neovim \
   node \
