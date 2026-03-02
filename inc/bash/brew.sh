@@ -55,7 +55,6 @@ for i in \
   fish \
   fzf \
   gh \
-  ghostscript \
   git-delta \
   git-lfs \
   go \
