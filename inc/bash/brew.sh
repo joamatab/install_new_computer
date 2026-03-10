@@ -48,6 +48,7 @@ for i in \
   bash \
   bat \
   bottom \
+  copilot-cli \
   dust \
   eza \
   fastmod \
@@ -65,6 +66,7 @@ for i in \
   lsd \
   m-cli \
   mcfly \
+  mpv \
   neovim \
   node \
   ollama \
