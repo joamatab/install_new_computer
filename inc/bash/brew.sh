@@ -56,6 +56,7 @@ for i in \
   fish \
   fzf \
   gh \
+  gemini-cli \
   git-delta \
   git-lfs \
   go \
