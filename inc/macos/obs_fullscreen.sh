@@ -2,6 +2,7 @@
 # Configure OBS screen capture to fill the full canvas
 
 OBS_SCENES="$HOME/Library/Application Support/obs-studio/basic/scenes/Untitled.json"
+OBS_PROFILE="$HOME/Library/Application Support/obs-studio/basic/profiles/Untitled/basic.ini"
 
 if [ ! -f "$OBS_SCENES" ]; then
     echo "OBS scene file not found. Make sure OBS is installed and has been run at least once."
@@ -15,58 +16,73 @@ if pgrep -x "OBS" > /dev/null; then
 fi
 
 python3 -c "
-import json, sys, subprocess
+import json, sys, re
 
-path = sys.argv[1]
-with open(path) as f:
+scene_path = sys.argv[1]
+profile_path = sys.argv[2]
+
+with open(scene_path) as f:
     data = json.load(f)
 
-canvas_w = data.get('resolution', {}).get('x', 1920)
-canvas_h = data.get('resolution', {}).get('y', 1080)
+# OBS uses these formulas to compute actual values from _rel values:
+#   scale = scale_rel * canvas_h / scale_ref.y
+#   pos   = pos_rel * (canvas_h / 2) + (canvas_w / 2, canvas_h / 2)
+#   bounds = bounds_rel * (canvas_h / 2)
+#
+# We want: canvas=1920x1080, source fit to canvas using bounds (Fit to Screen)
 
-# Get actual display resolution via system_profiler
-try:
-    out = subprocess.check_output(
-        ['system_profiler', 'SPDisplaysDataType'], text=True
-    )
-    for line in out.splitlines():
-        if 'Resolution' in line and 'Retina' in line:
-            # e.g. '3024 x 1964 Retina'
-            parts = line.split(':')[1].strip().split()
-            src_w = int(parts[0])
-            src_h = int(parts[2])
-            print(f'Detected display: {src_w}x{src_h}')
-            break
-    else:
-        src_w, src_h = 3024, 1964
-        print(f'Could not detect display, assuming {src_w}x{src_h}')
-except Exception:
-    src_w, src_h = 3024, 1964
-    print(f'Could not detect display, assuming {src_w}x{src_h}')
+canvas_w = 1920
+canvas_h = 1080
+half_h = canvas_h / 2.0
 
-# Uniform scale to fill canvas (crop overflow)
-scale = max(canvas_w / src_w, canvas_h / src_h)
-scaled_w = src_w * scale
-scaled_h = src_h * scale
-# Center the overflow
-offset_x = -(scaled_w - canvas_w) / 2
-offset_y = -(scaled_h - canvas_h) / 2
+data['resolution'] = {'x': canvas_w, 'y': canvas_h}
 
 for source in data.get('sources', []):
     if source.get('id') != 'scene':
         continue
     for item in source.get('settings', {}).get('items', []):
-        item['bounds_type'] = 0
-        item['scale'] = {'x': scale, 'y': scale}
-        item['pos'] = {'x': offset_x, 'y': offset_y}
+        ref = item.get('scale_ref', {})
+        src_w = ref.get('x', 1512)
+        src_h = ref.get('y', 982)
+
+        # bounds_type 2 = Scale to inner bounds (Fit to Screen)
+        item['bounds_type'] = 2
+        item['bounds_align'] = 0
+
+        # bounds = canvas size, bounds_rel = bounds / half_h
+        item['bounds'] = {'x': float(canvas_w), 'y': float(canvas_h)}
+        item['bounds_rel'] = {'x': canvas_w / half_h, 'y': canvas_h / half_h}
+
+        # scale 1:1 (bounds will override visual size)
+        item['scale'] = {'x': 1.0, 'y': 1.0}
+        item['scale_rel'] = {'x': src_h / canvas_h, 'y': src_h / canvas_h}
+
+        # pos = (0, 0), compute matching pos_rel
+        item['pos'] = {'x': 0.0, 'y': 0.0}
+        item['pos_rel'] = {'x': -(canvas_w / 2.0) / half_h, 'y': -1.0}
+
         item['crop_left'] = 0
         item['crop_top'] = 0
         item['crop_right'] = 0
         item['crop_bottom'] = 0
-        print(f'Set \"{item[\"name\"]}\" scale={scale:.6f} pos=({offset_x:.1f}, {offset_y:.1f})')
 
-with open(path, 'w') as f:
+        print(f'Set \"{item[\"name\"]}\" to fit {canvas_w}x{canvas_h} canvas (bounds mode)')
+
+with open(scene_path, 'w') as f:
     json.dump(data, f, indent=4)
 
-print('OBS scene updated successfully.')
-" "$OBS_SCENES"
+# Update profile basic.ini
+with open(profile_path) as f:
+    ini = f.read()
+
+ini = re.sub(r'^BaseCX=.*$', f'BaseCX={canvas_w}', ini, flags=re.MULTILINE)
+ini = re.sub(r'^BaseCY=.*$', f'BaseCY={canvas_h}', ini, flags=re.MULTILINE)
+ini = re.sub(r'^OutputCX=.*$', f'OutputCX={canvas_w}', ini, flags=re.MULTILINE)
+ini = re.sub(r'^OutputCY=.*$', f'OutputCY={canvas_h}', ini, flags=re.MULTILINE)
+
+with open(profile_path, 'w') as f:
+    f.write(ini)
+
+print(f'Profile set to {canvas_w}x{canvas_h}')
+print('Done. Open OBS to verify.')
+" "$OBS_SCENES" "$OBS_PROFILE"
