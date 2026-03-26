@@ -173,7 +173,7 @@
 ## The default URL for users when they arrive (e.g. when user directs to "/")
 #
 #  By default, redirects users to their own server.
-c.Spawner.default_url = "/lab"
+c.Spawner.default_url = "/lab"  # noqa: F821
 
 
 ## Register extra tornado Handlers for jupyterhub.
