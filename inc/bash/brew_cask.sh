@@ -9,7 +9,7 @@ echo "==> Installing desktop apps via Homebrew Cask..."
 
 for i in \
   visual-studio-code \
-  cursor \
+  antigravity \
   caffeine \
   obs \
   firefox \
@@ -17,6 +17,7 @@ for i in \
   google-chrome \
   ghostty \
   zed
+  # cursor \
   # bitwarden \
   # macvim \
   # dupeguru \
