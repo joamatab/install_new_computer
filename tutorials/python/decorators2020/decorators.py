@@ -17,7 +17,7 @@ def timer(func):
         t0 = time.perf_counter()
         value = func(*args, **kwargs)
         t1 = time.perf_counter()
-        print(f"elapsed time: {t1-t0} seconds")
+        print(f"elapsed time: {t1 - t0} seconds")
         return value
 
     return _timer
