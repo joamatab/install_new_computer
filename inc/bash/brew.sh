@@ -101,6 +101,7 @@ for i in \
   wget \
   yarn \
   zoxide \
+  zellij \
   ;
 do
   require_brew $i
