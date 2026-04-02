@@ -17,7 +17,7 @@ sync_wiki() {
   fi
 }
 
-sync_wiki "joaquin"          "git@github.com:joamatab/joaquin.wiki.git"
+sync_wiki "joaquin"          "git@github.com:joamatab/wiki.git"
 sync_wiki "github"           "git@github.com:joamatab/dotfiles.wiki.git"
 sync_wiki "gotbletu"         "https://github.com/gotbletu/shownotes.git"
 sync_wiki "book-notes"       "git@github.com:joamatab/book-notes.git"
