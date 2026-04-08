@@ -8,14 +8,15 @@ source "$script_home/lib_sh/requirers.sh"
 echo "==> Installing desktop apps via Homebrew Cask..."
 
 for i in \
-  visual-studio-code \
   antigravity \
   caffeine \
-  obs \
   firefox \
   flameshot \
-  google-chrome \
   ghostty \
+  google-chrome \
+  neovide \
+  obs \
+  visual-studio-code \
   zed
   # cursor \
   # bitwarden \
