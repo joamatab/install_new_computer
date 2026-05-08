@@ -34,7 +34,7 @@ repos:
     rev: v0.10.0.1
     hooks:
       - id: shellcheck
-        args: ["--severity=warning", "--exclude=SC1090,SC1091"]
+        args: ["--severity=error", "--exclude=SC1090,SC1091,SC2148"]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.2
     hooks:

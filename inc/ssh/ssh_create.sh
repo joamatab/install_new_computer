@@ -10,7 +10,7 @@ if [ ! -f $HOME/.ssh/$KEY_NAME.pub ]; then
   echo 'Lets create a GIT credential and add it to http://github.com and/or gitlab.com'
   echo 'Go to gitlab and make sure you log in'
   read
-  if [! -d /c ]; then
+  if [ ! -d /c ]; then
     open 'http://github.com'
     open 'http://gitlab.com'
   fi

@@ -1,8 +1,9 @@
+#!/bin/bash
 
-[ ! Release-7.6.0.tar.gz ] && curl -L https://github.com/Xyce/Xyce/archive/refs/tags/Release-7.6.0.tar.gz | tar xzC  $PWD
-cd Xyce-Release-7.6.0
+[ ! -f Release-7.6.0.tar.gz ] && curl -L https://github.com/Xyce/Xyce/archive/refs/tags/Release-7.6.0.tar.gz | tar xzC "$PWD"
+cd Xyce-Release-7.6.0 || exit
 mkdir trilinos-build
-cd trilinos-build
+cd trilinos-build || exit
 
 cmake \
 -D CMAKE_INSTALL_PREFIX=/path/to/Trilinos_install \
@@ -10,9 +11,9 @@ cmake \
 path/to/Trilinos
 
 cmake --build . -j 2 -t install
-cd ..
+cd .. || exit
 mkdir xyce-build
-cd xyce-build
+cd xyce-build || exit
 
 cmake \
 -D CMAKE_INSTALL_PREFIX=/path/to/install \

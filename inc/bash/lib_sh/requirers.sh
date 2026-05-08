@@ -54,7 +54,7 @@ function require_node(){
 
 function require_gem() {
     running "gem $1"
-    if [[ $(gem list --local | grep $1 | head -1 | cut -d' ' -f1) != $1 ]];
+    if [[ $(gem list --local | grep "$1" | head -1 | cut -d' ' -f1) != "$1" ]];
         then
             action "gem install $1"
             gem install $1
@@ -69,7 +69,7 @@ function require_npm() {
     npm list -g --depth 0 | grep $1@ > /dev/null
     if [[ $? != 0 ]]; then
         action "npm install -g $*"
-        npm install -g $@
+        npm install -g "$@"
     fi
     ok
 }
@@ -86,13 +86,13 @@ function require_apm() {
 
 function sourceNVM(){
     export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
+    source "$(brew --prefix nvm)/nvm.sh"
 }
 
 
 function require_nvm() {
     mkdir -p ~/.nvm
-    cp $(brew --prefix nvm)/nvm-exec ~/.nvm/
+    cp "$(brew --prefix nvm)/nvm-exec" ~/.nvm/
     sourceNVM
     nvm install $1
     if [[ $? != 0 ]]; then
