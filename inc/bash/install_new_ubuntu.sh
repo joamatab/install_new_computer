@@ -7,17 +7,35 @@ script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $script_home/lib_sh/echos.sh
 
 ###############################################################################
+# Section selector
+###############################################################################
+SECTIONS=$(whiptail --title "Ubuntu Setup" --checklist \
+  "Select sections to install (space to toggle, enter to confirm):" 20 70 7 \
+  "build"     "Build essentials"          ON \
+  "defaults"  "System defaults (GNOME)"   ON \
+  "cli"       "CLI packages (apt)"        ON \
+  "external"  "External CLI packages"     ON \
+  "gui"       "GUI desktop apps"          OFF \
+  "setup"     "Setup scripts (fish, ssh, dotfiles, vim, git)" ON \
+  3>&1 1>&2 2>&3) || exit 0
+
+has_section() { echo "$SECTIONS" | grep -q "\"$1\""; }
+
+###############################################################################
 # Build essentials (equivalent of Xcode Command Line Tools)
 ###############################################################################
-if dpkg -s build-essential &>/dev/null; then
-  echo "==> Build essentials already installed."
-else
-  echo "==> Installing build essentials..."
-  sudo apt update
-  sudo apt install -y build-essential curl git wget software-properties-common \
-    apt-transport-https ca-certificates gnupg lsb-release
+if has_section build; then
+  if dpkg -s build-essential &>/dev/null; then
+    echo "==> Build essentials already installed."
+  else
+    echo "==> Installing build essentials..."
+    sudo apt update
+    sudo apt install -y build-essential curl git wget software-properties-common \
+      apt-transport-https ca-certificates gnupg lsb-release
+  fi
 fi
 
+if has_section defaults; then
 echo "==> Configuring Ubuntu defaults (GNOME, keyboard, etc.)..."
 
 ###############################################################################
@@ -59,9 +77,12 @@ gsettings set org.gnome.shell favorite-apps "[]" 2>/dev/null;ok
 running "Show hidden files in file manager"
 gsettings set org.gnome.nautilus.preferences show-hidden-files true 2>/dev/null;ok
 
+fi # end defaults
+
 ###############################################################################
 # Install CLI packages (equivalent of brew.sh)
 ###############################################################################
+if has_section cli; then
 
 echo "==> Installing CLI packages via apt..."
 
@@ -105,9 +126,12 @@ do
   fi
 done
 
+fi # end cli
+
 ###############################################################################
 # Packages not in default apt repos (install via other methods)
 ###############################################################################
+if has_section external; then
 
 echo "==> Installing packages from external sources..."
 
@@ -200,9 +224,12 @@ if ! command -v zellij &>/dev/null; then
   ok
 fi
 
+fi # end external
+
 ###############################################################################
 # GUI apps (equivalent of brew_cask.sh)
 ###############################################################################
+if has_section gui; then
 
 echo "==> Installing desktop apps..."
 
@@ -273,12 +300,18 @@ fi
 
 echo "==> Done! Desktop apps installed."
 
+fi # end gui
+
 ###############################################################################
 # Run shared setup scripts
 ###############################################################################
+if has_section setup; then
 
 bash $script_home/fish.sh
 bash $script_home/ssh_create_key.sh
+bash $script_home/rust_packages.sh
 bash $script_home/dotfiles.sh
 bash $script_home/vim.sh
 bash $script_home/git_config.sh
+
+fi # end setup
