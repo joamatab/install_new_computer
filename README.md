@@ -37,7 +37,7 @@ Available bash scripts:
   conda_python312
   dotfiles
   gmsh
-  install_new_mac
+  new_mac
 ```
 
 ### Run a script

@@ -1,6 +1,6 @@
 #!/bin/bash
 # inspired in github.com/donnemartin/dev-setup
-# Ubuntu/Debian equivalent of install_new_mac.sh
+# Ubuntu/Debian equivalent of new_mac.sh
 
 script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
