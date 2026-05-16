@@ -100,6 +100,7 @@ for i in \
   git-lfs \
   golang-go \
   htop \
+  just \
   hyperfine \
   mpv \
   neovim \
