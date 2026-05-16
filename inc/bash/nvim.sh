@@ -1,27 +1,34 @@
 #!/bin/bash
 
-echo "==> Installing Neovim (v0.10.3) for Linux..."
+NVIM_VERSION=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep -Po '"tag_name": "\K[^"]*')
+echo "==> Installing Neovim ($NVIM_VERSION) for Linux..."
 
-echo "    Downloading nvim-linux64.tar.gz..."
-wget https://github.com/neovim/neovim/releases/download/v0.10.3/nvim-linux64.tar.gz
+ARCH=$(uname -m)
+case "$ARCH" in
+  x86_64)  ASSET="nvim-linux-x86_64" ;;
+  aarch64) ASSET="nvim-linux-arm64" ;;
+  *)       echo "    Unsupported architecture: $ARCH"; exit 1 ;;
+esac
+
+echo "    Downloading ${ASSET}.tar.gz..."
+curl -sL "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${ASSET}.tar.gz" -o /tmp/${ASSET}.tar.gz
 
 echo "    Extracting..."
-tar xzvf nvim-linux64.tar.gz
+tar xzf /tmp/${ASSET}.tar.gz -C /tmp
 
-if [ -d "$HOME/.local/bin" ]; then
-    ln -sf "$PWD/nvim-linux64/bin/nvim" "$HOME/.local/bin/"
-    echo "    Linked nvim to $HOME/.local/bin/"
-else
-    mv "$PWD/nvim-linux64/bin/nvim" /usr/local/bin/
-    echo "    Moved nvim to /usr/local/bin/"
-fi
+echo "    Installing to /opt/nvim..."
+rm -rf /opt/nvim
+cp -r /tmp/${ASSET} /opt/nvim
 
-rm -rf nvim-linux64.tar.gz
+mkdir -p "$HOME/.local/bin"
+ln -sf /opt/nvim/bin/nvim "$HOME/.local/bin/nvim"
 
-if command -v nvim &> /dev/null; then
+rm -rf /tmp/${ASSET}.tar.gz /tmp/${ASSET}
+
+if command -v nvim &>/dev/null; then
     echo "    Neovim version: $(nvim --version | head -1)"
 else
-    echo "    Warning: nvim not found in PATH after install."
+    echo "    Warning: nvim not found in PATH. Add ~/.local/bin to your PATH."
 fi
 
 echo "    Installing vim-plug for Neovim..."

@@ -312,6 +312,7 @@ bash $script_home/fish.sh
 bash $script_home/ssh_create_key.sh
 bash $script_home/dotfiles.sh
 bash $script_home/vim.sh
+bash $script_home/coc.sh
 bash $script_home/git_config.sh
 
 fi # end setup
