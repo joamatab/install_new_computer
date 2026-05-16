@@ -2,6 +2,9 @@
 # Install config files with shortcuts, paths, etc.
 echo "==> Installing dotfiles from github.com/joamatab/dotfiles..."
 
+# Source cargo env if available (dotfiles may reference it)
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
 DOTFILES="$HOME/dotfiles"
 
 if [ -d $DOTFILES ]; then

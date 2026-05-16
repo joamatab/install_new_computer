@@ -8,7 +8,7 @@ dev:
 
 test-mac:
 	uv run inc run brew
-	uv run inc run install_new_mac
+	uv run inc run new_mac
 
 git-rm-merged:
 	git branch -D `git branch --merged | grep -v \* | xargs`

@@ -30,6 +30,11 @@ repos:
     rev: v1.7.12
     hooks:
       - id: actionlint
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        args: ["--severity=error", "--exclude=SC1090,SC1091,SC2148"]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.2
     hooks:

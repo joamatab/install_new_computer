@@ -1,3 +1,4 @@
+#!/bin/bash
 
 for i in  *.ipynb; do
     echo $i

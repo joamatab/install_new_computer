@@ -2,14 +2,28 @@
 
 echo "==> Setting up Fish shell as default..."
 
-fish_bin=$(which fish) 2>&1 > /dev/null
+fish_bin=$(command -v fish)
+
+if [ -z "$fish_bin" ]; then
+  echo "    Fish not found. Install it first."
+  exit 1
+fi
+
 echo "    Found Fish at: $fish_bin"
 
-echo "    Adding Fish to /etc/shells..."
-echo $fish_bin | sudo tee -a /etc/shells
+if ! grep -qx "$fish_bin" /etc/shells; then
+  echo "    Adding Fish to /etc/shells..."
+  echo "$fish_bin" | sudo tee -a /etc/shells
+else
+  echo "    Fish already in /etc/shells."
+fi
 
-echo "    Changing default shell to Fish..."
-chsh -s $(which fish)
+if [ "$SHELL" != "$fish_bin" ]; then
+  echo "    Changing default shell to Fish..."
+  sudo chsh -s "$fish_bin" "$USER"
+else
+  echo "    Fish is already the default shell."
+fi
 
 echo "    Installing Oh My Fish..."
 curl -L https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
