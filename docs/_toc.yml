@@ -9,9 +9,15 @@ parts:
   #     - file: tutorial
   #       sections:
   #         - file: notebooks/demo
+  - caption: Guide
+    chapters:
+      - file: tutorial
+      - file: apps
   - caption: Reference
     chapters:
       - file: windows
+        sections:
+          - file: windows_extra
       - file: mac
       - file: linux
       - file: api

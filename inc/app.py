@@ -7,20 +7,28 @@ from pathlib import Path
 
 import typer
 
+from .apps import apps_app, complete_app, doctor, load_catalog
+from .apps import install as install_apps
 from .config import PATH
 
 app = typer.Typer()
+app.add_typer(apps_app, name="apps")
+app.command()(doctor)
 
 
 def complete_script(incomplete: str) -> list[str]:
-    """Return matching bash script names for autocompletion."""
+    """Return matching script and application names for autocompletion."""
     bash_dir = PATH.bash
-    if not bash_dir.exists():
-        return []
-    scripts = sorted(
-        str(f.relative_to(bash_dir)).removesuffix(".sh") for f in bash_dir.rglob("*.sh")
+    scripts = (
+        {
+            str(f.relative_to(bash_dir)).removesuffix(".sh")
+            for f in bash_dir.rglob("*.sh")
+        }
+        if bash_dir.exists()
+        else set()
     )
-    return [s for s in scripts if s.startswith(incomplete)]
+    matches = scripts | set(complete_app(incomplete))
+    return sorted(name for name in matches if name.startswith(incomplete))
 
 
 @app.command()
@@ -169,7 +177,7 @@ def ls(
         False, "-r", help="List scripts in subdirectories too"
     ),
 ):
-    """List all available bash scripts."""
+    """List available scripts and catalog applications."""
     bash_dir = PATH.bash
     if not bash_dir.exists():
         print("Bash directory not found.")
@@ -193,12 +201,16 @@ def ls(
     for script in scripts:
         print(f"  {script}")
 
+    print("Available applications:")
+    for name in load_catalog().apps:
+        print(f"  {name}")
+
 
 @app.command()
 def run(
     script: str = typer.Argument(
         ...,
-        help="Name of the bash script to run (without .sh extension). Use / for subdirectories (e.g. electronics/klayout/install_mac)",
+        help="Script or catalog application name. Use / for script subdirectories.",
         autocompletion=complete_script,
     ),
     args: list[str] | None = typer.Argument(
@@ -208,13 +220,29 @@ def run(
         False, help="Print the command that would be executed without running it"
     ),
 ):
-    """Run a bash script from the bash/ directory."""
+    """Run a bash script or install a catalog application."""
     bash_dir = PATH.bash
     script_path = bash_dir / f"{script}.sh"
 
     if not script_path.exists():
+        if script in load_catalog().apps:
+            app_args = args or []
+            unsupported_args = [arg for arg in app_args if arg not in {"--yes", "-y"}]
+            if unsupported_args:
+                print(
+                    "Application installs only accept --yes/-y through 'inc run'. "
+                    "Use 'inc apps install' for other options."
+                )
+                raise typer.Exit(2)
+            install_apps(
+                names=[script],
+                profile=None,
+                dry_run=dry_run,
+                yes=bool({"--yes", "-y"} & set(app_args)),
+            )
+            return
         print(f"Script '{script}.sh' not found in bash directory.")
-        print("Use 'inc ls' or 'inc ls -r' to see available scripts.")
+        print("Use 'inc ls' or 'inc ls -r' to see available scripts and applications.")
         return
 
     # Build the command

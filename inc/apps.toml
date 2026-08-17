@@ -1,0 +1,84 @@
+[apps.curl]
+arch = "curl"
+command = "curl"
+debian = "curl"
+description = "Command-line data transfer tool"
+fedora = "curl"
+macos = "curl"
+opensuse = "curl"
+windows = "cURL.cURL"
+
+[apps.fzf]
+arch = "fzf"
+command = "fzf"
+debian = "fzf"
+description = "Command-line fuzzy finder"
+fedora = "fzf"
+macos = "fzf"
+opensuse = "fzf"
+windows = "junegunn.fzf"
+
+[apps.gh]
+arch = "github-cli"
+command = "gh"
+debian = "gh"
+description = "GitHub CLI"
+fedora = "gh"
+macos = "gh"
+opensuse = "gh"
+post_install = ["gh", "auth", "login"]
+windows = "GitHub.cli"
+
+[apps.git]
+arch = "git"
+command = "git"
+debian = "git"
+description = "Git version control"
+fedora = "git"
+macos = "git"
+opensuse = "git"
+windows = "Git.Git"
+
+[apps.just]
+arch = "just"
+command = "just"
+debian = "just"
+description = "Command runner for project recipes"
+fedora = "just"
+macos = "just"
+opensuse = "just"
+windows = "Casey.Just"
+
+[apps.node]
+arch = "nodejs"
+command = "node"
+debian = "nodejs"
+description = "Node.js JavaScript runtime"
+fedora = "nodejs"
+macos = "node"
+opensuse = "nodejs"
+windows = "OpenJS.NodeJS.LTS"
+
+[apps.ripgrep]
+arch = "ripgrep"
+command = "rg"
+debian = "ripgrep"
+description = "Fast recursive text search"
+fedora = "ripgrep"
+macos = "ripgrep"
+opensuse = "ripgrep"
+windows = "BurntSushi.ripgrep.MSVC"
+
+[apps.shellcheck]
+arch = "shellcheck"
+command = "shellcheck"
+debian = "shellcheck"
+description = "Shell script analyzer"
+fedora = "ShellCheck"
+macos = "shellcheck"
+opensuse = "ShellCheck"
+windows = "koalaman.shellcheck"
+
+[profiles]
+core = ["gh", "git", "curl", "ripgrep", "fzf"]
+dev = ["gh", "git", "curl", "ripgrep", "fzf", "just", "shellcheck", "node"]
