@@ -1,83 +1,83 @@
-[apps.gh]
-description = "GitHub CLI"
-command = "gh"
-arch = "github-cli"
-debian = "gh"
-fedora = "gh"
-opensuse = "gh"
-macos = "gh"
-windows = "GitHub.cli"
-post_install = ["gh", "auth", "login"]
-
-[apps.git]
-description = "Git version control"
-command = "git"
-arch = "git"
-debian = "git"
-fedora = "git"
-opensuse = "git"
-macos = "git"
-windows = "Git.Git"
-
 [apps.curl]
-description = "Command-line data transfer tool"
-command = "curl"
 arch = "curl"
+command = "curl"
 debian = "curl"
+description = "Command-line data transfer tool"
 fedora = "curl"
-opensuse = "curl"
 macos = "curl"
+opensuse = "curl"
 windows = "cURL.cURL"
 
-[apps.ripgrep]
-description = "Fast recursive text search"
-command = "rg"
-arch = "ripgrep"
-debian = "ripgrep"
-fedora = "ripgrep"
-opensuse = "ripgrep"
-macos = "ripgrep"
-windows = "BurntSushi.ripgrep.MSVC"
-
 [apps.fzf]
-description = "Command-line fuzzy finder"
-command = "fzf"
 arch = "fzf"
+command = "fzf"
 debian = "fzf"
+description = "Command-line fuzzy finder"
 fedora = "fzf"
-opensuse = "fzf"
 macos = "fzf"
+opensuse = "fzf"
 windows = "junegunn.fzf"
 
+[apps.gh]
+arch = "github-cli"
+command = "gh"
+debian = "gh"
+description = "GitHub CLI"
+fedora = "gh"
+macos = "gh"
+opensuse = "gh"
+post_install = ["gh", "auth", "login"]
+windows = "GitHub.cli"
+
+[apps.git]
+arch = "git"
+command = "git"
+debian = "git"
+description = "Git version control"
+fedora = "git"
+macos = "git"
+opensuse = "git"
+windows = "Git.Git"
+
 [apps.just]
-description = "Command runner for project recipes"
-command = "just"
 arch = "just"
+command = "just"
 debian = "just"
+description = "Command runner for project recipes"
 fedora = "just"
-opensuse = "just"
 macos = "just"
+opensuse = "just"
 windows = "Casey.Just"
 
-[apps.shellcheck]
-description = "Shell script analyzer"
-command = "shellcheck"
-arch = "shellcheck"
-debian = "shellcheck"
-fedora = "ShellCheck"
-opensuse = "ShellCheck"
-macos = "shellcheck"
-windows = "koalaman.shellcheck"
-
 [apps.node]
-description = "Node.js JavaScript runtime"
-command = "node"
 arch = "nodejs"
+command = "node"
 debian = "nodejs"
+description = "Node.js JavaScript runtime"
 fedora = "nodejs"
-opensuse = "nodejs"
 macos = "node"
+opensuse = "nodejs"
 windows = "OpenJS.NodeJS.LTS"
+
+[apps.ripgrep]
+arch = "ripgrep"
+command = "rg"
+debian = "ripgrep"
+description = "Fast recursive text search"
+fedora = "ripgrep"
+macos = "ripgrep"
+opensuse = "ripgrep"
+windows = "BurntSushi.ripgrep.MSVC"
+
+[apps.shellcheck]
+arch = "shellcheck"
+command = "shellcheck"
+debian = "shellcheck"
+description = "Shell script analyzer"
+fedora = "ShellCheck"
+macos = "shellcheck"
+opensuse = "ShellCheck"
+windows = "koalaman.shellcheck"
 
 [profiles]
 core = ["gh", "git", "curl", "ripgrep", "fzf"]
