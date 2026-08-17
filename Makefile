@@ -27,6 +27,6 @@ ssh:
 	git push --set-upstream origin main
 
 docs:
-	uv run jb build docs
+	uv run jupyter-book build docs
 
 .PHONY: drc doc docs
