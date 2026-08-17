@@ -56,6 +56,49 @@ To see what a script would do without running it:
 inc run gmsh --dry-run
 ```
 
+### Install applications
+
+Install an individual application with the native package manager:
+
+```bash
+inc apps install gh
+```
+
+For the same short workflow used by the script runner, catalog applications are
+also available through `inc run` and appear in its completion list:
+
+```bash
+inc run gh
+```
+
+App and profile names support shell completion after running
+`inc --install-completion`. For example, type `inc apps install g` and press Tab.
+
+Preview the command without installing anything:
+
+```bash
+inc apps install gh --dry-run
+```
+
+Install a predefined group of applications without confirmation:
+
+```bash
+inc apps install --profile core --yes
+inc apps install --profile dev --yes
+```
+
+Inspect the catalog and current installation state:
+
+```bash
+inc apps list
+inc apps status
+inc doctor
+```
+
+Applications and platform package mappings are declared in `inc/apps.toml`.
+The supported package families are Arch/Manjaro, Debian/Ubuntu, Fedora/RHEL,
+openSUSE, macOS/Homebrew, and Windows/WinGet.
+
 ### View script contents
 
 ```
@@ -67,6 +110,13 @@ inc cat <script_name>
 git clone https://github.com/joamatab/install_new_computer.git ~/install_new_computer
 cd ~/install_new_computer
 uv sync
+```
+
+Install the local checkout as an editable command that works from any directory:
+
+```bash
+just tool-install
+just tool-check
 ```
 
 For MacOs type this into a terminal first:

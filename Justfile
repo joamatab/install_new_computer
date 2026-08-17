@@ -4,11 +4,11 @@ uv:
 
 # Install dependencies
 install:
-    uv venv --python 3.11
+    uv venv --python 3.12
     uv sync --extra docs --extra dev
 
 dev:
-    pip install -e .[dev,docs]
+    uv sync --extra dev --extra docs
 
 # Install the inc command globally while keeping this checkout editable
 tool-install:
@@ -27,13 +27,13 @@ tool-uninstall:
     uv tool uninstall inc
 
 test:
-    pytest -s
+    uv run pytest -s
 
 cov:
-    pytest --cov=inc
+    uv run pytest --cov=inc
 
 mypy:
-    mypy . --ignore-missing-imports
+    uv run mypy . --ignore-missing-imports
 
 # Remove merged branches
 git-rm-merged:
