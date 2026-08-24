@@ -98,6 +98,7 @@ for i in \
   tokei \
   tree \
   vim \
+  weechat \
   wget \
   yarn \
   zoxide \
