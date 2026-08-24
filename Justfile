@@ -26,6 +26,22 @@ tool-path:
 tool-uninstall:
     uv tool uninstall inc
 
+# Install the inc command globally while keeping this checkout editable
+tool-install:
+    uv tool install --editable . --python 3.12 --force
+
+# Verify the globally installed command works outside this repository
+tool-check:
+    cd /tmp && inc --help && inc ls
+
+# Add uv's executable directory to the shell PATH
+tool-path:
+    uv tool update-shell
+
+# Remove the globally installed inc command
+tool-uninstall:
+    uv tool uninstall inc
+
 test:
     uv run pytest -s
 

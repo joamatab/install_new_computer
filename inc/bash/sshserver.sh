@@ -1,11 +1,16 @@
 #!/bin/bash
 
-echo "==> Enabling SSH server (sshd)..."
+set -euo pipefail
 
-echo "    Starting sshd service..."
-systemctl start sshd.service
+if ! command -v pacman >/dev/null 2>&1; then
+    echo "This script configures an SSH server on Arch Linux."
+    exit 1
+fi
 
-echo "    Enabling sshd on boot..."
-systemctl enable sshd.service
+echo "==> Installing OpenSSH..."
+sudo pacman -S --needed openssh
 
-echo "==> Done! SSH server is running and enabled."
+echo "==> Enabling and starting the SSH server..."
+sudo systemctl enable --now sshd.service
+
+echo "==> Done. Connect from your Mac with: ssh <user>@<arch-ip-or-hostname>"
