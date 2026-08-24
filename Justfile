@@ -58,6 +58,7 @@ ssh:
 docs:
     uv run jupyter-book build docs
 
-# Default target
+# Show available recipes by default
+[default]
 default:
-    install
+    @just --list
