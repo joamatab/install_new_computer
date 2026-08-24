@@ -11,7 +11,7 @@ from .apps import apps_app, complete_app, doctor, load_catalog
 from .apps import install as install_apps
 from .config import PATH
 
-app = typer.Typer()
+app = typer.Typer(no_args_is_help=True)
 app.add_typer(apps_app, name="apps")
 app.command()(doctor)
 
@@ -29,6 +29,41 @@ def complete_script(incomplete: str) -> list[str]:
     )
     matches = scripts | set(complete_app(incomplete))
     return sorted(name for name in matches if name.startswith(incomplete))
+
+
+def run_targets() -> list[str]:
+    """Return all scripts and applications available to ``inc run``."""
+    bash_dir = PATH.bash
+    scripts = (
+        {
+            str(script.relative_to(bash_dir)).removesuffix(".sh")
+            for script in bash_dir.rglob("*.sh")
+        }
+        if bash_dir.exists()
+        else set()
+    )
+    return sorted(scripts | set(load_catalog().apps))
+
+
+def select_run_target() -> str | None:
+    """Select a run target with fzf, returning ``None`` when cancelled."""
+    try:
+        result = subprocess.run(
+            ["fzf", "--prompt", "inc run> "],
+            input="\n".join(run_targets()),
+            text=True,
+            stdout=subprocess.PIPE,
+            check=False,
+        )
+    except FileNotFoundError:
+        typer.echo(
+            "fzf is required for interactive selection. Install it with 'inc run fzf'."
+        )
+        raise typer.Exit(1) from None
+
+    if result.returncode != 0:
+        return None
+    return result.stdout.strip() or None
 
 
 @app.command()
@@ -208,8 +243,8 @@ def ls(
 
 @app.command()
 def run(
-    script: str = typer.Argument(
-        ...,
+    script: str | None = typer.Argument(
+        None,
         help="Script or catalog application name. Use / for script subdirectories.",
         autocompletion=complete_script,
     ),
@@ -221,6 +256,11 @@ def run(
     ),
 ):
     """Run a bash script or install a catalog application."""
+    if script is None:
+        script = select_run_target()
+        if script is None:
+            return
+
     bash_dir = PATH.bash
     script_path = bash_dir / f"{script}.sh"
 
