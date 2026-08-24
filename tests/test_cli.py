@@ -1,3 +1,4 @@
+import importlib
 from types import SimpleNamespace
 
 from typer.testing import CliRunner
@@ -24,6 +25,14 @@ def test_ls():
     assert "  gh" in result.stdout
 
 
+def test_no_arguments_show_help():
+    result = runner.invoke(app, [])
+
+    assert "Usage:" in result.stdout
+    assert "Commands" in result.stdout
+    assert "run" in result.stdout
+
+
 def test_ls_recursive():
     result = runner.invoke(app, ["ls", "-r"])
     assert result.exit_code == 0
@@ -46,6 +55,28 @@ def test_run_dry_run():
     result = runner.invoke(app, ["run", "--dry-run", "brew"])
     assert result.exit_code == 0
     assert "Would execute" in result.stdout
+
+
+def test_run_without_target_uses_selector(monkeypatch):
+    app_module = importlib.import_module("inc.app")
+    monkeypatch.setattr(app_module, "select_run_target", lambda: "brew")
+
+    result = runner.invoke(app, ["run", "--dry-run"])
+
+    assert result.exit_code == 0
+    assert "Would execute" in result.stdout
+
+
+def test_fzf_selector_returns_selected_target(monkeypatch):
+    app_module = importlib.import_module("inc.app")
+
+    monkeypatch.setattr(
+        app_module.subprocess,
+        "run",
+        lambda *args, **kwargs: SimpleNamespace(returncode=0, stdout="brew\n"),
+    )
+
+    assert app_module.select_run_target() == "brew"
 
 
 def test_run_missing_script():
