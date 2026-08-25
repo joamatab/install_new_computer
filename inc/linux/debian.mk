@@ -1,5 +1,10 @@
 help:
 	@echo 'make install: Install awesome software (recommended)'
+	@echo 'make basic:   Install basic Debian software'
+
+basic: update
+	sudo apt install -y \
+		firefox-esr
 
 install:
 	git config --global core.editor "vim"

@@ -7,6 +7,7 @@ bash install.sh ubuntu.mk
 ```
 - for fedora `bash install.sh fedora.mk`
 - for arch `bash install.sh arch.mk`
+- for Debian, run `inc run debian` to install the basic software, including Firefox, tmux ...
 
 References:
 
@@ -15,7 +16,6 @@ References:
 
 
 ## VPN
-
 
 install openvpn
 

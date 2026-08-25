@@ -8,6 +8,11 @@ macos = "curl"
 opensuse = "curl"
 windows = "cURL.cURL"
 
+[apps.firefox]
+command = "firefox-esr"
+debian = "firefox-esr"
+description = "Firefox Extended Support Release web browser"
+
 [apps.fzf]
 arch = "fzf"
 command = "fzf"

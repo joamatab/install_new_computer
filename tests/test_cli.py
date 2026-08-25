@@ -57,6 +57,14 @@ def test_run_dry_run():
     assert "Would execute" in result.stdout
 
 
+def test_run_debian_dry_run():
+    result = runner.invoke(app, ["run", "debian", "--dry-run"])
+
+    assert result.exit_code == 0
+    assert "Would execute" in result.stdout
+    assert "debian.sh" in result.stdout
+
+
 def test_run_without_target_uses_selector(monkeypatch):
     app_module = importlib.import_module("inc.app")
     monkeypatch.setattr(app_module, "select_run_target", lambda: "brew")
@@ -93,6 +101,16 @@ def test_run_app_dry_run(monkeypatch):
 
     assert result.exit_code == 0
     assert "sudo pacman -S --needed --noconfirm github-cli" in result.stdout
+
+
+def test_run_firefox_on_debian_dry_run(monkeypatch):
+    monkeypatch.setattr("inc.apps.detect_platform", lambda: "debian")
+    monkeypatch.setattr("inc.apps.shutil.which", lambda command: None)
+
+    result = runner.invoke(app, ["run", "firefox", "--dry-run"])
+
+    assert result.exit_code == 0
+    assert "sudo apt-get install -y firefox-esr" in result.stdout
 
 
 def test_run_completion_includes_catalog_apps():
