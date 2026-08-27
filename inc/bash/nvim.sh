@@ -1,6 +1,8 @@
 #!/bin/bash
 
-NVIM_VERSION=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep -Po '"tag_name": "\K[^"]*')
+set -euo pipefail
+
+NVIM_VERSION=$(curl -fsSL https://api.github.com/repos/neovim/neovim/releases/latest | grep -Po '"tag_name": "\K[^"]*')
 echo "==> Installing Neovim ($NVIM_VERSION) for Linux..."
 
 ARCH=$(uname -m)
@@ -10,24 +12,26 @@ case "$ARCH" in
   *)       echo "    Unsupported architecture: $ARCH"; exit 1 ;;
 esac
 
+TEMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TEMP_DIR"' EXIT
+
 echo "    Downloading ${ASSET}.tar.gz..."
-curl -sL "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${ASSET}.tar.gz" -o /tmp/${ASSET}.tar.gz
+curl -fsSL "https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/${ASSET}.tar.gz" -o "$TEMP_DIR/${ASSET}.tar.gz"
 
 echo "    Extracting..."
-tar xzf /tmp/${ASSET}.tar.gz -C /tmp
+tar xzf "$TEMP_DIR/${ASSET}.tar.gz" -C "$TEMP_DIR"
 
-echo "    Installing to /opt/nvim..."
-rm -rf /opt/nvim
-cp -r /tmp/${ASSET} /opt/nvim
+INSTALL_DIR="$HOME/.local/opt/nvim"
+echo "    Installing to $INSTALL_DIR..."
+rm -rf "$INSTALL_DIR"
+mkdir -p "$(dirname "$INSTALL_DIR")"
+cp -r "$TEMP_DIR/${ASSET}" "$INSTALL_DIR"
 
 mkdir -p "$HOME/.local/bin"
-ln -sf /opt/nvim/bin/nvim "$HOME/.local/bin/nvim"
+ln -sf "$INSTALL_DIR/bin/nvim" "$HOME/.local/bin/nvim"
 
-rm -rf /tmp/${ASSET}.tar.gz /tmp/${ASSET}
-
-if command -v nvim &>/dev/null; then
-    echo "    Neovim version: $(nvim --version | head -1)"
-else
+echo "    Neovim version: $("$HOME/.local/bin/nvim" --version | head -1)"
+if ! command -v nvim &>/dev/null; then
     echo "    Warning: nvim not found in PATH. Add ~/.local/bin to your PATH."
 fi
 
