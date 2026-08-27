@@ -94,6 +94,7 @@ for i in \
   sd \
   shellcheck \
   skim \
+  trash-cli \
   tmux \
   tokei \
   tree \
