@@ -125,6 +125,36 @@ def test_version():
     assert __version__
 
 
+def test_self_update_uses_uv_tool_upgrade(monkeypatch):
+    app_module = importlib.import_module("inc.self")
+    calls = []
+
+    def fake_run(command, **kwargs):
+        calls.append((command, kwargs))
+        return SimpleNamespace(returncode=0)
+
+    monkeypatch.setattr(app_module.subprocess, "run", fake_run)
+
+    result = runner.invoke(app, ["self", "update"])
+
+    assert result.exit_code == 0
+    assert calls == [(["uv", "tool", "upgrade", "inc"], {"check": False})]
+
+
+def test_self_update_reports_missing_uv(monkeypatch):
+    app_module = importlib.import_module("inc.self")
+
+    def missing_uv(*args, **kwargs):
+        raise FileNotFoundError
+
+    monkeypatch.setattr(app_module.subprocess, "run", missing_uv)
+
+    result = runner.invoke(app, ["self", "update"])
+
+    assert result.exit_code == 1
+    assert "uv is required" in result.output
+
+
 def test_apps_list(monkeypatch):
     monkeypatch.setattr("inc.apps.detect_platform", lambda: "arch")
     monkeypatch.setattr("inc.apps.shutil.which", lambda command: None)

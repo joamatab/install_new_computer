@@ -10,9 +10,11 @@ import typer
 from .apps import apps_app, complete_app, doctor, load_catalog
 from .apps import install as install_apps
 from .config import PATH
+from .self import self_app
 
 app = typer.Typer(no_args_is_help=True)
 app.add_typer(apps_app, name="apps")
+app.add_typer(self_app, name="self", help="Manage inc itself.")
 app.command()(doctor)
 
 

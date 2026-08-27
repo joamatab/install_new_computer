@@ -24,6 +24,14 @@ uv tool install inc --python 3.12
 inc --help
 ```
 
+### Update inc
+
+When installed with `uv tool install`, update to the latest release with:
+
+```bash
+inc self update
+```
+
 ### List available scripts
 
 ```
