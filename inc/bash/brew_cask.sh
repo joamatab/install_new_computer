@@ -8,7 +8,6 @@ source "$script_home/lib_sh/requirers.sh"
 echo "==> Installing desktop apps via Homebrew Cask..."
 
 for i in \
-  antigravity \
   caffeine \
   firefox \
   flameshot \
@@ -18,6 +17,7 @@ for i in \
   obs \
   visual-studio-code \
   zed
+  # antigravity \
   # cursor \
   # bitwarden \
   # macvim \

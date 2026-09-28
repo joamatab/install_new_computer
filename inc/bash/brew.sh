@@ -15,7 +15,7 @@ if [[ $? != 0 ]]; then
   if dseditgroup -o checkmember -m "$(whoami)" admin &>/dev/null; then
     # Admin user: standard install to /opt/homebrew
     action "installing homebrew (admin)"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     if [[ $? != 0 ]]; then
       error "unable to install homebrew, script $0 abort!"
       exit 2
@@ -56,7 +56,6 @@ fi
 ################################
 
 for i in \
-  ag \
   atuin \
   autojump \
   automake \

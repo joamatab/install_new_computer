@@ -2,6 +2,13 @@
 
 <!-- towncrier release notes start -->
 
+## [0.1.18](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.18) - 2026-09-28
+
+- Run the Homebrew installer in noninteractive mode for admin users.
+- Remove `ag` from the default Homebrew package list.
+- Disable Antigravity in the default Homebrew Cask app list.
+
+
 ## [0.1.17](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.17) - 2026-08-27
 
 No significant changes.
