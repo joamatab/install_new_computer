@@ -34,7 +34,7 @@ for i in \
   # pdftotext \
   # sublime-text \
 do
-  require_cask $i
+  require_cask "$i" || exit 1
 done
 
 echo "==> Done! Desktop apps installed."

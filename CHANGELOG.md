@@ -2,6 +2,14 @@
 
 <!-- towncrier release notes start -->
 
+## [0.1.19](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.19) - 2026-09-28
+
+- Authenticate sudo upfront, refresh authorization during long Mac installations, and clean up background processes on exit.
+- Run Oh My Fish without opening an interactive shell, preserve existing installations and plugins, and report download or installation failures.
+- Stop setup on failed package or dotfiles steps instead of reporting success.
+- Support setup and home directories containing spaces, and load newly installed Homebrew into subsequent steps.
+- Add isolated Mac setup regression tests with local Git repositories and a real Fish argument check.
+
 ## [0.1.18](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.18) - 2026-09-28
 
 - Run the Homebrew installer in noninteractive mode for admin users.

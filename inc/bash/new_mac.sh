@@ -3,8 +3,32 @@
 
 script_home="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-source $script_home/lib_sh/echos.sh
-source $script_home/lib_sh/requirers.sh
+source "$script_home/lib_sh/echos.sh"
+source "$script_home/lib_sh/requirers.sh"
+
+# Reuse sudo's cached authorization throughout long package installations.
+echo "==> Checking administrator authorization..."
+if ! sudo -v; then
+  echo "ERROR: Administrator authorization is required to continue."
+  exit 1
+fi
+
+(
+  sudo_sleep_pid=
+  trap 'if [ -n "$sudo_sleep_pid" ]; then kill "$sudo_sleep_pid" 2>/dev/null; wait "$sudo_sleep_pid" 2>/dev/null; fi' EXIT
+  trap 'exit' INT TERM
+  while kill -0 "$$" 2>/dev/null; do
+    sudo -n -v || exit
+    sleep 60 &
+    sudo_sleep_pid=$!
+    wait "$sudo_sleep_pid"
+    sudo_sleep_pid=
+  done
+) &
+sudo_keepalive_pid=$!
+trap 'kill "$sudo_keepalive_pid" 2>/dev/null; wait "$sudo_keepalive_pid" 2>/dev/null' EXIT
+trap 'exit 130' INT
+trap 'exit 143' TERM
 
 ###############################################################################
 # Xcode Command Line Tools (silent install, no popup)
@@ -89,10 +113,31 @@ defaults write com.googlecode.iterm2 ShowPaneTitles -bool false;ok
 
 echo "==> Done! macOS defaults configured."
 
-bash $script_home/brew.sh
-bash $script_home/brew_cask.sh
-bash $script_home/fish.sh
-bash $script_home/ssh_create_key.sh
-bash $script_home/dotfiles.sh
-bash $script_home/vim.sh
-bash $script_home/git_config.sh
+for setup_step in brew brew_cask fish ssh_create_key dotfiles vim git_config; do
+  echo "==> Running ${setup_step}.sh..."
+  if ! bash "$script_home/${setup_step}.sh"; then
+    echo "ERROR: ${setup_step}.sh failed. Fix the error above before continuing."
+    exit 1
+  fi
+  if [ "$setup_step" = brew ]; then
+    # brew.sh runs in a child shell; import its new installation into this one.
+    brew_bin=$(command -v brew || true)
+    if [ -z "$brew_bin" ]; then
+      for candidate in "$HOME/.homebrew/bin/brew" /opt/homebrew/bin/brew /usr/local/bin/brew; do
+        if [ -x "$candidate" ]; then
+          brew_bin=$candidate
+          break
+        fi
+      done
+    fi
+    if [ -n "$brew_bin" ]; then
+      if ! brew_environment=$("$brew_bin" shellenv); then
+        echo "ERROR: Could not load the Homebrew environment."
+        exit 1
+      fi
+      eval "$brew_environment"
+    fi
+  fi
+done
+
+echo "==> Done! Mac setup completed."

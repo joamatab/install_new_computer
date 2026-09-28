@@ -13,14 +13,13 @@ function require_cask() {
     brew list --cask $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install --cask $1 $2"
-        brew install --cask $1
-        if [[ $? != 0 ]]; then
+        if ! brew install --cask "$1"; then
             error "failed to install $1! aborting..."
-            # exit -1
+            return 1
         fi
     else
         action "brew upgrade --cask $1 $2"
-        brew upgrade --cask $1
+        brew upgrade --cask "$1" || return 1
     fi
     ok
 }
@@ -30,14 +29,13 @@ function require_brew() {
     brew list $1 > /dev/null 2>&1 | true
     if [[ ${PIPESTATUS[0]} != 0 ]]; then
         action "brew install $1 $2"
-        brew install $1 $2
-        if [[ $? != 0 ]]; then
+        if ! brew install "$@"; then
             error "failed to install $1! aborting..."
-            # exit -1
+            return 1
         fi
     else
         action "brew upgrade $1 $2"
-        brew upgrade $1
+        brew upgrade "$1" || return 1
     fi
     ok
 }

@@ -1,4 +1,4 @@
-# Install new computer (inc) 0.1.18
+# Install new computer (inc) 0.1.19
 
 Install basic software for different operating systems:
 
@@ -132,6 +132,23 @@ For MacOs type this into a terminal first:
 ```
 xcode-select --install
 ```
+
+## Testing the Mac setup flow
+
+```bash
+uv sync --extra dev
+uv run pytest
+```
+
+`tests/test_mac_setup.py` runs the setup scripts with temporary home directories,
+local Git repositories, and substitutes for system-changing commands. It covers
+sudo authorization, Fish returning to setup, dotfiles cloning and updates,
+package failures, and paths with spaces. When Fish is installed, it also checks
+the installer arguments with the real executable. CI installs Fish for this check.
+
+These tests do not install the full application list or change macOS settings.
+Before relying on a release for a fresh computer, also run `inc run new_mac` on a
+disposable Mac or macOS VM and confirm the dotfiles links and applications work.
 
 ## References
 

@@ -105,7 +105,7 @@ for i in \
   zellij \
   ;
 do
-  require_brew $i
+  require_brew "$i" || exit 1
 done
 
 # for i in \

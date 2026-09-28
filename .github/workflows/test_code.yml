@@ -27,5 +27,7 @@ jobs:
         uses: astral-sh/setup-uv@v5
       - name: Install dependencies
         run: make install
+      - name: Ensure Fish is available for installer tests
+        run: command -v fish >/dev/null || brew install fish
       - name: Run tests
         run: uv run pytest tests/ -s
