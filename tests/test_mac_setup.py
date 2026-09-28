@@ -354,3 +354,23 @@ def test_keepalive_does_not_delay_exit_or_leave_sleep_running(mac_flow):
     pid = int((home / "sleep-pid").read_text())
     with pytest.raises(ProcessLookupError):
         os.kill(pid, 0)
+
+
+def test_default_mac_packages_do_not_require_optional_s3_mounting(setup_env):
+    _, env, command, run = setup_env
+    command(
+        "brew",
+        """
+case "$1" in
+  list) exit 1 ;;
+  install)
+    echo "$*" >> "$LOG"
+    case " $* " in *" s3fs "*) exit 7;; esac ;;
+esac
+""",
+    )
+    result = run(SCRIPTS / "brew.sh")
+    assert result.returncode == 0, result.stdout + result.stderr
+    packages = Path(env["LOG"]).read_text().splitlines()
+    assert "install neovim" in packages
+    assert "install s3fs" not in packages

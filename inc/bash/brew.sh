@@ -89,7 +89,6 @@ for i in \
   postgres \
   ripgrep \
   s-search \
-  s3fs \
   sd \
   shellcheck \
   skim \
@@ -138,6 +137,7 @@ done
 #   googler \
 #   howdoi \
 #   locate \
+#   s3fs \
 #   mas \
 #   neomutt \
 #   ;

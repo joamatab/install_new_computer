@@ -2,6 +2,11 @@
 
 <!-- towncrier release notes start -->
 
+## [0.1.20](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.20) - 2026-09-28
+
+- Remove optional `s3fs` from the default Mac package list so S3 mounting support cannot block computer setup.
+- Add a regression test that completes the default package installation when `s3fs` is unavailable.
+
 ## [0.1.19](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.19) - 2026-09-28
 
 - Authenticate sudo upfront, refresh authorization during long Mac installations, and clean up background processes on exit.

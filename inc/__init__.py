@@ -1,6 +1,6 @@
 """inc - install new computer"""
 
-__version__ = "0.1.19"
+__version__ = "0.1.20"
 
 from .app import app
 
