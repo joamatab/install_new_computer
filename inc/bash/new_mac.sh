@@ -62,6 +62,9 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false;ok
 running "Disable natural (reversed) scrolling direction"
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false;ok
 
+running "Set trackpad tracking speed to 2"
+defaults write NSGlobalDomain com.apple.trackpad.scaling -float 2;ok
+
 running "Set key repeat rate to fastest"
 defaults write NSGlobalDomain KeyRepeat -int 1;ok
 
