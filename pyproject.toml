@@ -39,7 +39,7 @@ dev = [
 ]
 docs = [
   "autodoc_pydantic",
-  "jupyter-book>=0.15.1,<2"
+  "jupyter-book>=0.15.1,<3"
 ]
 maintainer = [
   'tbump',
