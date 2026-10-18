@@ -2,6 +2,11 @@
 
 <!-- towncrier release notes start -->
 
+## [0.1.21](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.21) - 2026-10-18
+
+No significant changes.
+
+
 ## [0.1.20](https://github.com/joamatab/install_new_computer/releases/tag/v0.1.20) - 2026-09-28
 
 - Remove optional `s3fs` from the default Mac package list so S3 mounting support cannot block computer setup.
